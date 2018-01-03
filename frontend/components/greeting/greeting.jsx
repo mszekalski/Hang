@@ -10,17 +10,16 @@ const notLoggedIn = () => (
   </div>
 );
 
-const loggedIn = (currentUser, logout) => (
+const loggedIn = (user, logout) => (
   <div>
-    <h1>Welcome ${currentUser.username}</h1>
-    <label>Log Out
-      <button onClick={logout}/>
-    </label>
+    <h1>Welcome {user.username}</h1>
+
+    <input type="submit" value="Log Out" onClick={logout}/>
   </div>
 );
 
-const Greeting = ({ currentUser, logout }) => (
-  currentUser ? loggedIn(currentUser, logout) : notLoggedIn()
+const Greeting = ({ user, logout }) => (
+  user ? loggedIn(user, logout) : notLoggedIn()
 );
 
 export default Greeting;

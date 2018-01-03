@@ -15,20 +15,21 @@ export const receiveErrors = errors => {
   };
 };
 
-export const login = (user) => dispatch => (
-  sessionApiUtil.login(user).then(user => (
+export const login = (user) => dispatch => {
+  return sessionApiUtil.login(user).then(user => (
     dispatch(receiveCurrentUser(user))
-  ), errors => (
-    dispatch(receiveErrors(errors.responseJSON))
-  ))
-);
+  ), err => {
+
+    return dispatch(receiveErrors(err.responseJSON));
+  });
+};
 
 export const signup = (user) => dispatch => {
 
   return sessionApiUtil.signup(user).then(user => (
     dispatch(receiveCurrentUser(user))
   ), err => {
-    debugger
+
     return dispatch(receiveErrors(err.responseJSON));
   });
 };
