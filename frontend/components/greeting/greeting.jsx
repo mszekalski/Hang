@@ -13,7 +13,9 @@ const notLoggedIn = () => (
 const loggedIn = (currentUser, logout) => (
   <div>
     <h1>Welcome ${currentUser.username}</h1>
-    <button onClick={logout}/>
+    <label>Log Out
+      <button onClick={logout}/>
+    </label>
   </div>
 );
 
