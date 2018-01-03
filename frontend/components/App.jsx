@@ -1,7 +1,7 @@
 import React from 'react';
 import GreetingContainer from './greeting/greeting_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
-import { Route } from 'react-router-dom';
+import { Route, HashRouter, Link} from 'react-router-dom';
 
 const App = () => (
   <div>
