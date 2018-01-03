@@ -5,7 +5,7 @@ import Greeting from './greeting';
 
 const mapStateToProps = state => {
   return {
-    user: state.session.user
+    user: state.session.currentUser
   };
 };
 
