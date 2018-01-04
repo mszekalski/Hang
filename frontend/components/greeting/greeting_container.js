@@ -3,13 +3,14 @@ import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
+
   return {
     user: state.session.currentUser
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout())
   };

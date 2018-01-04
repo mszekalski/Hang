@@ -4,6 +4,8 @@
   border-color: grey;
   border-bottom: 1px solid #ddd;
   background: white;
+  width: 100%;
+
 }
 
 .header-logo {
@@ -16,6 +18,15 @@
   color: black;
   line-height: 70px;
 }
+
+  .session-links {
+  float: right;
+  margin-right: 25px;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 10px;
+  }
+
 
 .navbar-link:link {
   text-decoration: none;
