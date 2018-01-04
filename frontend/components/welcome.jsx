@@ -9,7 +9,7 @@ const Welcome = (props) => {
       Hello
     </div>
   );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {

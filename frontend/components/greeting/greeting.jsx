@@ -16,7 +16,6 @@ const notLoggedIn = () => {
         <div className="session-links">
         <Route path='/signup' render={() => <Link to="/login">LOGIN</Link>} />
         <Route path='/login' render={() => <Link to="/signup">SIGNUP</Link>} />
-        <br></br>
       </div>
       </header>
 
