@@ -49,6 +49,10 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      <div>
+      <header className="header-navbar">
+        <a href="/" className="navbar-link"><h1 className="header-logo">Hang</h1></a>
+      </header>
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit}
           className="session-form-box">
@@ -78,6 +82,7 @@ class SessionForm extends React.Component {
             />
         </form>
 
+        </div>
       </div>
     );
   }

@@ -12,6 +12,8 @@ const notLoggedIn = () => (
 
 const loggedIn = (user, logout) => (
   <div>
+
+
     <h1>Welcome {user.username}</h1>
 
     <input type="submit" value="Log Out" onClick={logout}/>
