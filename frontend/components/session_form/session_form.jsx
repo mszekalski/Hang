@@ -52,6 +52,7 @@ class SessionForm extends React.Component {
 
 
   render() {
+    const text = this.props.formType === "login" ? "Log In" : "Sign Up";
     return (
       <div>
 
@@ -80,10 +81,10 @@ class SessionForm extends React.Component {
 
           <input
             type="submit"
-            value={this.props.formType}
+            value={text}
             className="session-button"
             />
-        
+
         </form>
 
 
