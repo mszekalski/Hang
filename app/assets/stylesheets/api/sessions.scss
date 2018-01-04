@@ -1,3 +1,34 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.session-button {
+  background-color: #2ea06c
+}
+
+.session-form-container {
+  justify-content: center;
+  display: flex;
+
+}
+
+.session-form-box {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-input {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  outline: none;
+  width: 400px;
+  margin:auto;
+}
+
+
+
+.session-button {
+  border-radius: 5px;
+  width: 200px
+}

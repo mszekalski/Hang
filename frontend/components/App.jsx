@@ -6,13 +6,13 @@ import { AuthRoute } from "../util/route_util.jsx";
 
 const App = () => (
   <div>
-    <header>
-      <h1>Hang</h1>
-      <GreetingContainer />
+    <header className="header-navbar">
+      <h1 className="header-logo">Hang</h1>
     </header>
 
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
+    <GreetingContainer className="greeting-links"/>
   </div>
 );
 
