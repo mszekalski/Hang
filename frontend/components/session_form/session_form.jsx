@@ -40,7 +40,6 @@ class SessionForm extends React.Component {
               className="error-list-item"
               >
               {error}
-
             </li>
           ))
         }
@@ -53,8 +52,8 @@ class SessionForm extends React.Component {
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit}
           className="session-form-box">
-          <h1 className="login-title">{this.props.formType}</h1>
-
+          {this.renderErrors()}
+          <h1 className="login-title">Enter a <b>username</b> and <b>password</b></h1>
             <input
               placeholder="Username"
               className="session-input username"
@@ -62,7 +61,7 @@ class SessionForm extends React.Component {
               value={this.state.username}
               onChange={this.update("username")}
               />
-            
+
             <input
               className="session-input password"
               type="password"
@@ -71,7 +70,7 @@ class SessionForm extends React.Component {
               onChange={this.update("password")}
               />
 
-          {this.renderErrors()}
+
           <input
             type="submit"
             value={this.props.formType}
