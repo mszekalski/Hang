@@ -9,7 +9,6 @@
 }
 
 .header-logo {
-
   font-size: 30px;
   font-weight: bold;
   font-style: italic;
@@ -17,15 +16,14 @@
   position: absolute;
   color: black;
   line-height: 70px;
+  display: flex;
 }
 
-  .session-links {
-  float: right;
-  margin-right: 25px;
-  vertical-align: middle;
-  text-align: center;
-  padding-top: 10px;
-  }
+.hash-logo {
+ width: 70px;
+ height: 70px;
+}
+
 
 
 .navbar-link:link {

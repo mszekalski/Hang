@@ -1,0 +1,5 @@
+.splash-slogan {
+  font-size: calc(2.2rem + (41.599999999999994 * (100vw - 400px)/ 624));
+  font-family: Georgia;
+  font-weight: 500;
+}

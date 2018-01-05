@@ -1,5 +1,7 @@
 import React from "react";
-import { withRouter, Link } from 'react-router';
+import { withRouter } from 'react-router';
+import { Route, Link } from 'react-router-dom';
+
 
 
 class SessionForm extends React.Component {
@@ -31,6 +33,21 @@ class SessionForm extends React.Component {
     };
   }
 
+  renderLinks() {
+    return (
+    <div className="session-links">
+      <Route path='/signup' render={() => (<span>Already using Hang?
+          <Link to="/login"> Sign in.</Link>
+        </span>)}
+        />
+      <Route path='/login' render={() => (<span>Don't have an account yet?
+          <Link to="/signup"> Sign up.</Link>
+        </span>)}
+        />
+    </div>
+  );
+  }
+
   renderErrors() {
     return (
       <ul className="errors-list">
@@ -47,10 +64,6 @@ class SessionForm extends React.Component {
     );
   }
 
-
-
-
-
   render() {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
     return (
@@ -60,35 +73,32 @@ class SessionForm extends React.Component {
         <form onSubmit={this.handleSubmit}
           className="session-form-box">
           {this.renderErrors()}
-
           <h1 className="login-title">Enter a <b>username</b> and <b>password</b></h1>
-            <input
-              placeholder="Username"
-              className="session-input username"
-              type="text"
-              value={this.state.username}
-              onChange={this.update("username")}
-              />
+          <input
+            placeholder="Username"
+            className="session-input username"
+            type="text"
+            value={this.state.username}
+            onChange={this.update("username")}
+            />
 
-            <input
-              className="session-input password"
-              type="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              />
-
+          <input
+            className="session-input password"
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.update("password")}
+            />
 
           <input
             type="submit"
             value={text}
             className="session-button"
             />
-
+          <br/>
+          <br/>
+            {this.renderLinks()}
         </form>
-
-
-
         </div>
       </div>
     );

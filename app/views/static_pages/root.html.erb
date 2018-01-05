@@ -8,6 +8,10 @@
       user: current_user
     ).html_safe %>
   <% end %>
+
+  window.staticImages = {
+   logoImage: "<%= asset_url("logo.png") %>"
+ }
 </script>
 
 <main id="root">if this shows its not working</main>

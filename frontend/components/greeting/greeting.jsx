@@ -7,18 +7,14 @@ const notLoggedIn = () => {
   return (
 
     <div>
-
       <header className="header-navbar">
-
         <a href="/" className="navbar-link">
-          <h1 className="header-logo">Hang</h1>
-        </a>
-        <div className="session-links">
-        <Route path='/signup' render={() => <Link to="/login">LOGIN</Link>} />
-        <Route path='/login' render={() => <Link to="/signup">SIGNUP</Link>} />
-      </div>
-      </header>
 
+          <h1 className="header-logo">
+            <img className="hash-logo" src={window.staticImages.logoImage}/>
+            Hang</h1>
+        </a>
+      </header>
     </div>
   );
 
