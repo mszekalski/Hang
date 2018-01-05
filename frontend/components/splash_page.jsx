@@ -16,11 +16,12 @@ export default function() {
           measure an A/B test, plan your next office opening, and more,
           Hang has you covered.</p>
 
-          <span>
-              <Link to="/signup">Get Started</Link>
+        <span className="splash-signup">
+              <Link to="/signup">GET STARTED</Link>
           </span>
-
-          <span>Already using Hang?
+          <br/>
+          <br/>
+          <span className="splash-login">Already using Hang?
               <Link to="/login"> Sign in.</Link>
           </span>
 
