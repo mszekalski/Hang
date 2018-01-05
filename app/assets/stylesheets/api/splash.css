@@ -1,5 +1,19 @@
+.splash-page-container {
+  padding-top: 100px;
+
+}
+
+.splash-image-container {
+
+}
+
+.splash-content-container {
+  
+  padding: 25px;
+}
+
 .splash-slogan {
-  font-size: calc(2.2rem + (41.599999999999994 * (100vw - 400px)/ 624));
+  font-size: 50px;
   font-family: Georgia;
-  font-weight: 500;
+  font-weight: bold;
 }
