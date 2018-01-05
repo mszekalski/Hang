@@ -1,0 +1,47 @@
+.splash-page-container {
+  display: flex;
+  padding-top: 100px;
+
+}
+
+.image-container {
+  background-image: image-url("slack-logo.jpg");
+  background-size: cover;
+  padding: 40px;
+  min-height: 300px;
+  width: 45%;
+  margin-left: 50px;
+  padding-left: 50px;
+}
+.splash-image {
+
+}
+
+.splash-content-container {
+  padding: 50px;
+}
+
+.splash-paragraph {
+  font-family: sans-serif;
+  width: 275px;
+  color: #5b5e6d;
+  padding-bottom: 40px;
+}
+
+.splash-slogan {
+  font-size: 50px;
+  font-family: Georgia;
+  font-weight: bold;
+}
+
+.splash-signup {
+  display: block;
+  text-decoration: none;
+  width: 171px;
+  height: 57px;
+  line-height: 57px;
+  text-align: center;
+  background-color: #3f46ad;
+  color: #fff;
+  border-radius: 4px;
+}

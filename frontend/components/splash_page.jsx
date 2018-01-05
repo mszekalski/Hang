@@ -5,7 +5,7 @@ export default function() {
   return (
     <div className="splash-page-container">
       <div className="image-container">
-        <img className="splash-image" src={window.staticImages.splashImage}/>
+        
       </div>
       <div className="splash-content-container">
         <h1 className="splash-slogan">Where Productivity Occurs</h1>
@@ -19,7 +19,7 @@ export default function() {
         </p>
           <Link className="splash-signup" to="/signup">GET STARTED</Link>
           <br/>
-        
+
           <span className="splash-login">Already using Hang?
               <Link to="/login"> Sign in.</Link>
           </span>

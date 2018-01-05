@@ -9,7 +9,6 @@ const notLoggedIn = () => {
     <div>
       <header className="header-navbar">
         <a href="/" className="navbar-link">
-
           <h1 className="header-logo">
             <img className="hash-logo" src={window.staticImages.logoImage}/>
             Hang</h1>
@@ -17,13 +16,10 @@ const notLoggedIn = () => {
       </header>
     </div>
   );
-
-
 };
 
 const loggedIn = (user, logout) => (
   <div>
-
     <h1>Welcome {user.username}</h1>
     <input type="submit" value="Log Out" onClick={logout}/>
   </div>
