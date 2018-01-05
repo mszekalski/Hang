@@ -13,7 +13,6 @@ const App = () => (
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <AuthRoute path="/" exact component={SplashPage} />
-
   </div>
 );
 

@@ -57,6 +57,21 @@ body {
   height: 55px;
   font-size: 22px;
   margin-top: 10px;
+}
 
+.error-list-container {
+  border: 1px solid #844343;
+  width: auto;
+  border-radius: 5px;
+  color: #844343;
+  padding: 5px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 15px;
+}
 
+.session-title {
+  font-weight: bold;
+  font-size: 50px;
+  padding-bottom: 25px;
 }

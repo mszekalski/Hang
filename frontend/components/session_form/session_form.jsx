@@ -48,31 +48,50 @@ class SessionForm extends React.Component {
   );
   }
 
+    renderTitle() {
+      return (
+        <div className="session-title">
+          <Route path='/signup' render={() => (<h1>
+            Create an Account
+          </h1>)}
+            />
+          <Route path='/login' render={() => (<h1>
+              Sign in
+            </h1>)}
+            />
+        </div>
+      );
+    }
+
   renderErrors() {
-    return (
-      <ul className="errors-list">
-        {
-          this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}
-              className="error-list-item"
-              >
-              {error}
-            </li>
-          ))
-        }
-      </ul>
-    );
+    if (this.props.errors.length > 0) {
+      return (
+        <ul className="errors-list">
+          <div className="error-list-container">
+          {
+            this.props.errors.map((error, i) => (
+              <li key={`error-${i}`}
+                className="error-list-item"
+                >
+                {error}
+              </li>
+            ))
+          }
+        </div>
+        </ul>
+      );
+    }
   }
 
   render() {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
     return (
       <div>
-
       <div className="session-form-container">
         <form onSubmit={this.handleSubmit}
           className="session-form-box">
-          {this.renderErrors()}
+          {this.renderTitle()}
+            {this.renderErrors()}
           <h1 className="login-title">Enter a <b>username</b> and <b>password</b></h1>
           <input
             placeholder="Username"

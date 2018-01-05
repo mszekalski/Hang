@@ -11,7 +11,7 @@ const notLoggedIn = () => {
         <a href="/" className="navbar-link">
           <h1 className="header-logo">
             <img className="hash-logo" src={window.staticImages.logoImage}/>
-            Hang</h1>
+            <div className="header-text">Hang</div></h1>
         </a>
       </header>
     </div>
