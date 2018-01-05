@@ -14,13 +14,12 @@ export default function() {
           review a sales contract,
           finalize next year's budget,
           measure an A/B test, plan your next office opening, and more,
-          Hang has you covered.</p>
+          Hang has you covered.
 
-        <span className="splash-signup">
-              <Link to="/signup">GET STARTED</Link>
-          </span>
+        </p>
+          <Link className="splash-signup" to="/signup">GET STARTED</Link>
           <br/>
-          <br/>
+        
           <span className="splash-login">Already using Hang?
               <Link to="/login"> Sign in.</Link>
           </span>

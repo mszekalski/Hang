@@ -9,8 +9,14 @@
 }
 
 .splash-content-container {
-
   padding: 25px;
+}
+
+.splash-paragraph {
+  font-family: sans-serif;
+  width: 275px;
+  color: #5b5e6d;
+  padding-bottom: 40px;
 }
 
 .splash-slogan {
@@ -20,10 +26,13 @@
 }
 
 .splash-signup {
+  display: block;
+  text-decoration: none;
+  width: 171px;
+  height: 57px;
+  line-height: 57px;
   text-align: center;
   background-color: #3f46ad;
   color: #fff;
-  text-decoration: none;
   border-radius: 4px;
-  width: 100%;
 }
