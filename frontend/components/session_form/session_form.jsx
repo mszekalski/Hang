@@ -1,6 +1,9 @@
 import React from "react";
 import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
+import Typed from 'typed.js';
+
+
 
 
 
@@ -13,6 +16,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -45,8 +49,54 @@ class SessionForm extends React.Component {
         </span>)}
         />
     </div>
-  );
+    );
   }
+
+  demo (e) {
+    this.setState({username: '', password: ''});
+    const guest = { username: 'demo-user', password: 'password' };
+    const username = {
+    strings: [guest.username],
+    typeSpeed: 100
+    };
+    const password = {
+      strings: [guest.password],
+      typeSpeed: 100
+    };
+
+    this.setState({
+      typeUsername: setTimeout(() => {
+        new Typed('.username', username);
+      }, 50),
+      typePassword: setTimeout(() => {
+        new Typed('.password', password);
+      }, 800),
+      typeSubmit: setTimeout(() => {
+        if (this.props.formType === 'login') {
+       this.props.processForm(guest) ;
+     } else {
+         this.props.login(guest) ;
+       }
+      }, 1700)
+    });
+
+  }
+
+  renderDemo() {
+    return (
+      <div className="demo-link">
+        <Route path='/signup' render={() => (<span>
+            <Link to="/login" onClick={this.demo}>Demo</Link>
+          </span>)}
+          />
+        <Route path='/login' render={() => (<span>
+            <Link onClick={this.demo} to="#">Demo</Link>
+          </span>)}
+          />
+      </div>
+    );
+  }
+
 
     renderTitle() {
       return (
@@ -117,6 +167,8 @@ class SessionForm extends React.Component {
           <br/>
           <br/>
             {this.renderLinks()}
+            {this.renderDemo()}
+
         </form>
         </div>
       </div>
