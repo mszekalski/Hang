@@ -3,11 +3,13 @@ class ChatChannel < ApplicationCable::Channel
     stream_from 'chat_channel'
   end
 
-  def unsubscribed; end
+  def unsubscribed
+  end
 
   def create(opts)
     ChatMessage.create(
-      content: opts.fetch('content')
+      content: opts.fetch('content'),
+      user_id: opts.fetch('user_id')
     )
   end
 end

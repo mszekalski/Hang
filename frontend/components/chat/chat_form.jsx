@@ -15,7 +15,8 @@ class ChatForm extends Component {
 
 handleSendEvent(event) {
   event.preventDefault();
-  this.chats.create(this.state.currentChatMessage);
+  this.chats.create({message: this.state.currentChatMessage,
+  user_id: this.props.user.id});
   this.setState({
     currentChatMessage: ''
   });
@@ -48,7 +49,8 @@ createSocket() {
     },
     create: function(chatContent) {
       this.perform('create', {
-        content: chatContent
+        content: chatContent.message,
+        user_id: chatContent.user_id
       });
     }
   });
