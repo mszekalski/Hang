@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Cable from 'ActionCable';
+import Cable from 'actioncable';
 
 class ChatForm extends Component {
   constructor(props) {
