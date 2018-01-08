@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:create]
   end
+  
+  mount ActionCable.server => '/cable'
 
   root "static_pages#root"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

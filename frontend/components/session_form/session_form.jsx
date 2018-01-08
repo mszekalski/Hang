@@ -7,6 +7,7 @@ import Typed from 'typed.js';
 
 
 
+
 class SessionForm extends React.Component {
 
   constructor(props) {
@@ -17,6 +18,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demo = this.demo.bind(this);
+
   }
 
   componentWillReceiveProps(newProps) {
@@ -133,6 +135,8 @@ class SessionForm extends React.Component {
     }
   }
 
+
+
   render() {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
     return (
@@ -171,6 +175,7 @@ class SessionForm extends React.Component {
 
         </form>
         </div>
+
       </div>
     );
   }

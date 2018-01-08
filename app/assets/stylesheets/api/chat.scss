@@ -1,0 +1,19 @@
+.ChatForm {
+  margin-left: 220px;
+}
+
+.chat-input {
+  width: 100%;
+  height: 40px;
+  border: 2px solid rgba(160,160,162,.7);
+  border-radius: 5px;
+  font-size: 18px;
+  padding-left: 10px;
+  bottom:22px;
+  position: fixed;
+}
+
+.chat-input:focus {
+  border-color: #717274;
+  outline: none;
+}

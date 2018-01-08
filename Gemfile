@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry-rails'
 gem 'annotate'
 gem 'jquery-rails'
+gem 'rack-cors'
 
 
 # Use Capistrano for deployment
