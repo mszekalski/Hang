@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 
 
 
+
 class SessionForm extends React.Component {
 
   constructor(props) {
@@ -13,6 +14,7 @@ class SessionForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentWillReceiveProps(newProps) {
@@ -83,6 +85,8 @@ class SessionForm extends React.Component {
     }
   }
 
+
+
   render() {
     const text = this.props.formType === "login" ? "Log In" : "Sign Up";
     return (
@@ -119,6 +123,7 @@ class SessionForm extends React.Component {
             {this.renderLinks()}
         </form>
         </div>
+         
       </div>
     );
   }
