@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cable from 'ActionCable';
 
 class ChatForm extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ updateCurrentChatMessage(event) {
 
 createSocket() {
   let cable = Cable.createConsumer('ws://localhost:3000/cable');
+
   this.chats = cable.subscriptions.create({
     channel: 'ChatChannel'
   }, {
