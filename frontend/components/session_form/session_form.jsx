@@ -3,11 +3,6 @@ import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import Typed from 'typed.js';
 
-
-
-
-
-
 class SessionForm extends React.Component {
 
   constructor(props) {
@@ -18,7 +13,6 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.demo = this.demo.bind(this);
-
   }
 
   componentWillReceiveProps(newProps) {
