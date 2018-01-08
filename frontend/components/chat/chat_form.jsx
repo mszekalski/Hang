@@ -36,7 +36,7 @@ updateCurrentChatMessage(event) {
 }
 
 createSocket() {
-  let cable = Cable.createConsumer("wss://aa-hang.herokuapp.com/cable");
+  let cable = Cable.createConsumer();
 
   this.chats = cable.subscriptions.create({
     channel: 'ChatChannel'
