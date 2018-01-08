@@ -21,6 +21,7 @@ handleSendEvent(event) {
   });
 }
 
+
 handleChatInputKeyPress(event) {
   if(event.key === 'Enter') {
     this.handleSendEvent(event);
@@ -54,11 +55,11 @@ createSocket() {
 }
 
 renderChatLog() {
-  return this.state.chatLogs.map((el) => {
+  return this.state.chatLogs.map((message) => {
     return (
-      <li key={`chat_${el.id}`}>
-        <span className='chat-message'>{ el.content }</span>
-        <span className='chat-created-at'>{ el.created_at }</span>
+      <li key={`chat_${message.id}`} className="chat-message">
+        <span className='chat-content'>{ message.content }</span>
+        <span className='chat-timestamp'>{ message.created_at }</span>
       </li>
     );
   });
@@ -72,22 +73,20 @@ componentWillMount() {
     return (
       <div className='ChatForm'>
         <div className='stage'>
-          <h1>Chat</h1>
+          <h1>Channel Name</h1>
             <ul className='chat-logs'>
               { this.renderChatLog() }
+
             </ul>
             <input
               onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
               value={ this.state.currentChatMessage }
               onChange={ (e) => this.updateCurrentChatMessage(e) }
               type='text'
-              placeholder='Enter your message...'
-              className='chat-input' />
-            <button
-              onClick={ (e) => this.handleSendEvent(e) }
-              className='send'>
-              Send
-            </button>
+              placeholder='Message #placeholder'
+              className='chat-input'
+
+            />
         </div>
       </div>
     );
