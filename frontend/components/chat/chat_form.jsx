@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import Cable from 'actioncable';
 
 
-
-
 class ChatForm extends Component {
   constructor(props) {
   super(props);
@@ -45,9 +43,7 @@ createSocket() {
   }, {
     connected: () => {},
     received: (data) => {
-      let chatLogs = this.state.chatLogs;
-      chatLogs.push(data);
-      this.setState({ chatLogs: chatLogs });
+      this.props.receiveMessage(data);
     },
     create: function(chatContent) {
       this.perform('create', {
@@ -63,18 +59,23 @@ renderChatLog() {
     return (
       <li key={`chat_${message.id}`} className="chat-message">
         <span className='chat-content'>{ message.content }</span>
+        <br/>
         <span className='chat-timestamp'>{ message.created_at }</span>
       </li>
     );
   });
 }
 
-componentWillMount() {
-
-  this.props.fetchAllMessages();
-  this.createSocket();
+componentWillReceiveProps(newProps) {
+  this.setState({ chatLogs: newProps.messages });
 }
 
+componentWillMount() {
+  this.createSocket();
+}
+componentDidMount() {
+  this.props.fetchAllMessages();
+}
 
 
   render() {

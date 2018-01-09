@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import ChatForm from './chat_form';
-import { fetchAllMessages } from '../../actions/chat_message_actions';
+import { fetchAllMessages, receiveMessage } from '../../actions/chat_message_actions';
 import { values } from 'lodash';
 
 
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
-    fetchAllMessages: () => dispatch(fetchAllMessages())
+    fetchAllMessages: () => dispatch(fetchAllMessages()),
+    receiveMessage: (message) => dispatch(receiveMessage(message))
   };
 };
 
