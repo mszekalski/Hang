@@ -61,6 +61,8 @@ renderChatLog() {
         <span className='chat-content'>{ message.content }</span>
         <br/>
         <span className='chat-timestamp'>{ message.created_at }</span>
+        <br/>
+        <span className='chat-username'>{ message.user_id }</span>
       </li>
     );
   });

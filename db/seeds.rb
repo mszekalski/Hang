@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+u1 = User.create(username: "demo-user", password: "password")
+
+m1 = ChatMessage.create(content: "this is a test message", user_id: u1.id)
