@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchAllMessages } from '../../actions/chat_message_actions.js';
-import ChatForm from './chat_form';
+import ChatIndex from './chat_form';
 
 
 const mapStateToProps = (state) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(ChatForm);
+)(ChatIndex);

@@ -4,8 +4,7 @@ import { Route, Link } from 'react-router-dom';
 
 class ChannelIndex extends React.Component {
 
-  componentDidMount() {
-    
+  componentDidMount() {  
     this.props.fetchChannels();
   }
 

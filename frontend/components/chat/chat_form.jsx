@@ -3,7 +3,7 @@ import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cable from 'actioncable';
-import ChatIndexContainter from './chat_index_container';
+
 
 
 
@@ -11,8 +11,7 @@ class ChatForm extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    currentChatMessage: '',
-    chatLogs: []
+    currentChatMessage: ''
   };
 }
 
@@ -46,7 +45,6 @@ createSocket() {
   }, {
     connected: () => {},
     received: (data) => {
-
       let chatLogs = this.state.chatLogs;
       chatLogs.push(data);
       this.setState({ chatLogs: chatLogs });
@@ -61,7 +59,7 @@ createSocket() {
 }
 
 renderChatLog() {
-  return this.state.chatLogs.map((message) => {
+  return this.props.messages.map((message) => {
     return (
       <li key={`chat_${message.id}`} className="chat-message">
         <span className='chat-content'>{ message.content }</span>
@@ -72,9 +70,12 @@ renderChatLog() {
 }
 
 componentWillMount() {
+
   this.props.fetchAllMessages();
   this.createSocket();
 }
+
+
 
   render() {
     return (
@@ -82,7 +83,7 @@ componentWillMount() {
         <div className='stage'>
           <h1>Channel Name</h1>
             <ul className='chat-logs'>
-              <ChatIndexContainter />
+
               { this.renderChatLog() }
 
             </ul>
