@@ -1,4 +1,4 @@
-class ChatMessagesController < ApplicationController
+class Api::ChatMessagesController < ApplicationController
   def new
   end
 
@@ -9,13 +9,14 @@ class ChatMessagesController < ApplicationController
   end
 
   def index
+    @chat_messages = ChatMessage.all
   end
 
   def show
   end
 
   private
-    def chat_message_params  
+    def chat_message_params
       params.require(:chat_message).permit(:content, :user_id)
     end
 end
