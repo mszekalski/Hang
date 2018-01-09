@@ -43,6 +43,7 @@ createSocket() {
   }, {
     connected: () => {},
     received: (data) => {
+      
       let chatLogs = this.state.chatLogs;
       chatLogs.push(data);
       this.setState({ chatLogs: chatLogs });
