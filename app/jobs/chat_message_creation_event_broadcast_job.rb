@@ -12,5 +12,5 @@ class ChatMessageCreationEventBroadcastJob < ApplicationJob
          channel_id: chat_message.channel_id)
     end
 
-    
+
 end

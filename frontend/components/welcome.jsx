@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { logout } from '../actions/session_actions';
 
 const Welcome = (props) => {
+
   return (
     <div>
       <button onClick={props.logout}>LOGOUT</button>
-      Hello
+
     </div>
   );
 };

@@ -7,7 +7,8 @@ import ChannelIndex from './channel_index';
 
 const mapStateToProps = (state) => {
   return {
-    channels: Object.values(state.channels)
+    channels: Object.values(state.channels),
+    user: state.session.currentUser
   };
 };
 

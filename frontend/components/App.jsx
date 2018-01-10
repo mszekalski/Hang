@@ -15,7 +15,6 @@ import SplashPage from "./splash_page";
 const App = () => (
   <div>
     <Route path="/" component={GreetingContainer}/>
-    <ProtectedRoute path="/home" component={WelcomeContainer}/>
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/home/:channelId" exact component={ChatFormContainer} />
