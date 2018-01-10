@@ -8,10 +8,15 @@ export const receiveAllMessages = messages => ({
   messages
 });
 
-export const receiveMessage = message => ({
-  type: RECEIVE_MESSAGE,
-  message
-});
+export const receiveMessage = message => {
+  
+  return {
+
+    type: RECEIVE_MESSAGE,
+    message
+  };
+
+};
 
 export const fetchAllMessages = () => dispatch => (
   chatMessageApiUtil.fetchAllMessages().then(messages => dispatch(receiveAllMessages(messages)))

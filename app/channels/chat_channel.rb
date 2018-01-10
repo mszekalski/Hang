@@ -9,7 +9,8 @@ class ChatChannel < ApplicationCable::Channel
   def create(opts)
     ChatMessage.create(
       content: opts.fetch('content'),
-      user_id: opts.fetch('user_id')
+      user_id: opts.fetch('user_id'),
+      channel_id: opts.fetch('channel_id')
     )
   end
 end

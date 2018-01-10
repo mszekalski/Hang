@@ -17,6 +17,6 @@ class Api::ChatMessagesController < ApplicationController
 
   private
     def chat_message_params
-      params.require(:chat_message).permit(:content, :user_id)
+      params.require(:chat_message).permit(:content, :user_id, :channel_id)
     end
 end

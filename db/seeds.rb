@@ -8,4 +8,6 @@
 
 u1 = User.create(username: "demo-user", password: "password")
 
-m1 = ChatMessage.create(content: "this is a test message", user_id: u1.id)
+c1 = Channel.create(topic: "App Academy")
+
+m1 = ChatMessage.create(content: "this is a test message", user_id: u1.id, channel_id: c1.id)

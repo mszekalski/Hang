@@ -7,13 +7,21 @@ class ChannelIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels();
+
   }
 
   renderChannels() {
+
+
     return this.props.channels.map((channel) => {
       return (
+
         <li key={`${channel.id}`} className="channel-item">
-          <span className='channelt-topic'>{ channel.topic }</span>
+           <Link to={`/home/${channel.id}`} className='channel-topic'
+            onClick={() => this.props.receiveChannel(channel)}
+            >
+            # { channel.topic }
+          </Link>
         </li>
       );
     });
@@ -22,6 +30,7 @@ class ChannelIndex extends React.Component {
   render () {
     return (
       <div className="sidebar">
+        <h1 className="channels-header">Channels</h1>
         <ul>
           {  this.renderChannels() }
         </ul>

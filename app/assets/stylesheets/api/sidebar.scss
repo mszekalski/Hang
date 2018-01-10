@@ -1,10 +1,37 @@
 .sidebar {
+  height: 100%;
+  position: fixed;
+  left: 0;
   background: #4d394b;
+  width: 220px;
   color: rgb(202,196,201);
+    a:link {
+      text-decoration: none;
+    }
 
-  vertical-align: baseline;
-  display: block;
+    a:visited {
+      text-decoration: none;
+      color: rgb(202,196,201);
+    }
 
+    a:hover {
+      text-decoration: none;
+      color: rgb(202,196,201);
+    }
 
+    a:active {
+      text-decoration: none;
+      color: rgb(202,196,201);
+    }
+}
 
+.channel-item {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.channels-header {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-bottom: 10px;
 }

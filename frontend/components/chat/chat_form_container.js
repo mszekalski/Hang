@@ -8,7 +8,9 @@ import { values } from 'lodash';
 const mapStateToProps = (state) => {
   return {
     user: state.session.currentUser,
-    messages: values(state.messages)
+    messages: values(state.messages),
+    currentChannel: state.channels[state.ui.currentChannel]
+
   };
 };
 
