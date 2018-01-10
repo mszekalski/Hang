@@ -3,12 +3,14 @@ import { withRouter } from 'react-router';
 import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cable from 'actioncable';
+
 import ChannelIndexContainer from '../channel/channel_index_container';
 
 
 class ChatForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       currentChatMessage: ''
     };
@@ -74,6 +76,7 @@ class ChatForm extends Component {
   }
 
   componentWillReceiveProps(newProps) {
+
     this.setState({ chatLogs: newProps.messages });
   }
 
@@ -82,18 +85,22 @@ class ChatForm extends Component {
     this.createSocket();
   }
   componentDidMount() {
+    this.props.fetchChannel(this.props.match.params.channelId).then(() => {
 
-    this.props.fetchAllMessages();
+      this.props.fetchAllMessages();
+    });
   }
 
 
   render() {
+
     return (
       <div className='chat-form'>
         <ChannelIndexContainer />
         <div className='stage'>
 
-          <h1 className="channel-topic-header"># {this.props.currentChannel.topic}</h1>
+          <h1 className="channel-topic-header">#
+            {this.props.currentChannel.topic}</h1>
             <ul className='chat-logs'>
               { this.renderChatLog() }
             </ul>
