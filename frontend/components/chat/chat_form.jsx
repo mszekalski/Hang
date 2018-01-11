@@ -17,9 +17,11 @@ class ChatForm extends Component {
   }
 
   handleSendEvent(event) {
+
     event.preventDefault();
     this.chats.create({message: this.state.currentChatMessage,
     user_id: this.props.user.id,
+    username: this.props.user.username,
     channel_id: this.props.currentChannel.id});
     this.setState({
       currentChatMessage: ''
@@ -52,7 +54,8 @@ class ChatForm extends Component {
         this.perform('create', {
           content: chatContent.message,
           user_id: chatContent.user_id,
-          channel_id: chatContent.channel_id
+          channel_id: chatContent.channel_id,
+          username: chatContent.username
         });
       }
     });
@@ -64,7 +67,7 @@ class ChatForm extends Component {
         return (
 
             <li key={`chat_${message.id}`} className="chat-message">
-              <span className='chat-username'>{ message.user_id }</span>
+              <span className='chat-username'>{ message.authorName }</span>
               <span className='chat-timestamp'>{ message.created_at }</span>
               <br/>
               <span className='chat-content'>{ message.content }</span>
@@ -88,7 +91,7 @@ class ChatForm extends Component {
     });
   }
 
-  
+
 
 
   render() {

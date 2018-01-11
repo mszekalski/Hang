@@ -1,10 +1,12 @@
 .chat-page {
   margin-left: 220px;
+
 }
 .chat-display {
   display: flex;
   flex-direction: column;
   background: #fff;
+
 }
 .channel-topic-header {
   font-weight: bold;
@@ -25,6 +27,7 @@
   flex-direction: column;
   margin-top: 50px;
   margin-bottom: 85px;
+  min-height: calc(100vh - 135px);
 }
 .chat-message:hover {
   background-color: #f9f9f9;

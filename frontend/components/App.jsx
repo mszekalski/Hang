@@ -14,12 +14,11 @@ import SplashPage from "./splash_page";
 
 const App = () => (
   <div>
-    <Route path="/" component={GreetingContainer}/>
+    <AuthRoute path="/" component={GreetingContainer}/>
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/home/:channelId" exact component={ChatFormContainer} />
     <ProtectedRoute path="/home" exact component={ChannelIndexContainer} />
-
     <Route exact path="/" exact component={SplashPage} />
 
 
