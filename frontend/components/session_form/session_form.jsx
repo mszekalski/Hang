@@ -62,10 +62,10 @@ class SessionForm extends React.Component {
 
     this.setState({
       typeUsername: setTimeout(() => {
-        new Typed('.username', username);
+        new Typed('.session-username', username);
       }, 50),
       typePassword: setTimeout(() => {
-        new Typed('.password', password);
+        new Typed('.session-password', password);
       }, 800),
       typeSubmit: setTimeout(() => {
         if (this.props.formType === 'login') {
@@ -143,14 +143,14 @@ class SessionForm extends React.Component {
           <h1 className="login-title">Enter a <b>username</b> and <b>password</b></h1>
           <input
             placeholder="Username"
-            className="session-input username"
+            className="session-input session-username"
             type="text"
             value={this.state.username}
             onChange={this.update("username")}
             />
 
           <input
-            className="session-input password"
+            className="session-input session-password"
             type="password"
             placeholder="Password"
             value={this.state.password}

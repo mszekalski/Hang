@@ -33,7 +33,7 @@ class ChannelIndex extends React.Component {
     return (
       <div className="sidebar">
         <Welcome />
-        <h1 className="username">{this.props.user.username}</h1>
+        <h1 className="username-header">{this.props.user.username}</h1>
         <h2 className="channels-header">Channels</h2>
         <ul>
           {  this.renderChannels() }
