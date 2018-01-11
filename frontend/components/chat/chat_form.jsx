@@ -88,6 +88,8 @@ class ChatForm extends Component {
     });
   }
 
+  
+
 
   render() {
     return (
