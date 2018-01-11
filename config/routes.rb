@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resources :channels
     resources :chat_messages
+    resources :memberships
   end
 
   mount ActionCable.server => '/cable'
