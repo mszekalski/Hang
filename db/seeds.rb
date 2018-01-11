@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Channel.destroy_all
+ChatMessage.destroy_all
+
 u1 = User.create(username: "demo-user", password: "password")
 
 c1 = Channel.create(topic: "App Academy")
