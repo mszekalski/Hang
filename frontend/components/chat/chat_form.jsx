@@ -26,8 +26,8 @@ class ChatForm extends Component {
     this.setState({
       currentChatMessage: ''
     });
-    this.scrollToBottom();
 
+    this.scrollToBottom();
   }
 
 
@@ -70,11 +70,6 @@ class ChatForm extends Component {
 
   }
 
-  scrollToBottom() {
-
-    // elmnt.scrollIntoView(false); // Bottom
-    window.scrollTo(0,document.querySelector(".chat-logs").scrollHeight);
-  }
   renderChatLog() {
 
     return this.props.messages.map((message) => {
@@ -94,6 +89,11 @@ class ChatForm extends Component {
     });
   }
 
+  scrollToBottom() {
+
+    // elmnt.scrollIntoView(false); // Bottom
+    window.scrollTo(0,document.getElementById("chat-logs").scrollHeight);
+  }
 
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));

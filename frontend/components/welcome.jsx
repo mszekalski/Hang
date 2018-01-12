@@ -5,9 +5,12 @@ import { logout } from '../actions/session_actions';
 const Welcome = (props) => {
 
   return (
-    <div>
-      <button onClick={props.logout}>LOGOUT</button>
-
+    <div className="logout-buttom-div">
+      <button
+        className="logout-button"
+        onClick={props.logout}>
+        Logout
+      </button>
     </div>
   );
 };
