@@ -6,6 +6,7 @@ import ChatFormContainer from './chat/chat_form_container.js';
 
 
 import ChannelIndexContainer from './channel/channel_index_container';
+import ChannelFormContainer from './channel/channel_form_container';
 import { Route, HashRouter, Link} from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
 import WelcomeContainer from "./welcome";
@@ -19,6 +20,7 @@ const App = () => (
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/home/:channelId" exact component={ChatFormContainer} />
     <ProtectedRoute path="/home" exact component={ChannelIndexContainer} />
+    <ProtectedRoute path="/new" exact component={ChannelFormContainer} />
     <Route exact path="/" exact component={SplashPage} />
 
 

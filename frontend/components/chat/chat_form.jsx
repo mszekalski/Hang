@@ -26,8 +26,8 @@ class ChatForm extends Component {
     this.setState({
       currentChatMessage: ''
     });
+    setTimeout(this.scrollToBottom, 100);
 
-    this.scrollToBottom();
   }
 
 
@@ -92,14 +92,20 @@ class ChatForm extends Component {
   scrollToBottom() {
 
     // elmnt.scrollIntoView(false); // Bottom
-    window.scrollTo(0,document.getElementById("chat-logs").scrollHeight);
+    window.scrollTo(0 ,document.getElementById("chat-logs").scrollHeight);
   }
 
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
-    // this.scrollToBottom();
 
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
+      this.scrollToBottom();
+
+    }
 
   }
 
@@ -112,7 +118,7 @@ class ChatForm extends Component {
 
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId).then(() => {
-      this.props.fetchAllMessages();
+      this.props.fetchAllMessages().then(this.scrollToBottom);
 
     });
 
@@ -142,6 +148,7 @@ class ChatForm extends Component {
             <form
               className="chat-form"
               onSubmit={this.handleChatInputKeyPress}
+              id='chat-form'
               >
               <input
 

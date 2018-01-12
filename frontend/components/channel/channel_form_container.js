@@ -1,12 +1,7 @@
 import { connect } from 'react-redux';
-import { createChannel, fetchChannel } from '../../action/channel_action.js';
-import { fetchAllUsers } from '../../actions/user_action.js';
+import { createChannel, fetchChannel } from '../../actions/channel_actions.js';
+import { fetchAllUsers } from '../../actions/user_actions.js';
 import ChannelForm from './channel_form';
-
-const mapStateToProps = state => {
-  let channel = { topic: '' };
-  return channel;
-};
 
 
 
@@ -19,6 +14,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect (
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(ChannelForm);
