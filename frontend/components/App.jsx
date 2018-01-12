@@ -20,7 +20,7 @@ const App = () => (
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/home/:channelId" exact component={ChatFormContainer} />
     <ProtectedRoute path="/home" exact component={ChannelIndexContainer} />
-    
+    <ProtectedRoute path="/new" exact component={ChannelFormContainer} />
     <Route exact path="/" exact component={SplashPage} />
 
 

@@ -59,17 +59,14 @@
 
 .logout-button-div {
   text-align: center;
-
+  height: 30px;
 }
 
 .logout-button {
    margin: 0 auto;
-   height:20px;
+   height:100%;
    width:auto;
-   padding-top: 10px;
-    position:relative;
-    top:50%;
-    left:30%;
+
     background:none;
      color:inherit;
      border:none;

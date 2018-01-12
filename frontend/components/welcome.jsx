@@ -5,7 +5,7 @@ import { logout } from '../actions/session_actions';
 const Welcome = (props) => {
 
   return (
-    <div className="logout-buttom-div">
+    <div className="logout-button-div">
       <button
         className="logout-button"
         onClick={props.logout}>
