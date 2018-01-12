@@ -10,16 +10,14 @@ import ChannelIndexContainer from '../channel/channel_index_container';
 class ChatForm extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentChatMessage: ''
     };
-
     this.handleChatInputKeyPress = this.handleChatInputKeyPress.bind(this);
   }
 
-  handleSendEvent(event) {
 
+  handleSendEvent(event) {
     event.preventDefault();
     this.chats.create({message: this.state.currentChatMessage,
     user_id: this.props.user.id,
@@ -33,7 +31,7 @@ class ChatForm extends Component {
 
   handleChatInputKeyPress(event) {
     // if(event.key === 'Enter')
-    debugger
+
     event.preventDefault();
 
     this.handleSendEvent(event);
@@ -53,7 +51,7 @@ class ChatForm extends Component {
     }, {
       connected: () => {},
       received: (data) => {
-        debugger
+
         return this.props.receiveMessage(data);
       },
       create: function(chatContent) {
@@ -67,7 +65,13 @@ class ChatForm extends Component {
     });
   }
 
+  scrollToBottom() {
+
+    // elmnt.scrollIntoView(false); // Bottom
+    window.scrollTo(0,document.querySelector(".chat-logs").scrollHeight);
+  }
   renderChatLog() {
+
     return this.props.messages.map((message) => {
       if (this.props.currentChannel.id === message.channel_id ) {
         return (
@@ -84,16 +88,27 @@ class ChatForm extends Component {
     });
   }
 
+
   componentWillReceiveProps(newProps) {
+    // this.scrollToBottom(document.getElementById("chat-logs"));
+
     this.setState({ chatLogs: newProps.messages });
+    this.scrollToBottom();
+
+
   }
 
+
+
   componentWillMount() {
+
     this.createSocket();
   }
+
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId).then(() => {
       this.props.fetchAllMessages();
+
     });
   }
 
@@ -101,16 +116,18 @@ class ChatForm extends Component {
 
 
   render() {
+
     return (
       <div className='chat-page'>
+
         <ChannelIndexContainer />
-        <div className='chat-display'>
+        <div className='chat-display' >
           <div className="channel-header-div">
             <h1 className="channel-topic-header">#
               {this.props.currentChannel.topic}</h1>
           </div>
           <div className="chat-logs-div">
-            <ul className='chat-logs'>
+            <ul className='chat-logs' id="chat-logs">
               { this.renderChatLog() }
             </ul>
           </div>
@@ -129,6 +146,7 @@ class ChatForm extends Component {
               <input type='submit' style={ { display: 'none'} } />
             </form>
         </div>
+
       </div>
     );
   }
