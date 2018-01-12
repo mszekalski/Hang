@@ -5,24 +5,25 @@
   background: #4d394b;
   width: 220px;
   color: rgb(202,196,201);
+  text-decoration: none;
   }
 
   .channel-topic {
     width: 100%;
     height: 100%;
     padding-left: 25px;
-
-  }
-  a.channel-topic {
-    text-decoration: none;
-  }
-
-  a.channel-topic:visited {
     text-decoration: none;
     color: rgb(202,196,201);
   }
 
-  a.channel-topic:focus {
+
+  a.channel-topic:visited {
+    text-decoration: none;
+  }
+
+
+  .active {
+    text-decoration: none;
     background-color: #4C9689;
     color: #FFFFFF;
   }
@@ -33,13 +34,11 @@
     background-color: #3E313C;
   }
   li.channel-item {
+    text-decoration: none;
     display: flex;
     height: 26px;
   }
-  a.channel-topic:active {
-    text-decoration: none;
-    color: rgb(202,196,201);
-  }
+
 
 .channels-header {
   margin-left: 13px;

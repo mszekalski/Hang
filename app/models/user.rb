@@ -7,8 +7,11 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   has_many :chat_messages
 
+  has_many :memberships
+
   has_many :channels,
-  through: :memberships
+  through: :memberships,
+  source: :channel
 
 
 

@@ -14,6 +14,8 @@ class ChatForm extends Component {
     this.state = {
       currentChatMessage: ''
     };
+
+    this.handleChatInputKeyPress = this.handleChatInputKeyPress.bind(this);
   }
 
   handleSendEvent(event) {
@@ -30,9 +32,12 @@ class ChatForm extends Component {
 
 
   handleChatInputKeyPress(event) {
-    if(event.key === 'Enter') {
-      this.handleSendEvent(event);
-    }
+    // if(event.key === 'Enter')
+    debugger
+    event.preventDefault();
+
+    this.handleSendEvent(event);
+    // }
   }
 
   updateCurrentChatMessage(event) {
@@ -48,7 +53,8 @@ class ChatForm extends Component {
     }, {
       connected: () => {},
       received: (data) => {
-        this.props.receiveMessage(data);
+        debugger
+        return this.props.receiveMessage(data);
       },
       create: function(chatContent) {
         this.perform('create', {
@@ -108,17 +114,20 @@ class ChatForm extends Component {
               { this.renderChatLog() }
             </ul>
           </div>
-            <form className="chat-form">
+            <form
+              className="chat-form"
+              onSubmit={this.handleChatInputKeyPress}
+              >
               <input
-                onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
+
                 value={ this.state.currentChatMessage }
                 onChange={ (e) => this.updateCurrentChatMessage(e) }
                 type='text'
                 placeholder='Message #placeholder'
                 className='chat-input'
                 />
+              <input type='submit' style={ { display: 'none'} } />
             </form>
-
         </div>
       </div>
     );
@@ -126,3 +135,4 @@ class ChatForm extends Component {
 }
 
 export default withRouter(ChatForm);
+// onKeyPress={ (e) => this.handleChatInputKeyPress(e) }

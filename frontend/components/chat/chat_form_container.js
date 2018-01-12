@@ -19,7 +19,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     logout: () => dispatch(logout()),
     fetchAllMessages: () => dispatch(fetchAllMessages()),
-    receiveMessage: (message) => dispatch(receiveMessage(message)),
+    receiveMessage: (message) => {
+      return dispatch(receiveMessage(message));
+    },
     fetchChannel: (id) => dispatch(fetchChannel(id))
   };
 };

@@ -3,7 +3,7 @@ import GreetingContainer from './greeting/greeting_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
 import ChatFormContainer from './chat/chat_form_container.js';
 
-import ChatIndex from './chat/chat_index_container.js';
+
 
 import ChannelIndexContainer from './channel/channel_index_container';
 import { Route, HashRouter, Link} from 'react-router-dom';

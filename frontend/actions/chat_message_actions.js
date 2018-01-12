@@ -9,7 +9,6 @@ export const receiveAllMessages = messages => ({
 });
 
 export const receiveMessage = message => {
-  
   return {
 
     type: RECEIVE_MESSAGE,

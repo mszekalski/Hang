@@ -4,13 +4,15 @@ import errorsReducer from './errors_reducer.js';
 import channelsReducer from './channels_reducer.js';
 import messagesReducer from './chat_messages_reducer.js';
 import uiReducer from './ui_reducer.js';
+import usersReducer from './users_reducer.js';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   errors: errorsReducer,
   channels: channelsReducer,
   messages: messagesReducer,
-  ui: uiReducer
+  ui: uiReducer,
+  users: usersReducer
 });
 
 export default rootReducer;
