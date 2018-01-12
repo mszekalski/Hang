@@ -97,8 +97,8 @@ class ChatForm extends Component {
 
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
-    this.scrollToBottom();
     this.setState({ chatLogs: newProps.messages });
+    this.scrollToBottom();
 
 
   }
