@@ -26,7 +26,7 @@ class ChatForm extends Component {
     this.setState({
       currentChatMessage: ''
     });
-
+    this.scrollToBottom();
 
   }
 
@@ -98,7 +98,7 @@ class ChatForm extends Component {
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
-    this.scrollToBottom();
+    // this.scrollToBottom();
 
 
   }
@@ -115,6 +115,9 @@ class ChatForm extends Component {
       this.props.fetchAllMessages();
 
     });
+
+
+
   }
 
 
