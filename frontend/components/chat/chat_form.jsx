@@ -26,6 +26,8 @@ class ChatForm extends Component {
     this.setState({
       currentChatMessage: ''
     });
+
+
   }
 
 
@@ -55,14 +57,17 @@ class ChatForm extends Component {
         return this.props.receiveMessage(data);
       },
       create: function(chatContent) {
+
         this.perform('create', {
           content: chatContent.message,
           user_id: chatContent.user_id,
           channel_id: chatContent.channel_id,
           username: chatContent.username
         });
+
       }
     });
+
   }
 
   scrollToBottom() {
@@ -81,6 +86,7 @@ class ChatForm extends Component {
               <span className='chat-timestamp'>{ message.created_at }</span>
               <br/>
               <span className='chat-content'>{ message.content }</span>
+
             </li>
 
         );
@@ -91,9 +97,8 @@ class ChatForm extends Component {
 
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
-
-    this.setState({ chatLogs: newProps.messages });
     this.scrollToBottom();
+    this.setState({ chatLogs: newProps.messages });
 
 
   }
