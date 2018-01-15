@@ -35,7 +35,46 @@ Delve deep into ~2 features that show off your technical abilities. Discuss both
     });
   }
   ```
+  Action Cable also required the creation of 'channel' and 'job' back end files. This is where Action Cable handles things on the back end to push messages. 
   
+  ```
+   class ChatMessageCreationEventBroadcastJob < ApplicationJob
+  queue_as :default
+
+  def perform(chat_message)
+    ActionCable
+      .server
+      .broadcast('chat_channel',
+         id: chat_message.id,
+         created_at: chat_message.created_at.localtime.strftime('%l:%M %p'),
+         content: chat_message.content,
+         user_id: chat_message.user_id,
+         channel_id: chat_message.channel_id,
+         authorName: chat_message.user.username)
+    end
+
+
+end
+
+   class ChatChannel < ApplicationCable::Channel
+  def subscribed
+    stream_from 'chat_channel'
+  end
+
+  def unsubscribed
+  end
+
+  def create(opts)
+    ChatMessage.create(
+      content: opts.fetch('content'),
+      user_id: opts.fetch('user_id'),
+      channel_id: opts.fetch('channel_id'),
+      username: opts.fetch('username')
+    )
+  end
+end
+      
+   ```
   
 Code snippets to highlight your best code (markdown code snippets, NOT screenshots)
 
