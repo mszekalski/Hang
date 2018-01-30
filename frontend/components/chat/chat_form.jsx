@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Cable from 'actioncable';
 
 import ChannelIndexContainer from '../channel/channel_index_container';
+import ChannelFormContainer from '../channel/channel_form_container';
 
 
 class ChatForm extends Component {
@@ -123,7 +124,7 @@ class ChatForm extends Component {
 
     return (
       <div className='chat-page'>
-
+        <ChannelFormContainer />
         <ChannelIndexContainer />
         <div className='chat-display' >
           <div className="channel-header-div">

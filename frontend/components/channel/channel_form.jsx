@@ -23,10 +23,14 @@ class ChannelForm extends React.Component {
    this.props.createChannel(this.state).then(() => this.props.history.push('/home'));
  }
 
+ hide() {
+   document.getElementById("channel-form-container").classList.add('hidden');
+ }
+
   render () {
-    
+
     return (
-      <div>
+      <div id='channel-form-container' className='hidden'>
         <h1>Create a New Channel</h1>
         <form
           onSubmit={this.handleSubmit}
@@ -43,6 +47,7 @@ class ChannelForm extends React.Component {
             >
             Create Channel
           </button>
+          <button onClick={this.hidden}>X</button>
         </form>
 
 
