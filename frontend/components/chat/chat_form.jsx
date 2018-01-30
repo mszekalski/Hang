@@ -53,11 +53,9 @@ class ChatForm extends Component {
     }, {
       connected: () => {},
       received: (data) => {
-
         return this.props.receiveMessage(data);
       },
       create: function(chatContent) {
-
         this.perform('create', {
           content: chatContent.message,
           user_id: chatContent.user_id,
@@ -67,7 +65,6 @@ class ChatForm extends Component {
 
       }
     });
-
   }
 
   renderChatLog() {
@@ -104,26 +101,19 @@ class ChatForm extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
       this.scrollToBottom();
-
     }
-
   }
 
 
 
   componentWillMount() {
-
     this.createSocket();
   }
 
   componentDidMount() {
     this.props.fetchChannel(this.props.match.params.channelId).then(() => {
       this.props.fetchAllMessages().then(this.scrollToBottom);
-
     });
-
-
-
   }
 
 
