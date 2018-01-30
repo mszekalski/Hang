@@ -28,6 +28,7 @@ class ChannelIndex extends React.Component {
               activeClassName="active"
               >
                 # { channel.topic }
+
             </NavLink>
           </li>
 
@@ -40,7 +41,7 @@ class ChannelIndex extends React.Component {
       <div className="sidebar">
         <Welcome />
         <h1 className="username-header">{this.props.user.username}</h1>
-        <h2 className="channels-header">Channels</h2>
+        <h2 className="channels-header">Channels<div>+</div></h2>
         <ul>
           {  this.renderChannels() }
         </ul>
