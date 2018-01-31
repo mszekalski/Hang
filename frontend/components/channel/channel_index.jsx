@@ -38,6 +38,7 @@ class ChannelIndex extends React.Component {
 
   renderChannelForm() {
     document.getElementById("channel-form-container").classList.remove('hidden');
+    document.getElementById("channel-form-container").classList.add('display-form');
   }
 
   render () {
@@ -45,7 +46,7 @@ class ChannelIndex extends React.Component {
       <div className="sidebar">
         <Welcome />
         <h1 className="username-header">{this.props.user.username}</h1>
-        <h2 className="channels-header" onClick={this.renderChannelForm}>Channels<div>+</div></h2>
+        <h2 className="channels-header" onClick={this.renderChannelForm}>Channels<div className='plus-button'>+</div></h2>
         <ul>
           {  this.renderChannels() }
         </ul>

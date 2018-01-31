@@ -41,14 +41,22 @@
 
 
 .channels-header {
-  margin-left: 13px;
-  margin-bottom: 15px;
-  display: inline-block;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  // margin-left: 13px;
+  // margin-bottom: 15px;
+  // display: inline-block;
+}
+
+.plus-button {
+  float: right;
+  padding-right: 25px;
 }
 
 .channels-header:hover {
   color: white;
-  display: block;
+  // display: block;
 }
 
 .username-header {

@@ -1,14 +1,5 @@
 
-#channel-form-container {
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  overflow-y: hidden;
-}
+
 
 .chat-page {
   margin-left: 220px;
@@ -44,11 +35,13 @@
 .chat-message:hover {
   background-color: #f9f9f9;
 }
+
 .chat-message {
   padding-left: 40px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .chat-form {
   bottom: 0px;
   position: fixed;
@@ -84,8 +77,4 @@
   font-size: 12px;
   padding-left: 10px;
   line-height: 5px;
-}
-
-.hidden {
-  display: none;
 }

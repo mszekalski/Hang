@@ -31,26 +31,54 @@ class ChannelForm extends React.Component {
 
     return (
       <div id='channel-form-container' className='hidden'>
-        <h1>Create a New Channel</h1>
+        <div className='channel-form'>
+          <div className='new-channel-title-container'>
+
+            <h1 className='new-channel-title'>Create a channel</h1>
+          </div>
+          <div className='channel-description-container'>
+            <p1 className='new-channel-description'>
+              Channels are where your members communicate. They&apos;re best when organized around a topic
+              -- #leads, for example.
+            </p1>
+          </div>
         <form
           onSubmit={this.handleSubmit}
           >
 
+
           <input
+            className="channel-name-input"
             type='text'
             value={this.state.topic}
             onChange={this.update('topic')}
             />
-          <button
-            type="submit"
-            value='text'
-            >
-            Create Channel
-          </button>
-          <button onClick={this.hidden}>X</button>
+          <footer className='channel-form-footer'>
+
+
+            <button
+              className="channel-button"
+              type="submit"
+              value='text'
+              >
+              Create Channel
+            </button>
+            
+              <input
+                className="cancel-button"
+                type="button"
+                value="Cancel"
+                onClick={this.hide}
+                />
+
+
+
+
+          </footer>
         </form>
 
 
+      </div>
 
       </div>
     );
