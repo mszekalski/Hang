@@ -52,6 +52,7 @@ class ChannelForm extends React.Component {
             type='text'
             value={this.state.topic}
             onChange={this.update('topic')}
+            placeholder='e.g leads'
             />
           <footer className='channel-form-footer'>
 
@@ -63,7 +64,7 @@ class ChannelForm extends React.Component {
               >
               Create Channel
             </button>
-            
+
               <input
                 className="cancel-button"
                 type="button"
