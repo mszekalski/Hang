@@ -34,7 +34,13 @@ class Welcome extends React.Component {
           {this.props.user.username}
         </button>
         <div id="myDropdown" className="dropdown-content">
-          
+          <div className="logout-button-div">
+            <button
+              className="logout-button"
+              onClick={ this.props.logout }>
+              Logout
+            </button>
+          </div>
 
         </div>
       </div>
