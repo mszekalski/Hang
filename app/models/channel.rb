@@ -1,4 +1,6 @@
 class Channel < ApplicationRecord
+
+  validates :topic, presence: true
   has_many :chat_messages
   has_many :memberships
 
