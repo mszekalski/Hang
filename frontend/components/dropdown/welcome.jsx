@@ -34,8 +34,8 @@ class Welcome extends React.Component {
           {this.props.user.username}
         </button>
         <div id="myDropdown" className="dropdown-content">
-          <a href="#"></a>
-        
+          
+
         </div>
       </div>
     );
