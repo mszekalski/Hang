@@ -3,12 +3,8 @@ import WelcomeContainer from './welcome_container';
 
 class Welcome extends React.Component {
 
-  componentDidMount() {
-    // this.props.fetchAllUsers();
-  }
-
-  myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
+  dropdown() {
+    document.getElementById("profileDropdown").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
@@ -30,10 +26,15 @@ class Welcome extends React.Component {
 
     return (
       <div className="dropdown">
-        <button onClick={ this.myFunction } className="dropbtn">
-          {this.props.user.username}
+        <button onClick={ this.dropdown } className="dropbtn">
+          <div>
+
+          </div>
+          <div className='username-div'>
+            {this.props.user.username}
+          </div>
         </button>
-        <div id="myDropdown" className="dropdown-content">
+        <div id="profileDropdown" className="dropdown-content">
           <div className="logout-button-div">
             <button
               className="logout-button"
@@ -46,15 +47,6 @@ class Welcome extends React.Component {
       </div>
     );
 }
-
-
-    // <div className="logout-button-div">
-    //   <button
-    //     className="logout-button"
-    //     onClick={props.logout}>
-    //     Logout
-    //   </button>
-    // </div>
 
 }
 
