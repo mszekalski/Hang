@@ -9,7 +9,7 @@ import ChannelIndexContainer from './channel/channel_index_container';
 import ChannelFormContainer from './channel/channel_form_container';
 import { Route, HashRouter, Link} from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
-import WelcomeContainer from "./welcome";
+// import WelcomeContainer from "./dropdown/welcome_container";
 import SplashPage from "./splash_page";
 
 

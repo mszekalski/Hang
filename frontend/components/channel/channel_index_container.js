@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
   return {
     channels: Object.values(state.channels),
-    user: state.session.currentUser,
+    // user: state.session.currentUser,
     currentChannel: state.channels[state.ui.currentChannel] || {}
   };
 };
