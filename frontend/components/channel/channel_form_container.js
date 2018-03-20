@@ -3,7 +3,13 @@ import { createChannel, fetchChannel } from '../../actions/channel_actions.js';
 import { fetchAllUsers } from '../../actions/user_actions.js';
 import ChannelForm from './channel_form';
 
+const mapStateToProps = (state) => {
+  
+  return {
 
+    errors: state.errors.channels
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,6 +20,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect (
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChannelForm);
