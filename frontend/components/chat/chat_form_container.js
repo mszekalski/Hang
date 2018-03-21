@@ -9,20 +9,20 @@ import { values } from 'lodash';
 const mapStateToProps = (state) => {
   return {
     user: state.session.currentUser,
-    messages: values(state.messages),
-    currentChannel: state.channels[state.ui.currentChannel] || {}
+    messages: values(state.messages)
+    // currentChannel: state.channels[state.ui.currentChannel] || {}
 
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    logout: () => dispatch(logout()),
-    fetchAllMessages: () => dispatch(fetchAllMessages()),
-    receiveMessage: (message) => {
-      return dispatch(receiveMessage(message));
-    },
-    fetchChannel: (id) => dispatch(fetchChannel(id))
+    // logout: () => dispatch(logout()),
+    // fetchAllMessages: () => dispatch(fetchAllMessages()),
+    // receiveMessage: (message) => {
+      // return dispatch(receiveMessage(message));
+    // },
+    // fetchChannel: (id) => dispatch(fetchChannel(id))
   };
 };
 

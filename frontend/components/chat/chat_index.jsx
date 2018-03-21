@@ -1,21 +1,73 @@
 import React from 'react';
-import ChatFormContainer from './chat_form_container';
+import { withRouter } from 'react-router';
+// import ChatFormContainer from './chat_form_container';
 
 class ChatIndex extends React.Component {
 
-  componentDidMount() {
-    
-    this.props.fetchAllMessages();
+  // componentDidMount() {
+  //
+  //   this.props.fetchAllMessages();
+  // }
+
+  scrollToBottom() {
+
+    // elmnt.scrollIntoView(false); // Bottom
+    window.scrollTo(0 ,document.getElementById("chat-logs").scrollHeight);
   }
 
+
+
+  componentDidMount() {
+    this.props.fetchChannel(this.props.match.params.channelId).then(() => {
+      this.props.fetchAllMessages().then(this.scrollToBottom);
+    });
+  }
+
+
+
+
+
+
+
+  componentWillReceiveProps(newProps) {
+    // this.scrollToBottom(document.getElementById("chat-logs"));
+    this.setState({ chatLogs: newProps.messages });
+
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
+      this.scrollToBottom();
+    }
+  }
+
+  // renderChatLog() {
+  //   return this.props.messages.map((message) => {
+  //     return (
+  //       <li key={`${message.id}`} className="chat-message">
+  //         <span className='chat-content'>{ message.content }</span>
+  //         <span className='chat-timestamp'>{ message.created_at }</span>
+  //       </li>
+  //     );
+  //   });
+  // }
+
   renderChatLog() {
+
     return this.props.messages.map((message) => {
-      return (
-        <li key={`${message.id}`} className="chat-message">
-          <span className='chat-content'>{ message.content }</span>
-          <span className='chat-timestamp'>{ message.created_at }</span>
-        </li>
-      );
+      if (this.props.currentChannel.id === message.channel_id ) {
+        return (
+
+            <li key={`chat_${message.id}`} className="chat-message">
+              <span className='chat-username'>{ message.authorName }</span>
+              <span className='chat-timestamp'>{ message.created_at }</span>
+              <br/>
+              <span className='chat-content'>{ message.content }</span>
+
+            </li>
+
+        );
+      }
     });
   }
 
@@ -27,10 +79,10 @@ class ChatIndex extends React.Component {
             this.renderChatLog()
           }
         </ul>
-        <ChatFormContainer/>
+
       </div>
     );
   }
 }
 
-export default ChatIndex;
+export default withRouter(ChatIndex);

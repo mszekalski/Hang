@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { Route, Link, NavLink } from 'react-router-dom';
 import WelcomeContainer from '../dropdown/welcome_container';
+import ChannelFormContainer from '../channel/channel_form_container';
 
 
 class Sidebar extends React.Component {
@@ -45,7 +46,7 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar">
         <WelcomeContainer />
-
+        <ChannelFormContainer />
         <h2 className="channels-header" onClick={this.renderChannelForm}>Channels<div className='plus-button'>+</div></h2>
         <ul>
           {  this.renderChannels() }

@@ -4,17 +4,40 @@ import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cable from 'actioncable';
 
-import SidebarContainer from '../sidebar/sidebar_container';
-import ChannelFormContainer from '../channel/channel_form_container';
-
 
 class ChatForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       currentChatMessage: ''
     };
     this.handleChatInputKeyPress = this.handleChatInputKeyPress.bind(this);
+  }
+
+  createSocket() {
+    let cable = Cable.createConsumer();
+    this.chats = cable.subscriptions.create({
+      channel: 'ChatChannel'
+    }, {
+      connected: () => {},
+      received: (data) => {
+        return this.props.receiveMessage(data);
+      },
+      create: function(chatContent) {
+        this.perform('create', {
+          content: chatContent.message,
+          user_id: chatContent.user_id,
+          channel_id: chatContent.channel_id,
+          username: chatContent.username
+        });
+
+      }
+    });
+  }
+
+  componentWillMount() {
+    this.createSocket();
   }
 
 
@@ -47,75 +70,11 @@ class ChatForm extends Component {
     });
   }
 
-  createSocket() {
-    let cable = Cable.createConsumer();
-    this.chats = cable.subscriptions.create({
-      channel: 'ChatChannel'
-    }, {
-      connected: () => {},
-      received: (data) => {
-        return this.props.receiveMessage(data);
-      },
-      create: function(chatContent) {
-        this.perform('create', {
-          content: chatContent.message,
-          user_id: chatContent.user_id,
-          channel_id: chatContent.channel_id,
-          username: chatContent.username
-        });
-
-      }
-    });
-  }
-
-  renderChatLog() {
-
-    return this.props.messages.map((message) => {
-      if (this.props.currentChannel.id === message.channel_id ) {
-        return (
-
-            <li key={`chat_${message.id}`} className="chat-message">
-              <span className='chat-username'>{ message.authorName }</span>
-              <span className='chat-timestamp'>{ message.created_at }</span>
-              <br/>
-              <span className='chat-content'>{ message.content }</span>
-
-            </li>
-
-        );
-      }
-    });
-  }
-
-  scrollToBottom() {
-
-    // elmnt.scrollIntoView(false); // Bottom
-    window.scrollTo(0 ,document.getElementById("chat-logs").scrollHeight);
-  }
-
-  componentWillReceiveProps(newProps) {
-    // this.scrollToBottom(document.getElementById("chat-logs"));
-    this.setState({ chatLogs: newProps.messages });
-
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
-      this.scrollToBottom();
-    }
-  }
 
 
 
-  componentWillMount() {
-    this.createSocket();
-  }
 
-  componentDidMount() {
-    this.props.fetchChannel(this.props.match.params.channelId).then(() => {
-      this.props.fetchAllMessages().then(this.scrollToBottom);
-    });
-  }
+
 
 
 
@@ -123,19 +82,10 @@ class ChatForm extends Component {
   render() {
 
     return (
-      <div className='chat-page'>
-        <ChannelFormContainer />
-        <SidebarContainer />
+      // <div className='chat-page'>
+
+
         <div className='chat-display' >
-          <div className="channel-header-div">
-            <h1 className="channel-topic-header">#
-              {this.props.currentChannel.topic}</h1>
-          </div>
-          <div className="chat-logs-div">
-            <ul className='chat-logs' id="chat-logs">
-              { this.renderChatLog() }
-            </ul>
-          </div>
             <form
               className="chat-form"
               onSubmit={this.handleChatInputKeyPress}
@@ -153,10 +103,23 @@ class ChatForm extends Component {
             </form>
         </div>
 
-      </div>
+      // </div>
     );
   }
 }
 
 export default withRouter(ChatForm);
 // onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
+
+
+
+// <div className="channel-header-div">
+//   <h1 className="channel-topic-header">#
+//     {this.props.currentChannel.topic}</h1>
+// </div>
+
+// <div className="chat-logs-div">
+//   <ul className='chat-logs' id="chat-logs">
+//     { this.renderChatLog() }
+//   </ul>
+// </div>
