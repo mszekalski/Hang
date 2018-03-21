@@ -2,12 +2,14 @@ import { connect } from 'react-redux';
 
 import { fetchAllMessages, receiveMessage } from '../../actions/chat_message_actions';
 import { fetchChannel } from '../../actions/channel_actions';
-import ChatIndex from './chat_form';
+import ChatIndex from './chat_index';
+import { values } from 'lodash';
 
 
 const mapStateToProps = (state) => {
   return {
-    messages: Object.values(state.messages),
+    // messages: Object.values(state.messages)
+    messages: values(state.messages),
     currentChannel: state.channels[state.ui.currentChannel] || {}
   };
 };

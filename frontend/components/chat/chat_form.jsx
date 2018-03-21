@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Cable from 'actioncable';
 
 
-class ChatForm extends Component {
+class ChatForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -85,7 +85,7 @@ class ChatForm extends Component {
       // <div className='chat-page'>
 
 
-        <div className='chat-display' >
+        <div className='chat-input'>
             <form
               className="chat-form"
               onSubmit={this.handleChatInputKeyPress}
@@ -97,7 +97,7 @@ class ChatForm extends Component {
                 onChange={ (e) => this.updateCurrentChatMessage(e) }
                 type='text'
                 placeholder='Message #placeholder'
-                className='chat-input'
+                className='chat-text'
                 />
               <input type='submit' style={ { display: 'none'} } />
             </form>
@@ -110,16 +110,3 @@ class ChatForm extends Component {
 
 export default withRouter(ChatForm);
 // onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
-
-
-
-// <div className="channel-header-div">
-//   <h1 className="channel-topic-header">#
-//     {this.props.currentChannel.topic}</h1>
-// </div>
-
-// <div className="chat-logs-div">
-//   <ul className='chat-logs' id="chat-logs">
-//     { this.renderChatLog() }
-//   </ul>
-// </div>

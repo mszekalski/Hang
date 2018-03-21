@@ -1,12 +1,18 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import ChatFormContainer from './chat_form_container';
+
 
 class ChatIndex extends React.Component {
 
+  componentDidMount() {
+
+    this.props.fetchAllMessages();
+  }
+
   // componentDidMount() {
-  //
-  //   this.props.fetchAllMessages();
+  //   this.props.fetchChannel(this.props.match.params.channelId).then(() => {
+  //     this.props.fetchAllMessages().then(this.scrollToBottom);
+  //   });
   // }
 
   scrollToBottom() {
@@ -16,30 +22,17 @@ class ChatIndex extends React.Component {
   }
 
 
-
-  componentDidMount() {
-    this.props.fetchChannel(this.props.match.params.channelId).then(() => {
-      this.props.fetchAllMessages().then(this.scrollToBottom);
-    });
-  }
-
-
-
-
-
-
-
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
 
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
-      this.scrollToBottom();
-    }
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
+  //     this.scrollToBottom();
+  //   }
+  // }
 
   // renderChatLog() {
   //   return this.props.messages.map((message) => {
@@ -73,7 +66,7 @@ class ChatIndex extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="chat-index">
         <ul>
           {
             this.renderChatLog()

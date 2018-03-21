@@ -3,13 +3,12 @@ import { logout } from '../../actions/session_actions';
 import ChatForm from './chat_form';
 import { fetchAllMessages, receiveMessage } from '../../actions/chat_message_actions';
 import { fetchChannel } from '../../actions/channel_actions';
-import { values } from 'lodash';
+// import { values } from 'lodash';
 
 
 const mapStateToProps = (state) => {
   return {
-    user: state.session.currentUser,
-    messages: values(state.messages)
+    user: state.session.currentUser
     // currentChannel: state.channels[state.ui.currentChannel] || {}
 
   };
