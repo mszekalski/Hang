@@ -3,7 +3,7 @@ import { fetchChannels,
         deleteChannel,
         receiveChannel } from '../../actions/channel_actions.js';
 import { fetchAllUsers } from '../../actions/user_actions.js';
-import ChannelIndex from './channel_index';
+import Sidebar from './sidebar';
 
 
 const mapStateToProps = (state) => {
@@ -28,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect (
   mapStateToProps,
   mapDispatchToProps
-)(ChannelIndex);
+)(Sidebar);

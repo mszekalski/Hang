@@ -4,7 +4,7 @@ import { Route, Link, NavLink } from 'react-router-dom';
 import WelcomeContainer from '../dropdown/welcome_container';
 
 
-class ChannelIndex extends React.Component {
+class Sidebar extends React.Component {
 
   componentDidMount() {
     this.props.fetchAllUsers();
@@ -45,7 +45,7 @@ class ChannelIndex extends React.Component {
     return (
       <div className="sidebar">
         <WelcomeContainer />
-      
+
         <h2 className="channels-header" onClick={this.renderChannelForm}>Channels<div className='plus-button'>+</div></h2>
         <ul>
           {  this.renderChannels() }
@@ -56,4 +56,4 @@ class ChannelIndex extends React.Component {
 
 }
 
-export default withRouter(ChannelIndex);
+export default withRouter(Sidebar);

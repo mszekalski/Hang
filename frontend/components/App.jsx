@@ -3,7 +3,7 @@ import GreetingContainer from './greeting/greeting_container.js';
 import SessionFormContainer from './session_form/session_form_container.js';
 import ChatFormContainer from './chat/chat_form_container.js';
 
-import ChannelIndexContainer from './channel/channel_index_container';
+import SidebarContainer from './sidebar/sidebar_container';
 import ChannelFormContainer from './channel/channel_form_container';
 import { Route, HashRouter, Link} from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
@@ -16,7 +16,7 @@ const App = () => (
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
     <ProtectedRoute path="/home/:channelId" exact component={ChatFormContainer} />
-    <ProtectedRoute path="/home" exact component={ChannelIndexContainer} />
+    <ProtectedRoute path="/home" exact component={SidebarContainer} />
     <Route exact path="/" exact component={SplashPage} />
 
 
