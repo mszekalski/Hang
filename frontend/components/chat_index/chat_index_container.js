@@ -17,9 +17,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchAllMessages: () => dispatch(fetchAllMessages()),
-    receiveMessage: (message) => {
-      return dispatch(receiveMessage(message));
-    },
+    // receiveMessage: (message) => {
+    //   return dispatch(receiveMessage(message));
+    // },
     fetchChannel: (id) => dispatch(fetchChannel(id))
   };
 };
