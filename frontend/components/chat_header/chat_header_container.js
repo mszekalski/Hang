@@ -7,7 +7,6 @@ const mapStateToProps = (state) => {
 
   return {
     currentChannel: state.channels[state.ui.currentChannel] || {}
-
   };
 };
 

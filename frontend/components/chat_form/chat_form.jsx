@@ -71,14 +71,6 @@ class ChatForm extends React.Component {
   }
 
 
-
-
-
-
-
-
-
-
   render() {
 
     return (
