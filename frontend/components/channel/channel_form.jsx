@@ -22,6 +22,7 @@ class ChannelForm extends React.Component {
     this.props
       .createChannel(this.state)
       .then(() => this.props.history.push("/home/"));
+    document.getElementById("channel-name").value = "";
   }
 
   hide() {
@@ -48,6 +49,7 @@ class ChannelForm extends React.Component {
               value={this.state.topic}
               onChange={this.update("topic")}
               placeholder="e.g leads"
+              id="channel-name"
             />
             <footer className="channel-form-footer">
               <button
