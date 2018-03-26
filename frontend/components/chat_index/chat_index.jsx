@@ -1,11 +1,8 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-
+import React from "react";
+import { withRouter } from "react-router";
 
 class ChatIndex extends React.Component {
-
   componentDidMount() {
-
     this.props.fetchAllMessages();
   }
 
@@ -16,16 +13,13 @@ class ChatIndex extends React.Component {
   // }
 
   scrollToBottom() {
-
     // elmnt.scrollIntoView(false); // Bottom
-    window.scrollTo(0 ,document.getElementById("chat-logs").scrollHeight);
+    window.scrollTo(0, document.getElementById("chat-logs").scrollHeight);
   }
-
 
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
-
   }
 
   // componentDidUpdate(prevProps) {
@@ -46,33 +40,26 @@ class ChatIndex extends React.Component {
   // }
 
   renderChatLog() {
-
-    return this.props.messages.map((message) => {
-      if (this.props.currentChannel.id === message.channel_id ) {
+    return this.props.messages.map(message => {
+      if (this.props.currentChannel.id === message.channel_id) {
         return (
-
-            <li key={`chat_${message.id}`} className="chat-message">
-              <span className='chat-username'>{ message.authorName }</span>
-              <span className='chat-timestamp'>{ message.created_at }</span>
-              <br/>
-              <span className='chat-content'>{ message.content }</span>
-
-            </li>
-
+          <li key={`chat_${message.id}`} className="chat-message">
+            <span className="chat-username">{message.authorName}</span>
+            <span className="chat-timestamp">{message.created_at}</span>
+            <br />
+            <span className="chat-content">{message.content}</span>
+          </li>
         );
       }
     });
   }
 
-  render () {
+  render() {
     return (
-      <div className="chat-index">
-        <ul>
-          {
-            this.renderChatLog()
-          }
-        </ul>
-
+      <div className="chat-index-overflow">
+        <div className="chat-index">
+          <ul>{this.renderChatLog()}</ul>
+        </div>
       </div>
     );
   }
