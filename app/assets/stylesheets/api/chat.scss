@@ -21,7 +21,7 @@
   padding-bottom: 10px;
 }
 //
-.chat-form {
+.chat-text {
   height: 40px;
   border: 2px solid rgba(160, 160, 162, 0.7);
   border-radius: 5px;
@@ -32,7 +32,7 @@
   position: relative;
 }
 
-.chat-form:focus {
+.chat-text:focus {
   border-color: #717274;
   outline: none;
 }
