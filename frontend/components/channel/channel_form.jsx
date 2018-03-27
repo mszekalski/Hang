@@ -7,6 +7,7 @@ class ChannelForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hide = this.hide.bind(this);
     let newChannel = { topic: "" };
     this.state = newChannel;
   }
@@ -20,13 +21,17 @@ class ChannelForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createChannel(this.state).then(() => {
-      this.props.history.push("/home/");
+      this.props.history.push("/home");
       this.hide();
     });
   }
 
   hide() {
+    this.setState({
+      topic: ""
+    });
     document.getElementById("channel-form-container").classList.add("hidden");
+    document.getElementById("channel-name-id").value = "";
   }
 
   render() {
@@ -42,7 +47,7 @@ class ChannelForm extends React.Component {
               when organized around a topic -- #leads, for example.
             </p1>
           </div>
-          <form onSubmit={this.handleSubmit} id="channel-form-id">
+          <form onSubmit={this.handleSubmit}>
             <input
               id="channel-name-id"
               className="channel-name-input"
