@@ -13,6 +13,10 @@
   padding-left: 25px;
   text-decoration: none;
   color: rgb(202, 196, 201);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
 }
 
 a.channel-topic:visited {
@@ -71,7 +75,6 @@ li.channel-item {
   margin: 0 auto;
   height: 100%;
   width: auto;
-
   background: none;
   color: inherit;
   border: none;

@@ -25,9 +25,13 @@ class Welcome extends React.Component {
     return (
       <div className="dropdown">
         <button onClick={this.dropdown} className="dropbtn">
-          <div className="currentchannel-div">
-            {this.props.currentChannel.topic}
+          <div className="top-dropdown-div">
+            <div className="currentchannel-div">
+              {this.props.currentChannel.topic}
+            </div>
+            <div className="arrow-div">&#x21E9;</div>
           </div>
+
           <div className="username-div">{this.props.user.username}</div>
         </button>
         <div id="profileDropdown" className="dropdown-content">
