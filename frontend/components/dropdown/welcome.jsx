@@ -31,7 +31,10 @@ class Welcome extends React.Component {
             <div className="arrow-div">&#x25BE;</div>
           </div>
 
-          <div className="username-div">{this.props.user.username}</div>
+          <div className="username-div">
+            <span class="dot" />
+            {this.props.user.username}
+          </div>
         </button>
         <div id="profileDropdown" className="dropdown-content">
           <div className="logout-button-div">

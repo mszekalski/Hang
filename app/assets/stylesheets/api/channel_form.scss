@@ -10,13 +10,11 @@
   display: block;
   justify-content: center;
   align-items: center;
-
 }
 
 .channel-form-footer {
   padding-top: 10px;
 }
-
 
 .channel-form {
   margin: 0 auto;
@@ -31,7 +29,7 @@
 .channel-name-input {
   width: 650px;
   height: 40px;
-  border: 2px solid rgba(160,160,162,.7);
+  border: 2px solid rgba(160, 160, 162, 0.7);
   border-radius: 5px;
   font-size: 18px;
   text-indent: 12px;
@@ -46,7 +44,7 @@
   font-weight: 700;
   text-shadow: none;
   border: 1px solid #c7cacd;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 14px;
@@ -62,8 +60,6 @@
   font-size: 15px;
   line-height: 1.25rem;
   color: #717274;
-
-
 }
 
 .channel-description-container {
@@ -78,7 +74,7 @@
 .channel-button {
   background: #2ea664;
   color: #fff;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 14px;
@@ -97,4 +93,7 @@
 
 .hidden {
   display: none;
+}
+
+.channel-form-container {
 }
