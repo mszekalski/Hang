@@ -66,7 +66,7 @@ class ChatForm extends React.Component {
     event.preventDefault();
 
     this.handleSendEvent(event);
-    setTimeout(this.scrollToBottom, 10);
+    setTimeout(this.scrollToBottom, 100);
 
     // }
   }
