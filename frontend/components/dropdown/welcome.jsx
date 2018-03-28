@@ -32,7 +32,7 @@ class Welcome extends React.Component {
           </div>
 
           <div className="username-div">
-            <span class="dot" />
+            <span className="dot" />
             {this.props.user.username}
           </div>
         </button>
