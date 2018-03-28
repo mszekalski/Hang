@@ -6,8 +6,7 @@ class Welcome extends React.Component {
     document.getElementById("profileDropdown").classList.toggle("show");
   }
 
-  // Close the dropdown menu if the user clicks outside of it
-  // window.onclick = function(event) {
+  // window.onClick = function(event) {
   //   if (!event.target.matches('.dropbtn')) {
   //
   //     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -29,7 +28,7 @@ class Welcome extends React.Component {
             <div className="currentchannel-div">
               {this.props.currentChannel.topic}
             </div>
-            <div className="arrow-div">&#x21E9;</div>
+            <div className="arrow-div">&#x25BE;</div>
           </div>
 
           <div className="username-div">{this.props.user.username}</div>

@@ -11,6 +11,7 @@ class ChatForm extends React.Component {
       currentChatMessage: ""
     };
     this.handleChatInputKeyPress = this.handleChatInputKeyPress.bind(this);
+    this.scrollToBottom = this.scrollToBottom.bind(this);
   }
 
   createSocket() {
@@ -51,7 +52,12 @@ class ChatForm extends React.Component {
     this.setState({
       currentChatMessage: ""
     });
-    setTimeout(this.scrollToBottom, 100);
+  }
+
+  scrollToBottom() {
+    const chatIndex = document.querySelector(".chat-index-overflow");
+    chatIndex.scrollTop = chatIndex.scrollHeight;
+    // }
   }
 
   handleChatInputKeyPress(event) {
@@ -60,6 +66,8 @@ class ChatForm extends React.Component {
     event.preventDefault();
 
     this.handleSendEvent(event);
+    setTimeout(this.scrollToBottom, 10);
+
     // }
   }
 

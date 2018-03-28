@@ -1,6 +1,6 @@
 .dropbtn {
   background-color: #4d394b;
-  color: white;
+
   width: 100%;
   height: 61px;
   font-size: 16px;
@@ -64,6 +64,7 @@
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
+  padding-right: 9px;
 }
 
 .top-dropdown-div {
@@ -75,4 +76,8 @@
   font-weight: 900;
   color: #fff;
   width: 100%;
+}
+
+.arrow-div {
+  color: #ab9ba9;
 }

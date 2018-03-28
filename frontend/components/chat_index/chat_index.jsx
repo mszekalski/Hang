@@ -12,11 +12,6 @@ class ChatIndex extends React.Component {
   //   });
   // }
 
-  scrollToBottom() {
-    // elmnt.scrollIntoView(false); // Bottom
-    window.scrollTo(0, document.getElementById("chat-logs").scrollHeight);
-  }
-
   componentWillReceiveProps(newProps) {
     // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
