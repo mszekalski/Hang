@@ -1,9 +1,7 @@
-import { combineReducers } from 'redux';
-import currentChannelReducer from './current_channel_reducer';
-import modalReducer from './modal_reducer.js';
+import { combineReducers } from "redux";
+import currentChannelReducer from "./current_channel_reducer";
 
 const uiReducer = combineReducers({
-  modal: modalReducer,
   currentChannel: currentChannelReducer
 });
 

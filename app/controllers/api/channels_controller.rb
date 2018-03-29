@@ -27,7 +27,7 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   private
