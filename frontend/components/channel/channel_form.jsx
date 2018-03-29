@@ -26,12 +26,29 @@ class ChannelForm extends React.Component {
     });
   }
 
+  renderChannelErrors() {
+    if (this.props.errors.length > 0) {
+      return (
+        <ul className="channel-errors-list">
+          <div className="channel-errors-list-container">
+            {this.props.errors.map((error, i) => (
+              <li key={`error-${i}`} className="channel-error-list-item">
+                {error}
+              </li>
+            ))}
+          </div>
+        </ul>
+      );
+    }
+  }
+
   hide() {
     this.setState({
       topic: ""
     });
     document.getElementById("channel-form-container").classList.add("hidden");
     document.getElementById("channel-name-id").value = "";
+    this.props.clearErrors();
   }
 
   render() {
@@ -56,6 +73,7 @@ class ChannelForm extends React.Component {
               onChange={this.update("topic")}
               placeholder="e.g leads"
             />
+            {this.renderChannelErrors()}
             <footer className="channel-form-footer">
               <button className="channel-button" type="submit" value="text">
                 Create Channel

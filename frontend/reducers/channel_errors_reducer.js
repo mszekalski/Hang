@@ -2,7 +2,7 @@ import merge from "lodash/merge";
 
 import {
   RECEIVE_CHANNEL_ERRORS,
-  RECEIVE_CHANNEL
+  CLEAR_CHANNEL_ERRORS
 } from "../actions/channel_actions";
 
 const channelErrorsReducer = (state = [], action) => {
@@ -10,7 +10,7 @@ const channelErrorsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_CHANNEL_ERRORS:
       return action.errors;
-    case RECEIVE_CHANNEL:
+    case CLEAR_CHANNEL_ERRORS:
       return [];
     default:
       return state;

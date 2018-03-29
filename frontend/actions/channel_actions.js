@@ -5,6 +5,7 @@ export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
 export const REMOVE_CHANNEL = "REMOVE_CHANNEL";
 export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
+export const CLEAR_CHANNEL_ERRORS = "CLEAR_CHANNEL_ERRORS";
 
 export const receiveAllChannels = channels => ({
   type: RECEIVE_ALL_CHANNELS,
@@ -25,10 +26,16 @@ export const removeChannel = channelId => {
   };
 };
 
-export const receiveChannelErrors = errors => {
+export const receiveErrors = errors => {
   return {
     type: RECEIVE_CHANNEL_ERRORS,
     errors
+  };
+};
+
+export const clearErrors = () => {
+  return {
+    type: CLEAR_CHANNEL_ERRORS
   };
 };
 
@@ -47,7 +54,7 @@ export const createChannel = channel => dispatch =>
   channelApiUtil.createChannel(channel).then(
     channel => dispatch(receiveChannel(channel)),
     err => {
-      return dispatch(receiveChannelErrors(err.responseJSON));
+      return dispatch(receiveErrors(err.responseJSON));
     }
   );
 
