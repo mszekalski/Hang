@@ -11,7 +11,7 @@ class Api::MembershipsController < ApplicationController
   end
 
   def index
-    
+    @memberships = Membership.all
   end
 
   def show
