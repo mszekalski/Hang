@@ -20,9 +20,9 @@ class ChannelForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel(this.state).then(() => {
+    this.props.createChannel(this.state).then(payload => {
       this.hide();
-      this.props.history.push(`/home`);
+      this.props.history.push(`/home/${payload.channel.id}`);
     });
   }
 
