@@ -48,7 +48,9 @@ class ChannelForm extends React.Component {
     });
     document.getElementById("channel-form-container").classList.add("hidden");
     document.getElementById("channel-name-id").value = "";
-    this.props.clearErrors();
+    if (this.props.errors.length > 0) {
+      this.props.clearErrors();
+    }
   }
 
   render() {
@@ -73,8 +75,9 @@ class ChannelForm extends React.Component {
               onChange={this.update("topic")}
               placeholder="e.g leads"
             />
-            {this.renderChannelErrors()}
+
             <footer className="channel-form-footer">
+              {this.renderChannelErrors()}
               <button className="channel-button" type="submit" value="text">
                 Create Channel
               </button>
