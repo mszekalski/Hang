@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { Route, Link, NavLink } from "react-router-dom";
 import WelcomeContainer from "../dropdown/welcome_container";
 import ChannelFormContainer from "../channel/channel_form_container";
+import MembershipFormContainer from "../membership/membership_form_container";
 
 class Sidebar extends React.Component {
   componentDidMount() {
