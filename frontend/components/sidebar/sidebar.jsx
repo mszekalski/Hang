@@ -39,17 +39,32 @@ class Sidebar extends React.Component {
       .classList.add("display-form");
   }
 
+  renderMembershipForm() {
+    document
+      .getElementById("membership-form-container")
+      .classList.remove("hidden");
+    document
+      .getElementById("membership-form-container")
+      .classList.add("display-form");
+  }
+
   render() {
     return (
       <div className="sidebar">
         <WelcomeContainer />
         <ChannelFormContainer />
-        <h2 className="channels-header">
-          Channels
+        <MembershipFormContainer />
+        <div className="channels-header">
+          <div
+            className="membership-button"
+            onClick={this.renderMembershipForm}
+          >
+            Channels
+          </div>
           <div className="plus-button" onClick={this.renderChannelForm}>
             +
           </div>
-        </h2>
+        </div>
         <ul>{this.renderChannels()}</ul>
       </div>
     );

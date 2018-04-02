@@ -45,6 +45,7 @@ li.channel-item {
   padding-left: 10px;
   padding-bottom: 10px;
   cursor: pointer;
+  display: flex;
   // margin-left: 13px;
   // margin-bottom: 15px;
   // display: inline-block;
@@ -55,9 +56,12 @@ li.channel-item {
   padding-right: 25px;
 }
 
+.membership-button {
+  width: 100%;
+}
+
 .channels-header:hover {
   color: white;
-  // display: block;
 }
 
 .username-header {

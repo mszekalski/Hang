@@ -4,6 +4,7 @@ import SessionFormContainer from "./session_form/session_form_container.js";
 import ChatArea from "./chat_area/chat_area";
 
 import ChannelFormContainer from "./channel/channel_form_container";
+import MembershipFormContainer from "./membership/membership_form_container";
 import { Route, HashRouter, Link } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
 import SplashPage from "./splash_page";
