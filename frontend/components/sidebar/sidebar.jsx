@@ -43,8 +43,11 @@ class Sidebar extends React.Component {
       <div className="sidebar">
         <WelcomeContainer />
         <ChannelFormContainer />
-        <h2 className="channels-header" onClick={this.renderChannelForm}>
-          Channels<div className="plus-button">+</div>
+        <h2 className="channels-header">
+          Channels
+          <div className="plus-button" onClick={this.renderChannelForm}>
+            +
+          </div>
         </h2>
         <ul>{this.renderChannels()}</ul>
       </div>
