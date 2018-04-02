@@ -4,7 +4,12 @@ class Api::MembershipsController < ApplicationController
   end
 
   def create
-
+    @membership = Membership.new(membership_params)
+    if @membership.save
+      render "api/channels/show"
+    else
+      render json: @membership.errors.full_messages, status: 422
+    end
   end
 
   def destroy

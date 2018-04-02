@@ -61,10 +61,10 @@ class ChannelForm extends React.Component {
             <h1 className="new-channel-title">Create a channel</h1>
           </div>
           <div className="channel-description-container">
-            <p1 className="new-channel-description">
+            <p className="new-channel-description">
               Channels are where your members communicate. They&apos;re best
               when organized around a topic -- #leads, for example.
-            </p1>
+            </p>
           </div>
           <form onSubmit={this.handleSubmit}>
             <input

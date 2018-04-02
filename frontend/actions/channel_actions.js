@@ -1,5 +1,4 @@
 import * as channelApiUtil from "../util/channel_api_util";
-import * as membershipApiUtil from "../util/membership_api_util";
 
 export const RECEIVE_ALL_CHANNELS = "RECEIVE_ALL_CHANNELS";
 export const RECEIVE_CHANNEL = "RECEIVE_CHANNEL";
