@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createMembership: channel => dispatch(createMembership(channel)),
+    createMembership: membership => dispatch(createMembership(membership)),
     fetchChannels: channel => dispatch(fetchChannels(channel)),
     clearErrors: () => dispatch(clearErrors())
   };

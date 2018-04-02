@@ -1,6 +1,6 @@
 import React from "react";
 
-function ChannelIndexItem({ channel }) {
+function ChannelIndexItem({ channel, user }) {
   return <li className="channel-search-li">{channel.topic}</li>;
 }
 
