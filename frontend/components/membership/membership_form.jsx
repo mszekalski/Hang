@@ -7,24 +7,14 @@ import ChannelIndex from "./channel_index";
 class MembershipForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+
     // this.hide = this.hide.bind(this);
-    // let newMembership = { channel_id: null, user_id: this.user.id };
-    // this.state = newMembership;
   }
 
   // update(field) {
   //   return e => {
   //     this.setState({ [field]: e.target.value });
   //   };
-  // }
-
-  // handleSubmit(e) {
-  //   e.preventDefault();
-  //   this.props.createMembership(this.state).then(payload => {
-  //     this.hide();
-  //     this.props.history.push(`/home/${payload.channel_id}`);
-  //   });
   // }
 
   // renderChannelErrors() {
@@ -59,7 +49,12 @@ class MembershipForm extends React.Component {
   render() {
     return (
       <div id="membership-form-container" className="hidden">
-        <ChannelIndex channels={this.props.channels} user={this.props.user} />
+        <ChannelIndex
+          channels={this.props.channels}
+          user={this.props.user}
+          createMembership={this.props.createMembership}
+          hide={this.hide}
+        />
         <input
           className="cancel-button"
           type="button"
