@@ -18,6 +18,7 @@ class ChannelIndex extends React.Component {
                 user={this.props.user}
                 createMembership={this.props.createMembership}
                 hide={this.props.hide}
+                history={this.props.history}
               />
             );
           }

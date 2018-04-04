@@ -11,6 +11,11 @@ class Sidebar extends React.Component {
     this.props.fetchChannels();
   }
 
+  componentWillReceiveProps(newProps) {
+    // this.scrollToBottom(document.getElementById("chat-logs"));
+    this.setState({ channels: newProps.channels });
+  }
+
   renderChannels() {
     return this.props.channels.map(channel => {
       if (channel.member_ids.includes(this.props.user.id)) {

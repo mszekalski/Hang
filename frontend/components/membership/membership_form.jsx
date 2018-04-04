@@ -54,6 +54,7 @@ class MembershipForm extends React.Component {
           user={this.props.user}
           createMembership={this.props.createMembership}
           hide={this.hide}
+          history={this.props.history}
         />
         <input
           className="cancel-button"
