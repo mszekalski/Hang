@@ -1,4 +1,5 @@
 import * as membershipApiUtil from "../util/membership_api_util";
+import { receiveChannel } from "./channel_actions";
 
 export const RECEIVE_ALL_MEMBERSHIPS = "RECEIVE_ALL_MEMBERSHIPS";
 export const RECEIVE_MEMBERSHIP = "RECEIVE_MEMBERSHIP";
@@ -51,7 +52,7 @@ export const fetchMembership = id => dispatch => {
 
 export const createMembership = membership => dispatch =>
   membershipApiUtil.createMembership(membership).then(
-    membership => dispatch(receiveMembership(membership)),
+    membership => dispatch(receiveChannel(membership)),
     err => {
       return dispatch(receiveErrors(err.responseJSON));
     }

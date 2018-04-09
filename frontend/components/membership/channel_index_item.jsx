@@ -15,7 +15,7 @@ class ChannelIndexItem extends React.Component {
     e.preventDefault();
     this.props.createMembership(this.state).then(payload => {
       this.props.hide();
-      this.props.history.push(`/home/${payload.membership.id}`);
+      this.props.history.push(`/home/${payload.channel.id}`);
     });
   }
 
