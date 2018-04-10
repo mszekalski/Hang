@@ -30,17 +30,33 @@
   color: #2c2d30;
   font-weight: bold;
 }
+
 .channel-index-list-div {
   border-right: 0.25rem solid transparent;
   overflow-y: scroll;
   min-height: 0;
   padding-right: 17px;
   flex: 1;
+  box-sizing: border-box;
 }
 
 .channel-index-list {
   position: relative;
-  height: 5987px;
+  display: block;
+  box-sizing: border-box;
+  height: 5000px;
+}
+
+.channel-index-list-header {
+  color: #717274;
+  font-size: 14px;
+  width: inherit;
+  font-weight: 700;
+  background: #f9f9f9;
+  border-radius: 4px 4px 0 0;
+  padding: 4px 0 4px 12px;
+  top: 0px;
+  line-height: 1.5rem;
 }
 
 .channel-search-li {

@@ -10,6 +10,7 @@ class ChannelIndex extends React.Component {
     return (
       <div className="channel-index-list-div">
         <div className="channel-index-list">
+          <div className="channel-index-list-header">Channels you can join</div>
           {this.props.channels.map(channel => {
             if (!channel.member_ids.includes(this.props.user.id)) {
               return (
