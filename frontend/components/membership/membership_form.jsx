@@ -49,19 +49,23 @@ class MembershipForm extends React.Component {
   render() {
     return (
       <div id="membership-form-container" className="hidden">
-        <ChannelIndex
-          channels={this.props.channels}
-          user={this.props.user}
-          createMembership={this.props.createMembership}
-          hide={this.hide}
-          history={this.props.history}
-        />
-        <input
-          className="cancel-button"
-          type="button"
-          value="Cancel"
-          onClick={this.hide}
-        />
+        <div className="content-container">
+          <div className="channel-browser">
+            <ChannelIndex
+              channels={this.props.channels}
+              user={this.props.user}
+              createMembership={this.props.createMembership}
+              hide={this.hide}
+              history={this.props.history}
+            />
+            <input
+              className="cancel-button"
+              type="button"
+              value="Cancel"
+              onClick={this.hide}
+            />
+          </div>
+        </div>
       </div>
     );
   }

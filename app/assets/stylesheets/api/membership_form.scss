@@ -1,0 +1,33 @@
+.content-container {
+  padding: 0 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  position: absolute;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.channel-browser {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.channel-search-li {
+  width: 100%;
+  min-height: 60px;
+  color: #717274;
+  cursor: pointer;
+  line-height: 1.46668;
+  border: 1px solid transparent;
+  border-top: 1px solid #e8e8e8;
+  padding-right: 5rem;
+  padding-left: calc(12px - 1px);
+  padding-top: calc(12px - 1px);
+  padding-bottom: calc(16px - 1px);
+}
