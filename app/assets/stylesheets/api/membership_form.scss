@@ -31,3 +31,9 @@
   padding-top: calc(12px - 1px);
   padding-bottom: calc(16px - 1px);
 }
+
+.channel-search-li:hover {
+  background: #eaf5fc;
+  border-radius: 6px;
+  border: 1px solid #cbe7f7;
+}
