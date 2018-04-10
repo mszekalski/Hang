@@ -21,9 +21,9 @@ class ChannelIndexItem extends React.Component {
 
   render() {
     return (
-      <li className="channel-search-li" onClick={this.handleClick}>
+      <div className="channel-search-li" onClick={this.handleClick}>
         {this.props.channel.topic}
-      </li>
+      </div>
     );
   }
 }

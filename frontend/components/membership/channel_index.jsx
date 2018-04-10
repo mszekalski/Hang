@@ -8,22 +8,24 @@ class ChannelIndex extends React.Component {
 
   render() {
     return (
-      <ul className="channel-index-list">
-        {this.props.channels.map(channel => {
-          if (!channel.member_ids.includes(this.props.user.id)) {
-            return (
-              <ChannelIndexItem
-                channel={channel}
-                key={channel.id}
-                user={this.props.user}
-                createMembership={this.props.createMembership}
-                hide={this.props.hide}
-                history={this.props.history}
-              />
-            );
-          }
-        })}
-      </ul>
+      <div className="channel-index-list-div">
+        <div className="channel-index-list">
+          {this.props.channels.map(channel => {
+            if (!channel.member_ids.includes(this.props.user.id)) {
+              return (
+                <ChannelIndexItem
+                  channel={channel}
+                  key={channel.id}
+                  user={this.props.user}
+                  createMembership={this.props.createMembership}
+                  hide={this.props.hide}
+                  history={this.props.history}
+                />
+              );
+            }
+          })}
+        </div>
+      </div>
     );
   }
 }
