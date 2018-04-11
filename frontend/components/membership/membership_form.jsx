@@ -49,14 +49,14 @@ class MembershipForm extends React.Component {
   render() {
     return (
       <div id="membership-form-container" className="hidden">
-        <input
-          className="cancel-button"
-          type="button"
-          value="Cancel"
-          onClick={this.hide}
-        />
         <div className="content-container">
           <div className="membership-contents">
+            <input
+              className="cancel-button-membership"
+              type="button"
+              value="X"
+              onClick={this.hide}
+            />
             <div className="channel-browser">
               <div className="membership-header">Browse channels</div>
               <ChannelIndex

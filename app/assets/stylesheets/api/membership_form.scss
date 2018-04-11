@@ -80,3 +80,33 @@
   border-radius: 6px;
   border: 1px solid #cbe7f7;
 }
+
+.cancel-button-membership {
+  position: absolute;
+  color: #717274;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100%;
+  cursor: pointer;
+  right: 4rem;
+  z-index: 1;
+  top: 4rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  outline: none;
+  line-height: 1.5rem;
+}
+
+.cancel-button-membership:hover {
+  color: #2c2d30;
+  background: #e8e8e8;
+  outline: none;
+  border: none;
+}
+.cancel-button-membership:active {
+  color: #fff;
+  background: #2ea664;
+  outline: none;
+  border: none;
+}
