@@ -38,6 +38,8 @@ class MembershipForm extends React.Component {
     //   channel_id: null,
     //   user_id: this.user.id
     // });
+    this.setState({ membershipSearch: "" });
+
     document
       .getElementById("membership-form-container")
       .classList.add("hidden");
@@ -51,19 +53,17 @@ class MembershipForm extends React.Component {
       <div id="membership-form-container" className="hidden">
         <div className="content-container">
           <div className="membership-contents">
-            <input
-              className="cancel-button-membership"
-              type="button"
-              value="X"
-              onClick={this.hide}
-            />
+            <button className="cancel-button-membership" onClick={this.hide}>
+              <span className="membership-x">X</span>
+              <span className="esc">esc</span>
+            </button>
             <div className="channel-browser">
               <div className="membership-header">Browse channels</div>
               <input
                 className="search-membership"
                 type="text"
                 onChange={this.update("membershipSearch")}
-                value={this.state.search}
+                value={this.state.membershipSearch}
               />
               <ChannelIndex
                 channels={this.props.channels}
@@ -80,5 +80,12 @@ class MembershipForm extends React.Component {
     );
   }
 }
+
+// <input
+//   className="cancel-button-membership"
+//   type="button"
+//   value="X"
+//   onClick={this.hide}
+// />
 
 export default withRouter(MembershipForm);
