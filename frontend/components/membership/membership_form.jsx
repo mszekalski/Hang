@@ -7,15 +7,15 @@ import ChannelIndex from "./channel_index";
 class MembershipForm extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.hide = this.hide.bind(this);
+    this.state = { membershipSearch: "" };
+    this.hide = this.hide.bind(this);
   }
 
-  // update(field) {
-  //   return e => {
-  //     this.setState({ [field]: e.target.value });
-  //   };
-  // }
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
 
   // renderChannelErrors() {
   //   if (this.props.errors.length > 0) {
@@ -59,12 +59,19 @@ class MembershipForm extends React.Component {
             />
             <div className="channel-browser">
               <div className="membership-header">Browse channels</div>
+              <input
+                className="search-membership"
+                type="text"
+                onChange={this.update("membershipSearch")}
+                value={this.state.search}
+              />
               <ChannelIndex
                 channels={this.props.channels}
                 user={this.props.user}
                 createMembership={this.props.createMembership}
                 hide={this.hide}
                 history={this.props.history}
+                search={this.state.membershipSearch}
               />
             </div>
           </div>
