@@ -22,7 +22,7 @@ class ChannelIndexItem extends React.Component {
   render() {
     return (
       <div className="channel-search-li" onClick={this.handleClick}>
-        {this.props.channel.topic}
+        # {this.props.channel.topic}
       </div>
     );
   }
