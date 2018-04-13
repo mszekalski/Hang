@@ -59,12 +59,17 @@ class MembershipForm extends React.Component {
             </button>
             <div className="channel-browser">
               <div className="membership-header">Browse channels</div>
-              <input
-                className="search-membership"
-                type="text"
-                onChange={this.update("membershipSearch")}
-                value={this.state.membershipSearch}
-              />
+              <div className="search-membership-container">
+                <div className="inner-membership-container">
+                  <input
+                    className="search-membership"
+                    type="text"
+                    onChange={this.update("membershipSearch")}
+                    value={this.state.membershipSearch}
+                    placeholder="Search channels"
+                  />
+                </div>
+              </div>
               <ChannelIndex
                 channels={this.props.channels}
                 user={this.props.user}

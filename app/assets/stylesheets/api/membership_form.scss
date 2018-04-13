@@ -31,7 +31,45 @@
   font-weight: bold;
 }
 
+.search-membership-container {
+  line-height: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem !important;
+}
+
+.inner-membership-container {
+  width: 100%;
+  position: relative;
+  flex: 1;
+  line-height: 1.5rem;
+  user-select: none;
+}
+
 .search-membership {
+  width: -webkit-fill-available;
+  padding: 0.45rem 0.75rem 0.55rem;
+  .line-height: normal;
+  border: 1px solid #a0a0a2;
+  color: #2c2d30;
+  margin: 0 0 0.5rem;
+  height: auto;
+  border-radius: 0.25rem;
+  vertical-align: middle;
+  background: #fff;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+.search-membership:active {
+  border-color: #717274;
+  outline: none;
+}
+
+.search-membership:focus {
+  border-color: #717274;
+  outline: none;
 }
 
 .channel-index-list-div {
