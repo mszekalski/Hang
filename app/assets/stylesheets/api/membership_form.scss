@@ -54,12 +54,20 @@
   border: 1px solid #a0a0a2;
   color: #2c2d30;
   margin: 0 0 0.5rem;
-  height: auto;
+  height: 19px;
   border-radius: 0.25rem;
   vertical-align: middle;
   background: #fff;
   font-size: 1rem;
   box-shadow: none;
+  padding-left: 2.5rem;
+  padding-top: 0.65rem;
+  padding-right: 12px;
+}
+
+.search-membership::placeholder {
+  color: #a0a0a2;
+  opacity: 3;
 }
 
 .search-membership:active {
