@@ -13,10 +13,17 @@ class ChannelIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.createMembership(this.state).then(payload => {
+
+    if (!this.props.channel.member_ids.includes(this.props.user.id)) {
+      this.props.createMembership(this.state).then(payload => {
+        this.props.hide();
+        this.props.history.push(`/home/${payload.channel.id}`);
+      });
+    } else {
+      this.props.receiveChannel(this.props.channel);
       this.props.hide();
-      this.props.history.push(`/home/${payload.channel.id}`);
-    });
+      this.props.history.push(`/home/${this.props.channel.id}`);
+    }
   }
 
   render() {

@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { fetchChannels } from "../../actions/channel_actions.js";
+import {
+  fetchChannels,
+  receiveChannel
+} from "../../actions/channel_actions.js";
 import {
   createMembership,
   fetchMembership,
@@ -18,6 +21,7 @@ const mapDispatchToProps = dispatch => {
   return {
     createMembership: membership => dispatch(createMembership(membership)),
     fetchChannels: channel => dispatch(fetchChannels(channel)),
+    receiveChannel: channel => dispatch(receiveChannel(channel)),
     clearErrors: () => dispatch(clearErrors())
   };
 };

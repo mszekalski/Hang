@@ -74,6 +74,7 @@ class MembershipForm extends React.Component {
                 channels={this.props.channels}
                 user={this.props.user}
                 createMembership={this.props.createMembership}
+                receiveChannel={this.props.receiveChannel}
                 hide={this.hide}
                 history={this.props.history}
                 search={this.state.membershipSearch}

@@ -30,6 +30,28 @@ class ChannelIndex extends React.Component {
               );
             }
           })}
+          <div className="channel-index-list-header">
+            Channels you belong to
+          </div>
+          {this.props.channels.map(channel => {
+            if (
+              channel.member_ids.includes(this.props.user.id) &&
+              channel.topic
+                .toLowerCase()
+                .includes(this.props.search.toLowerCase())
+            ) {
+              return (
+                <ChannelIndexItem
+                  channel={channel}
+                  key={channel.id}
+                  user={this.props.user}
+                  hide={this.props.hide}
+                  history={this.props.history}
+                  receiveChannel={this.props.receiveChannel}
+                />
+              );
+            }
+          })}
         </div>
       </div>
     );
