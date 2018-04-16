@@ -10,6 +10,12 @@ class InfoSidebar extends React.Component {
       .classList.add("info-hidden");
   }
 
+  dropdown() {
+    document
+      .getElementById("channel-details-dropdown")
+      .classList.toggle("channel-detials-show");
+  }
+
   render() {
     return (
       <div id="info-sidebar-container" className="info-hidden">
@@ -18,7 +24,12 @@ class InfoSidebar extends React.Component {
             About #{this.props.currentChannel.topic}
           </div>
           <button className="cancel-button-info" onClick={this.hide}>
-            <span className="membership-x">X</span>
+            <div className="info-x">x</div>
+          </button>
+        </div>
+        <div className="channel-details-dropdown">
+          <button onClick={this.dropdown} className="channel-details-button">
+            <i className="fas fa-info-circle" />Channel Detials
           </button>
         </div>
       </div>

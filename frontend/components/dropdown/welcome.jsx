@@ -3,7 +3,7 @@ import WelcomeContainer from "./welcome_container";
 
 class Welcome extends React.Component {
   dropdown() {
-    document.getElementById("profileDropdown").classList.toggle("show");
+    document.getElementById("profile-dropdown").classList.toggle("show");
   }
 
   // window.onClick = function(event) {
@@ -36,7 +36,7 @@ class Welcome extends React.Component {
             {this.props.user.username}
           </div>
         </button>
-        <div id="profileDropdown" className="dropdown-content">
+        <div id="profile-dropdown" className="dropdown-content">
           <div className="logout-button-div">
             <button className="logout-button" onClick={this.props.logout}>
               Logout

@@ -26,8 +26,37 @@
 .info-header-title {
   font-weight: 700;
   font-size: 19px;
-  height: 22px;
+  height: 31px;
   text-overflow: ellipsis;
   margin-left: 10px;
   white-space: nowrap;
+}
+
+.cancel-button-info {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  color: #717274;
+  white-space: nowrap;
+  margin-right: 3px;
+}
+
+.cancel-button-info:hover {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #005e99;
+}
+
+.cancel-button-info:focus {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #005e99;
 }
