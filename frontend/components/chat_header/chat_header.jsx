@@ -8,7 +8,9 @@ class ChatHeader extends React.Component {
     document
       .getElementById("info-sidebar-container")
       .classList.remove("info-hidden");
-    document.getElementById("info-sidebar").classList.add("display-info");
+    document
+      .getElementById("info-sidebar-container")
+      .classList.add("display-info");
   }
 
   render() {
@@ -18,6 +20,10 @@ class ChatHeader extends React.Component {
           #
           {this.props.currentChannel.topic}
         </h1>
+
+        <div className="info-button" onClick={this.renderInfoSidebar}>
+          <i class="fas fa-info-circle" />
+        </div>
       </div>
     );
   }

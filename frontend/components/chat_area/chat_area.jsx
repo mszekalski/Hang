@@ -6,6 +6,7 @@ import ChatFormContainer from "../chat_form/chat_form_container.js";
 import ChatIndexContainer from "../chat_index/chat_index_container.js";
 import ChatHeaderContainer from "../chat_header/chat_header_container.js";
 import SidebarContainer from "../sidebar/sidebar_container";
+import InfoSidebarContainer from "../info_sidebar/info_sidebar_container";
 
 class ChatArea extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class ChatArea extends React.Component {
         <div className="chat-area">
           <ChatHeaderContainer />
           <div className="chat-body">
+            <InfoSidebarContainer />
             <ChatIndexContainer />
             <ChatFormContainer />
           </div>
