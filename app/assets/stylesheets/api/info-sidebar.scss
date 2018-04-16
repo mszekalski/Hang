@@ -1,0 +1,16 @@
+.info-hidden {
+  display: none;
+}
+
+.display-info {
+  z-index: 1;
+  position: fixed;
+  right: 0;
+  width: 50px;
+  height: 100vh;
+  background-color: white;
+  overflow-y: hidden;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
