@@ -29,7 +29,7 @@ class InfoSidebar extends React.Component {
         </div>
         <div className="channel-details-dropdown">
           <button onClick={this.dropdown} className="channel-details-button">
-            <i className="fas fa-info-circle" />Channel Detials
+            <i className="fas fa-info-circle" />Channel Detials &#x25BE;
           </button>
         </div>
       </div>

@@ -60,3 +60,23 @@
   cursor: pointer;
   color: #005e99;
 }
+
+.channel-details-dropdown {
+  position: relative;
+  border-bottom: 0.0625rem solid #e8e8e8;
+  background: #fff;
+  height: 60px;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.channel-details-button {
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
