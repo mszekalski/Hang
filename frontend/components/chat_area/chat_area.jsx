@@ -16,9 +16,13 @@ class ChatArea extends React.Component {
         <div className="chat-area">
           <ChatHeaderContainer />
           <div className="chat-body">
-            <InfoSidebarContainer />
-            <ChatIndexContainer />
-            <ChatFormContainer />
+            <div className="chat-container">
+              <ChatIndexContainer />
+              <ChatFormContainer />
+            </div>
+            <div className="channel-details">
+              <InfoSidebarContainer />
+            </div>
           </div>
         </div>
       </div>
