@@ -100,3 +100,19 @@
   outline: none;
   cursor: pointer;
 }
+
+.members-index-list-div {
+  display: none;
+  position: relative;
+  border-bottom: 0.0625rem solid #e8e8e8;
+  background: #fff;
+  height: 60px;
+
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.members-list-show {
+  display: block;
+}

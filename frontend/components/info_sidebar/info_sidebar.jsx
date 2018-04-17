@@ -1,4 +1,5 @@
 import React from "react";
+import MembersIndex from "./members_index";
 
 class InfoSidebar extends React.Component {
   constructor(props) {
@@ -16,8 +17,8 @@ class InfoSidebar extends React.Component {
 
   dropdown() {
     document
-      .getElementById("channel-details-dropdown")
-      .classList.toggle("channel-detials-show");
+      .getElementById("members-list-index")
+      .classList.toggle("members-list-show");
   }
 
   renderMembersIndexButton() {
@@ -56,6 +57,12 @@ class InfoSidebar extends React.Component {
         </div>
         <div className="channel-members-dropdown">
           {this.renderMembersIndexButton()}
+        </div>
+        <div id="members-list-index" className="members-index-list-div">
+          <MembersIndex
+            users={this.props.users}
+            currentChannel={this.props.currentChannel}
+          />
         </div>
       </div>
     );
