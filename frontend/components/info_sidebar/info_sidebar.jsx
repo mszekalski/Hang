@@ -1,6 +1,10 @@
 import React from "react";
 
 class InfoSidebar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   hide() {
     document
       .getElementById("info-sidebar-container")
@@ -16,6 +20,24 @@ class InfoSidebar extends React.Component {
       .classList.toggle("channel-detials-show");
   }
 
+  renderMembersIndexButton() {
+    if (this.props.currentChannel.member_ids.length > 1) {
+      return (
+        <button onClick={this.dropdown} className="channel-members-button">
+          <i className="fas fa-user" />
+          {this.props.currentChannel.member_ids.length} Members &#x25BE;
+        </button>
+      );
+    } else {
+      return (
+        <button onClick={this.dropdown} className="channel-members-button">
+          <i className="fas fa-user" />
+          {this.props.currentChannel.member_ids.length} Member &#x25BE;
+        </button>
+      );
+    }
+  }
+
   render() {
     return (
       <div id="info-sidebar-container" className="info-hidden">
@@ -29,14 +51,11 @@ class InfoSidebar extends React.Component {
         </div>
         <div className="channel-details-dropdown">
           <button onClick={this.dropdown} className="channel-details-button">
-            <i className="fas fa-info-circle" />Channel Detials &#x25BE;
+            <i className="fas fa-info-circle" />Channel Details &#x25BE;
           </button>
         </div>
         <div className="channel-members-dropdown">
-          <button onClick={this.dropdown} className="channel-members-button">
-            <i className="fas fa-user" />
-            {} Members &#x25BE;
-          </button>
+          {this.renderMembersIndexButton()}
         </div>
       </div>
     );

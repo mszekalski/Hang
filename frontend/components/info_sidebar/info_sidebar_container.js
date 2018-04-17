@@ -5,7 +5,9 @@ import InfoSidebar from "./info_sidebar";
 
 const mapStateToProps = state => {
   return {
-    currentChannel: state.channels[state.ui.currentChannel] || {},
+    currentChannel: state.channels[state.ui.currentChannel] || {
+      member_ids: []
+    },
     users: Object.values(state.users)
   };
 };
