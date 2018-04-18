@@ -9,7 +9,11 @@ class MembersIndex extends React.Component {
   render() {
     return this.props.currentChannel.member_ids.map(memberId => {
       return (
-        <MembersIndexItem key={memberId} member={this.props.users[memberId]} />
+        <MembersIndexItem
+          key={memberId}
+          member={this.props.users[memberId]}
+          currentUser={this.props.currentUser}
+        />
       );
     });
   }

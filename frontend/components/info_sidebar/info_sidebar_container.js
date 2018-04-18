@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     currentChannel: state.channels[state.ui.currentChannel] || {
       member_ids: []
     },
-    users: state.users
+    users: state.users,
+    currentUser: state.session.currentUser
   };
 };
 

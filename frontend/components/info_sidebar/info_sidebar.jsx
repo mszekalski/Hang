@@ -1,9 +1,11 @@
 import React from "react";
 import MembersIndex from "./members_index";
+import ChannelDetails from "./channel_details";
 
 class InfoSidebar extends React.Component {
   constructor(props) {
     super(props);
+    this.stop = this.stop.bind(this);
   }
 
   hide() {
@@ -15,25 +17,45 @@ class InfoSidebar extends React.Component {
       .classList.add("info-hidden");
   }
 
-  dropdown() {
-    document
-      .getElementById("members-list-index")
-      .classList.toggle("members-list-show");
+  dropdown(e) {
+    if (e.currentTarget.className === "channel-members-button") {
+      document
+        .getElementById("members-list-index")
+        .classList.toggle("members-list-show");
+    } else if (e.currentTarget.className === "channel-details-button") {
+      document
+        .getElementById("channel-details-dropdown-id")
+        .classList.toggle("channel-detials-show");
+    }
+  }
+
+  stop(e) {
+    e.stopPropagation();
   }
 
   renderMembersIndexButton() {
     if (this.props.currentChannel.member_ids.length > 1) {
       return (
         <button onClick={this.dropdown} className="channel-members-button">
-          <i className="fas fa-user" />
-          {this.props.currentChannel.member_ids.length} Members &#x25BE;
+          <div className="channel-members-button-content">
+            <i className="fas fa-user" />
+            <div className="channel-members-button-text">
+              {this.props.currentChannel.member_ids.length} Members
+            </div>
+            <div className="members-arrow">&#x25BE;</div>
+          </div>
         </button>
       );
     } else {
       return (
         <button onClick={this.dropdown} className="channel-members-button">
-          <i className="fas fa-user" />
-          {this.props.currentChannel.member_ids.length} Member &#x25BE;
+          <div className="channel-members-button-content">
+            <i className="fas fa-user" />
+            <div className="channel-members-button-text">
+              {this.props.currentChannel.member_ids.length} Member
+            </div>
+            <div className="members-arrow">&#x25BE;</div>
+          </div>
         </button>
       );
     }
@@ -54,15 +76,23 @@ class InfoSidebar extends React.Component {
           <button onClick={this.dropdown} className="channel-details-button">
             <i className="fas fa-info-circle" />Channel Details &#x25BE;
           </button>
+          <div
+            id="channel-details-dropdown-id"
+            className="channel-details-dropdown-div"
+          >
+            <ChannelDetails currentChannel={this.props.currentChannel} />
+          </div>
         </div>
+
         <div className="channel-members-dropdown">
           {this.renderMembersIndexButton()}
-        </div>
-        <div id="members-list-index" className="members-index-list-div">
-          <MembersIndex
-            users={this.props.users}
-            currentChannel={this.props.currentChannel}
-          />
+          <div id="members-list-index" className="members-index-list-div">
+            <MembersIndex
+              users={this.props.users}
+              currentChannel={this.props.currentChannel}
+              currentUser={this.props.currentUser}
+            />
+          </div>
         </div>
       </div>
     );
