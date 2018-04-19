@@ -72,17 +72,6 @@ class InfoSidebar extends React.Component {
             <div className="info-x">x</div>
           </button>
         </div>
-        <div className="channel-details-dropdown">
-          <button onClick={this.dropdown} className="channel-details-button">
-            <i className="fas fa-info-circle" />Channel Details &#x25BE;
-          </button>
-          <div
-            id="channel-details-dropdown-id"
-            className="channel-details-dropdown-div"
-          >
-            <ChannelDetails currentChannel={this.props.currentChannel} />
-          </div>
-        </div>
 
         <div className="channel-members-dropdown">
           {this.renderMembersIndexButton()}
@@ -100,3 +89,15 @@ class InfoSidebar extends React.Component {
 }
 
 export default InfoSidebar;
+
+// <div className="channel-details-dropdown">
+//   <button onClick={this.dropdown} className="channel-details-button">
+//     <i className="fas fa-info-circle" />Channel Details &#x25BE;
+//   </button>
+//   <div
+//     id="channel-details-dropdown-id"
+//     className="channel-details-dropdown-div"
+//   >
+//     <ChannelDetails currentChannel={this.props.currentChannel} />
+//   </div>
+// </div>
