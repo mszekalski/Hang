@@ -15,11 +15,16 @@ class ChannelForm extends React.Component {
       private: false
     };
     this.state = newChannel;
+    this.update = this.update.bind(this);
   }
 
   update(field) {
     return e => {
-      this.setState({ [field]: e.target.value });
+      if (e.target.type === "checkbox") {
+        this.setState({ private: e.target.checked });
+      } else {
+        this.setState({ [field]: e.target.value });
+      }
     };
   }
 
@@ -76,7 +81,11 @@ class ChannelForm extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit}>
             <label className="switch">
-              <input type="checkbox" onChange={this.update("private")} />
+              <input
+                type="checkbox"
+                checked={this.state.private}
+                onClick={this.update()}
+              />
               <span className="slider round" />
             </label>
 
