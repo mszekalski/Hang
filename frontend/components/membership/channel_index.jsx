@@ -50,7 +50,8 @@ class ChannelIndex extends React.Component {
         !this.props.channels[i].member_ids.includes(this.props.user.id) &&
         this.props.channels[i].topic
           .toLowerCase()
-          .includes(this.props.search.toLowerCase())
+          .includes(this.props.search.toLowerCase()) &&
+        this.props.channels[i].private === false
       ) {
         return (
           <div className="top-membership-search-div">
@@ -62,7 +63,8 @@ class ChannelIndex extends React.Component {
                 !channel.member_ids.includes(this.props.user.id) &&
                 channel.topic
                   .toLowerCase()
-                  .includes(this.props.search.toLowerCase())
+                  .includes(this.props.search.toLowerCase()) &&
+                channel.private === false
               ) {
                 return (
                   <ChannelIndexItem
