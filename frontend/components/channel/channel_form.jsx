@@ -8,7 +8,12 @@ class ChannelForm extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hide = this.hide.bind(this);
-    let newChannel = { topic: "" };
+    let newChannel = {
+      topic: "",
+      purpose: "",
+      creator_id: this.props.currentUser.id,
+      private: false
+    };
     this.state = newChannel;
   }
 
@@ -44,10 +49,13 @@ class ChannelForm extends React.Component {
 
   hide() {
     this.setState({
-      topic: ""
+      topic: "",
+      purpose: "",
+      private: false
     });
     document.getElementById("channel-form-container").classList.add("hidden");
     document.getElementById("channel-name-id").value = "";
+    document.getElementById("channel-purpose-id").value = "";
     if (this.props.errors.length > 0) {
       this.props.clearErrors();
     }
@@ -74,6 +82,14 @@ class ChannelForm extends React.Component {
               value={this.state.topic}
               onChange={this.update("topic")}
               placeholder="e.g leads"
+            />
+
+            <input
+              id="channel-purpose-id"
+              className="channel-purpose-input"
+              type="text"
+              value={this.state.purpose}
+              onChange={this.update("purpose")}
             />
 
             <footer className="channel-form-footer">

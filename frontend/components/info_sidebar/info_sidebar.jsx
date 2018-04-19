@@ -5,7 +5,6 @@ import ChannelDetails from "./channel_details";
 class InfoSidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.stop = this.stop.bind(this);
   }
 
   hide() {
@@ -27,10 +26,6 @@ class InfoSidebar extends React.Component {
         .getElementById("channel-details-dropdown-id")
         .classList.toggle("channel-detials-show");
     }
-  }
-
-  stop(e) {
-    e.stopPropagation();
   }
 
   renderMembersIndexButton() {

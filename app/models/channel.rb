@@ -6,7 +6,7 @@ class Channel < ApplicationRecord
   has_many :memberships
 
   belongs_to :creator,
-  class: User,
+  class_name: User,
   foreign_key: :creator_id
 
   has_many :members,

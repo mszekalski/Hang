@@ -9,7 +9,8 @@ import ChannelForm from "./channel_form";
 
 const mapStateToProps = state => {
   return {
-    errors: state.errors.channel
+    errors: state.errors.channel,
+    currentUser: state.session.currentUser
   };
 };
 

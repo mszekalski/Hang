@@ -35,7 +35,7 @@ class Api::ChannelsController < ApplicationController
 
   private
     def channel_params
-      params.require(:channel).permit(:topic, :purpose, :private, :creator)
+      params.require(:channel).permit(:topic, :purpose, :private, :creator_id)
     end
 
     def membership_params
