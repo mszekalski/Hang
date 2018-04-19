@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111163054) do
+ActiveRecord::Schema.define(version: 20180419164533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20180111163054) do
     t.string "topic", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "creator"
+    t.string "purpose"
+    t.boolean "private"
   end
 
   create_table "chat_messages", force: :cascade do |t|
