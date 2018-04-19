@@ -5,6 +5,7 @@ class Api::ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
+    @channel.creator_id = current_user.id
     if @channel.save
       Membership.create(user_id: current_user.id, channel_id: @channel.id)
       render "api/channels/show"
@@ -25,7 +26,7 @@ class Api::ChannelsController < ApplicationController
 
   def show
     @channel = Channel.find(params[:id])
-  
+
   end
 
   def destroy
@@ -34,7 +35,7 @@ class Api::ChannelsController < ApplicationController
 
   private
     def channel_params
-      params.require(:channel).permit(:topic)
+      params.require(:channel).permit(:topic, :purpose, :private, :creator)
     end
 
     def membership_params

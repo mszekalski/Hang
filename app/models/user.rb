@@ -13,6 +13,10 @@ class User < ApplicationRecord
   through: :memberships,
   source: :channel
 
+  has_many :created_channels,
+  class: Channel,
+  foreign_key: creator_id
+
 
 
 

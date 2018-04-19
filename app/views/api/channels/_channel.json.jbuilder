@@ -1,3 +1,3 @@
 
 
-json.extract! channel, :topic, :id, :member_ids, :created_at
+json.extract! channel, :topic, :purpose, :id, :member_ids, :created_at, :creator, :private
