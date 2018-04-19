@@ -76,7 +76,7 @@ class ChannelForm extends React.Component {
           </div>
           <form onSubmit={this.handleSubmit}>
             <label className="switch">
-              <input type="checkbox" />
+              <input type="checkbox" onChange={this.update("private")} />
               <span className="slider round" />
             </label>
 
