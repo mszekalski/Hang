@@ -75,6 +75,11 @@ class ChannelForm extends React.Component {
             </p>
           </div>
           <form onSubmit={this.handleSubmit}>
+            <label className="switch">
+              <input type="checkbox" />
+              <span className="slider round" />
+            </label>
+
             <input
               id="channel-name-id"
               className="channel-name-input"
