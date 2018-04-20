@@ -88,6 +88,10 @@ class ChannelForm extends React.Component {
         <div className="channel-form">
           <div className="new-channel-title-container">
             <h1 className="new-channel-title">{this.renderHeader()}</h1>
+            <button className="cancel-button-membership" onClick={this.hide}>
+              <span className="membership-x">X</span>
+              <span className="esc">esc</span>
+            </button>
           </div>
           <div className="channel-description-container">
             <p className="new-channel-description">
@@ -96,15 +100,19 @@ class ChannelForm extends React.Component {
             </p>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <label className="switch">
-              <input
-                type="checkbox"
-                checked={this.state.private}
-                onClick={this.update()}
-              />
-              <span className="slider round" />
-            </label>
+            <div className="slider-div">
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={this.state.private}
+                  onClick={this.update()}
+                />
+                <span className="slider round" />
+              </label>
+              {this.renderSliderText()}
+            </div>
 
+            <div>Name</div>
             <input
               id="channel-name-id"
               className="channel-name-input"
@@ -113,7 +121,7 @@ class ChannelForm extends React.Component {
               onChange={this.update("topic")}
               placeholder="e.g leads"
             />
-
+            <div>Purpose(optional)</div>
             <input
               id="channel-purpose-id"
               className="channel-purpose-input"
@@ -121,6 +129,7 @@ class ChannelForm extends React.Component {
               value={this.state.purpose}
               onChange={this.update("purpose")}
             />
+            <div>What's this channel about?</div>
 
             <footer className="channel-form-footer">
               {this.renderChannelErrors()}
