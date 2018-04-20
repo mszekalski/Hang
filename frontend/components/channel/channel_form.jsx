@@ -28,6 +28,22 @@ class ChannelForm extends React.Component {
     };
   }
 
+  renderHeader() {
+    if (this.state.private === false) {
+      return "Create a channel";
+    } else {
+      return "Create a private channel";
+    }
+  }
+
+  renderSliderText() {
+    if (this.state.private === false) {
+      return "Anyone in your workspace can view this channel";
+    } else {
+      return "This channel can only be joined or viewed by invite";
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.createChannel(this.state).then(payload => {
@@ -71,7 +87,7 @@ class ChannelForm extends React.Component {
       <div id="channel-form-container" className="hidden">
         <div className="channel-form">
           <div className="new-channel-title-container">
-            <h1 className="new-channel-title">Create a channel</h1>
+            <h1 className="new-channel-title">{this.renderHeader()}</h1>
           </div>
           <div className="channel-description-container">
             <p className="new-channel-description">
