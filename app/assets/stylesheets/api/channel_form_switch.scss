@@ -74,3 +74,10 @@ input:checked + .slider:before {
   color: #717274;
   font-weight: 400;
 }
+
+.slider-text {
+  margin-left: 8px;
+  line-height: 2.3;
+  font-size: 1rem;
+  color: #2c2d30;
+}

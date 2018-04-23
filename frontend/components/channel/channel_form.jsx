@@ -123,7 +123,7 @@ class ChannelForm extends React.Component {
                 />
                 <span className="slider round" />
               </label>
-              {this.renderSliderText()}
+              <div className="slider-text">{this.renderSliderText()}</div>
             </div>
 
             <div className="channel-form-input-label">Name</div>
@@ -137,6 +137,10 @@ class ChannelForm extends React.Component {
                 onChange={this.update("topic")}
                 placeholder="e.g leads"
               />
+              <div className="channel-form-name-footer">
+                Names must be lowercase, without spaces or periods, and shoreter
+                than 22 characters
+              </div>
             </div>
             <div className="channel-form-input-label">
               Purpose<div className="channel-form-optional">(optional)</div>
@@ -149,7 +153,9 @@ class ChannelForm extends React.Component {
                 value={this.state.purpose}
                 onChange={this.update("purpose")}
               />
-              <div>What's this channel about?</div>
+              <div className="channel-purpose-footer">
+                What's this channel about?
+              </div>
             </div>
 
             <footer className="channel-form-footer">
