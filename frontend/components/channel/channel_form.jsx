@@ -36,6 +36,20 @@ class ChannelForm extends React.Component {
     }
   }
 
+  renderNameIcon() {
+    if (this.state.private === false) {
+      return <div className="channel-name-icon">#</div>;
+    } else if (this.state.private === true) {
+      return (
+        <div className="channel-name-icon">
+          <div className="lock-icon">
+            <i className="fas fa-lock" />
+          </div>
+        </div>
+      );
+    }
+  }
+
   renderSliderText() {
     if (this.state.private === false) {
       return "Anyone in your workspace can view this channel";
@@ -112,24 +126,31 @@ class ChannelForm extends React.Component {
               {this.renderSliderText()}
             </div>
 
-            <div>Name</div>
-            <input
-              id="channel-name-id"
-              className="channel-name-input"
-              type="text"
-              value={this.state.topic}
-              onChange={this.update("topic")}
-              placeholder="e.g leads"
-            />
-            <div>Purpose(optional)</div>
-            <input
-              id="channel-purpose-id"
-              className="channel-purpose-input"
-              type="text"
-              value={this.state.purpose}
-              onChange={this.update("purpose")}
-            />
-            <div>What's this channel about?</div>
+            <div className="channel-form-input-label">Name</div>
+            <div className="channel-form-name-input-div">
+              {this.renderNameIcon()}
+              <input
+                id="channel-name-id"
+                className="channel-name-input"
+                type="text"
+                value={this.state.topic}
+                onChange={this.update("topic")}
+                placeholder="e.g leads"
+              />
+            </div>
+            <div className="channel-form-input-label">
+              Purpose<div className="channel-form-optional">(optional)</div>
+            </div>
+            <div className="channel-form-purpose-div">
+              <input
+                id="channel-purpose-id"
+                className="channel-purpose-input"
+                type="text"
+                value={this.state.purpose}
+                onChange={this.update("purpose")}
+              />
+              <div>What's this channel about?</div>
+            </div>
 
             <footer className="channel-form-footer">
               {this.renderChannelErrors()}

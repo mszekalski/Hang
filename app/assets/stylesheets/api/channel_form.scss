@@ -27,17 +27,47 @@
 }
 
 .channel-name-input {
-  width: 650px;
-  height: 40px;
-  border: 2px solid rgba(160, 160, 162, 0.7);
-  border-radius: 5px;
-  font-size: 18px;
-  text-indent: 12px;
   text-decoration: none;
   outline: none;
+  border: none;
+  width: 619px;
+  height: 40px;
+  border: 2px solid rgba(160, 160, 162, 0.7);
+  text-indent: 5px;
+  border-radius: 5px;
+  font-size: 18px;
   margin-bottom: 1rem;
+  padding-left: 32px;
+  text-transform: lowercase;
 }
 
+.channel-form-name-input-div {
+  position: relative;
+  margin: 0;
+  display: block;
+  line-height: 1.5;
+}
+
+.channel-name-icon {
+  position: absolute;
+  font-size: 18px;
+  left: 13px;
+  top: 10px;
+  line-height: 1.5;
+}
+
+.lock-icon {
+  font-size: 15px;
+  line-height: 1.75;
+  position: absolute;
+}
+
+.channel-form-purpose-div {
+  position: relative;
+  margin: 0;
+  display: block;
+  line-height: 1.5;
+}
 .channel-purpose-input {
   width: 650px;
   height: 40px;
@@ -47,7 +77,7 @@
   text-indent: 12px;
   text-decoration: none;
   outline: none;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .cancel-button {
