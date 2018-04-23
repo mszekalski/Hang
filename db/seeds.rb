@@ -12,7 +12,7 @@ ChatMessage.destroy_all
 
 u1 = User.create(username: "demo-user", password: "password")
 
-c1 = Channel.create(topic: "general", creator_id: u1.id, private: false)
+c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for everyone. All users belong to it.")
 
 m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, channel_id: c1.id)
 
