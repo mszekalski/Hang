@@ -11,9 +11,15 @@ Channel.destroy_all
 ChatMessage.destroy_all
 
 u1 = User.create(username: "demo-user", password: "password")
+u2 = User.create(username: "demo-user1", password: "password")
+u3 = User.create(username: "demo-user2", password: "password")
 
-c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for everyone. All users belong to it.")
+c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for team-wide communication and announcements. All team members are in this channel.")
 
 m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, channel_id: c1.id)
+m1 = ChatMessage.create(content: "I can!!", user_id: u2.id, channel_id: c1.id)
+m1 = ChatMessage.create(content: "I can too!! DM me if you need help", user_id: u3.id, channel_id: c1.id)
 
 membership1 = Membership.create(user_id: u1.id, channel_id: c1.id)
+membership1 = Membership.create(user_id: u2.id, channel_id: c1.id)
+membership1 = Membership.create(user_id: u3.id, channel_id: c1.id)
