@@ -12,8 +12,8 @@ ChatMessage.destroy_all
 
 u1 = User.create(username: "demo-user", password: "password")
 
-c1 = Channel.create(topic: "AppAcademy", creator_id: u1.id, private: false)
-c2 = Channel.create(topic: "FullStackProject", creator_id: u1.id, private: false)
-c3 = Channel.create(topic: "AppAcademyStudents", creator_id: u1.id, private: false)
+c1 = Channel.create(topic: "general", creator_id: u1.id, private: false)
 
-m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, channel_id: c2.id)
+m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, channel_id: c1.id)
+
+membership1 = Membership.create(user_id: u1.id, channel_id: c1.id)
