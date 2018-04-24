@@ -79,7 +79,10 @@ class InfoSidebar extends React.Component {
             id="channel-details-dropdown-id"
             className="channel-details-dropdown-div"
           >
-            <ChannelDetails currentChannel={this.props.currentChannel} />
+            <ChannelDetails
+              currentChannel={this.props.currentChannel}
+              users={this.props.users}
+            />
           </div>
         </div>
         <div className="channel-members-dropdown">
