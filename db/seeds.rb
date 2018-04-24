@@ -11,8 +11,8 @@ Channel.destroy_all
 ChatMessage.destroy_all
 
 u1 = User.create(username: "demo-user", password: "password")
-u2 = User.create(username: "demo-user1", password: "password")
-u3 = User.create(username: "demo-user2", password: "password")
+u2 = User.create(username: "demo-user2", password: "password")
+u3 = User.create(username: "demo-user3", password: "password")
 
 c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for team-wide communication and announcements. All team members are in this channel.")
 

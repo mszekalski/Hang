@@ -12,19 +12,6 @@
   display: flex;
 }
 
-.info-button {
-  font-size: 20px;
-  margin: 15px 40px 15px 15px;
-  color: #a0a0a2;
-  align-items: center;
-  display: flex;
-  cursor: pointer;
-}
-
-.info-button:hover {
-  color: #005e99;
-}
-
 .chat-message:hover {
   background-color: #f9f9f9;
 }
@@ -108,4 +95,17 @@
   overflow: hidden;
   height: 100%;
   box-sizing: border-box;
+}
+
+.info-button {
+  font-size: 20px;
+  margin: 15px 40px 15px 15px;
+  color: #a0a0a2;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.info-button:hover {
+  color: #005e99;
 }

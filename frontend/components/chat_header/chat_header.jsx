@@ -35,7 +35,7 @@ class ChatHeader extends React.Component {
         </h1>
 
         <div className="info-button" onClick={this.renderInfoSidebar}>
-          <i className="fas fa-info-circle" />
+          <i className="fas fa-info-circle info-logo-header" />
         </div>
       </div>
     );
