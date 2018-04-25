@@ -15,8 +15,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAllUsers: () => dispatch(fetchAllUsers()),
-    fetchChannel: () => dispatch(fetchChannel())
+    fetchAllUsers: () => dispatch(fetchAllUsers())
   };
 };
 

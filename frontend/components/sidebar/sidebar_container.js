@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import {
   fetchChannels,
   deleteChannel,
-  receiveChannel
+  receiveChannel,
+  fetchChannel
 } from "../../actions/channel_actions.js";
 import { fetchAllUsers } from "../../actions/user_actions.js";
 import Sidebar from "./sidebar";
@@ -18,6 +19,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchChannels: () => dispatch(fetchChannels()),
+    fetchChannel: id => dispatch(fetchChannel(id)),
     deleteChannel: id => dispatch(deleteChannel(id)),
     receiveChannel: channel => dispatch(receiveChannel(channel)),
     fetchAllUsers: () => dispatch(fetchAllUsers())
