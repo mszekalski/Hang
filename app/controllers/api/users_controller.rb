@@ -7,6 +7,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
+      Membership.create(user_id: current_user.id, channel_id: Channel.first.id)
       render "api/users/show"
     else
 
