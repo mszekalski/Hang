@@ -7,9 +7,7 @@ import MembershipFormContainer from "../membership/membership_form_container";
 
 class Sidebar extends React.Component {
   componentDidMount() {
-    this.props.fetchAllUsers();
     this.props.fetchChannels();
-    debugger;
   }
 
   componentWillReceiveProps(newProps) {
@@ -25,7 +23,7 @@ class Sidebar extends React.Component {
             <NavLink
               to={`/home/${channel.id}`}
               className="channel-topic"
-              onClick={() => this.props.receiveChannel(channel)}
+              onClick={() => this.props.history.push(`/home/${channel.id}`)}
               activeClassName="active"
             >
               # {channel.topic}

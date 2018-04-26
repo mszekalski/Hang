@@ -1,7 +1,7 @@
 import React from "react";
 import GreetingContainer from "./greeting/greeting_container.js";
 import SessionFormContainer from "./session_form/session_form_container.js";
-import ChatArea from "./chat_area/chat_area";
+import ChatAreaContainer from "./chat_area/chat_area_container";
 
 import ChannelFormContainer from "./channel/channel_form_container";
 import MembershipFormContainer from "./membership/membership_form_container";
@@ -14,7 +14,7 @@ const App = () => (
     <AuthRoute path="/" component={GreetingContainer} />
     <AuthRoute path="/login" component={SessionFormContainer} />
     <AuthRoute path="/signup" component={SessionFormContainer} />
-    <ProtectedRoute path="/home" component={ChatArea} />
+    <ProtectedRoute path="/home/:channelId" component={ChatAreaContainer} />
     <Route exact path="/" exact component={SplashPage} />
   </div>
 );

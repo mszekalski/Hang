@@ -9,6 +9,20 @@ import SidebarContainer from "../sidebar/sidebar_container";
 import InfoSidebarContainer from "../info_sidebar/info_sidebar_container";
 
 class ChatArea extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllUsers();
+    this.props.fetchChannel(this.props.match.params.channelId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props.match.params.channelId !== newProps.match.params.channelId) {
+      newProps.fetchChannel(newProps.match.params.channelId);
+    }
+  }
   render() {
     return (
       <div className="staging-area">

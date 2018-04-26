@@ -7,6 +7,10 @@ class InfoSidebar extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchAllUsers();
+  }
+
   hide() {
     document
       .getElementById("info-sidebar-container")
