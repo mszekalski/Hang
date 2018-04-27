@@ -14,7 +14,6 @@ class ChatArea extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     if (Object.values(this.props.currentUser).length === 0) {
       return null;
     } else if (
