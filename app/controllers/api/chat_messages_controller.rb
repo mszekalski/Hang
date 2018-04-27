@@ -3,6 +3,11 @@ class Api::ChatMessagesController < ApplicationController
   end
 
   def create
+    if @chat_message.save
+      render "api/chat_messages/show"
+    else
+      render json: @chat_messages.errors.full_messages, status: 422
+    end
   end
 
   def destroy
