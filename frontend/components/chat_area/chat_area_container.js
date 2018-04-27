@@ -5,7 +5,8 @@ import { fetchAllUsers } from "../../actions/user_actions";
 
 const mapStateToProps = state => {
   return {
-    currentChannel: state.channels[state.ui.currentChannel] || {}
+    currentChannel: state.channels[state.ui.currentChannel] || {},
+    currentUser: state.session.currentUser
   };
 };
 

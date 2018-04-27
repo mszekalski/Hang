@@ -14,11 +14,7 @@ const Auth = ({
     exact={exact}
     path={path}
     render={props =>
-      !loggedIn ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to={`${location.pathname}`} />
-      )
+      !loggedIn ? <Component {...props} /> : <Redirect to="/home" />
     }
   />
 );

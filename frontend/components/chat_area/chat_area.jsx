@@ -14,8 +14,21 @@ class ChatArea extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllUsers();
-    this.props.fetchChannel(this.props.match.params.channelId);
+    debugger;
+    if (Object.values(this.props.currentUser).length === 0) {
+      return null;
+    } else if (
+      Object.values(this.props.currentChannel).length === 0 &&
+      Object.values(this.props.match.params).length > 0
+    ) {
+      this.props.fetchAllUsers();
+      this.props.fetchChannel(this.props.match.params.channelId);
+      this.props.history.push(`/home/${this.props.match.params.channelId}`);
+    } else {
+      this.props.fetchAllUsers();
+      this.props.fetchChannel(this.props.currentUser.channel_ids[0]);
+      this.props.history.push(`/home/${this.props.currentUser.channel_ids[0]}`);
+    }
   }
 
   componentWillReceiveProps(newProps) {

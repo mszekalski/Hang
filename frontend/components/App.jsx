@@ -5,17 +5,20 @@ import ChatAreaContainer from "./chat_area/chat_area_container";
 
 import ChannelFormContainer from "./channel/channel_form_container";
 import MembershipFormContainer from "./membership/membership_form_container";
-import { Route, HashRouter, Link } from "react-router-dom";
+import { Route, HashRouter, Link, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
 import SplashPage from "./splash_page";
 
 const App = () => (
   <div className="app">
     <AuthRoute path="/" component={GreetingContainer} />
-    <AuthRoute path="/login" component={SessionFormContainer} />
-    <AuthRoute path="/signup" component={SessionFormContainer} />
-    <ProtectedRoute path="/home/:channelId" component={ChatAreaContainer} />
-    <Route exact path="/" exact component={SplashPage} />
+    <Switch>
+      <ProtectedRoute path="/home/:channelId" component={ChatAreaContainer} />
+      <ProtectedRoute path="/home" component={ChatAreaContainer} />
+      <AuthRoute path="/login" component={SessionFormContainer} />
+      <AuthRoute path="/signup" component={SessionFormContainer} />
+    </Switch>
+    <AuthRoute exact path="/" exact component={SplashPage} />
   </div>
 );
 
