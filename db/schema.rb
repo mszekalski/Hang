@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501214824) do
+ActiveRecord::Schema.define(version: 20180501222357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20180501214824) do
     t.integer "user_id"
     t.integer "channel_id"
     t.string "username"
+    t.integer "chatable_id"
+    t.string "chatable_type"
   end
 
   create_table "memberships", force: :cascade do |t|
