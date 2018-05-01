@@ -29,8 +29,8 @@ class ChatForm extends React.Component {
           this.perform("create", {
             content: chatContent.message,
             user_id: chatContent.user_id,
-            channel_id: chatContent.channel_id,
-            username: chatContent.username
+            chatable_id: chatContent.chatable_id,
+            chatable_type: chatContent.chatable_type
           });
         }
       }
@@ -46,8 +46,8 @@ class ChatForm extends React.Component {
     this.chats.create({
       message: this.state.currentChatMessage,
       user_id: this.props.user.id,
-      username: this.props.user.username,
-      channel_id: this.props.currentChannel.id
+      chatable_id: this.props.currentChannel.id,
+      chatable_type: "Channel"
     });
     this.setState({
       currentChatMessage: ""
@@ -96,4 +96,3 @@ class ChatForm extends React.Component {
 }
 
 export default withRouter(ChatForm);
-// onKeyPress={ (e) => this.handleChatInputKeyPress(e) }
