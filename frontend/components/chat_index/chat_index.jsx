@@ -36,7 +36,10 @@ class ChatIndex extends React.Component {
 
   renderChatLog() {
     return this.props.messages.map(message => {
-      if (this.props.currentChannel.id === message.channel_id) {
+      if (
+        this.props.currentChannel.id === message.chatable_id &&
+        message.chatable_type === "Channel"
+      ) {
         return (
           <li key={`chat_${message.id}`} className="chat-message">
             <span className="chat-username">{message.authorName}</span>
