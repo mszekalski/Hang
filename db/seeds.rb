@@ -16,9 +16,9 @@ u3 = User.create(username: "demo-user3", password: "password")
 
 c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for team-wide communication and announcements. All team members are in this channel.")
 
-m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, channel_id: c1.id)
-m1 = ChatMessage.create(content: "I can!!", user_id: u2.id, channel_id: c1.id)
-m1 = ChatMessage.create(content: "I can too!! DM me if you need help", user_id: u3.id, channel_id: c1.id)
+m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, chatable_id: c1.id, chatable_type: "Channel")
+m1 = ChatMessage.create(content: "I can!!", user_id: u2.id, chatable_id: c1.id, chatable_type: "Channel")
+m1 = ChatMessage.create(content: "I can too!! DM me if you need help", user_id: u3.id, chatable_id: c1.id, chatable_type: "Channel")
 
 membership1 = Membership.create(user_id: u1.id, channel_id: c1.id)
 membership1 = Membership.create(user_id: u2.id, channel_id: c1.id)
