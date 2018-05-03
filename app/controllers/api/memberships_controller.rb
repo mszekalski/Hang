@@ -5,7 +5,7 @@ class Api::MembershipsController < ApplicationController
 
   def create
     @membership = Membership.new(membership_params)
-    @channel = Channel.find(membership_params[:channel_id])
+    @channel = Channel.find(membership_params[:membershipable_id])
     if @membership.save
       render "api/channels/show"
     else
@@ -26,6 +26,6 @@ class Api::MembershipsController < ApplicationController
 
   private
     def membership_params
-      params.require(:membership).permit(:user_id, :channel_id)
+      params.require(:membership).permit(:user_id, :membershipable_id, :membershipable_type)
     end
 end

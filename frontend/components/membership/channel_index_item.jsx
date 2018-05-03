@@ -5,7 +5,8 @@ class ChannelIndexItem extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     let newMembership = {
-      channel_id: this.props.channel.id,
+      membershipable_id: this.props.channel.id,
+      membershipable_type: "Channel",
       user_id: this.props.user.id
     };
     this.state = newMembership;

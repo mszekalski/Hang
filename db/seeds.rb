@@ -20,6 +20,6 @@ m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id:
 m1 = ChatMessage.create(content: "I can!!", user_id: u2.id, chatable_id: c1.id, chatable_type: "Channel")
 m1 = ChatMessage.create(content: "I can too!! DM me if you need help", user_id: u3.id, chatable_id: c1.id, chatable_type: "Channel")
 
-membership1 = Membership.create(user_id: u1.id, channel_id: c1.id)
-membership1 = Membership.create(user_id: u2.id, channel_id: c1.id)
-membership1 = Membership.create(user_id: u3.id, channel_id: c1.id)
+membership1 = Membership.create(user_id: u1.id, membershipable_id: c1.id, membershipable_type: "Channel")
+membership1 = Membership.create(user_id: u2.id, membershipable_id: c1.id, membershipable_type: "Channel")
+membership1 = Membership.create(user_id: u3.id, membershipable_id: c1.id, membershipable_type: "Channel")
