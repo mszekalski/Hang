@@ -7,7 +7,7 @@ class Api::ChannelsController < ApplicationController
     @channel = Channel.new(channel_params)
     @channel.creator_id = current_user.id
     if @channel.save
-      Membership.create(user_id: current_user.id, channel_id: @channel.id)
+      Membership.create(user_id: current_user.id, membershipable_id: @channel.id, membershipable_type: "Channel")
       render "api/channels/show"
     else
       render json: @channel.errors.full_messages, status: 422
@@ -39,7 +39,7 @@ class Api::ChannelsController < ApplicationController
     end
 
     def membership_params
-      params.require(:membership).permit(:user_id, :channel_id)
+      params.require(:membership).permit(:user_id, :membershipable_id, :membershipable_type)
     end
 
 end

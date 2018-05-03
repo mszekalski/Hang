@@ -24,7 +24,9 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(response => {
-      this.props.history.push(`/home/${response.user.channel_ids[0]}`);
+      this.props.history.push(
+        `/home/${response.user.memberships[0].membershipable_id}`
+      );
     });
 
     // for regular login - not demo .then(() => debugger);
@@ -83,11 +85,15 @@ class SessionForm extends React.Component {
       typeSubmit: setTimeout(() => {
         if (this.props.formType === "login") {
           this.props.processForm(guest).then(response => {
-            this.props.history.push(`/home/${response.user.channel_ids[0]}`);
+            this.props.history.push(
+              `/home/${response.user.memberships[0].membershipable_id}`
+            );
           }); // for demo
         } else {
           this.props.login(guest).then(response => {
-            this.props.history.push(`/home/${response.user.channel_ids[0]}`);
+            this.props.history.push(
+              `/home/${response.user.memberships[0].membershipable_id}`
+            );
           }); // for demo
         }
       }, 1700)
