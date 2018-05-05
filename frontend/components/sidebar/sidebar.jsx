@@ -4,6 +4,7 @@ import { Route, Link, NavLink } from "react-router-dom";
 import WelcomeContainer from "../dropdown/welcome_container";
 import ChannelFormContainer from "../channel/channel_form_container";
 import MembershipFormContainer from "../membership/membership_form_container";
+import ThreadFormContainer from "../thread/thread_form_container";
 
 class Sidebar extends React.Component {
   componentDidMount() {
@@ -52,12 +53,20 @@ class Sidebar extends React.Component {
       .classList.add("display-form");
   }
 
+  renderThreadForm() {
+    document.getElementById("thread-form-container").classList.remove("hidden");
+    document
+      .getElementById("thread-form-container")
+      .classList.add("display-form");
+  }
+
   render() {
     return (
       <div className="sidebar">
         <WelcomeContainer />
         <ChannelFormContainer />
         <MembershipFormContainer />
+        <ThreadFormContainer />
         <div className="channels-header">
           <div
             className="membership-button"
@@ -70,6 +79,9 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <ul>{this.renderChannels()}</ul>
+        <div className="thread-button" onClick={this.renderThreadForm}>
+          Direct Messages
+        </div>
       </div>
     );
   }
