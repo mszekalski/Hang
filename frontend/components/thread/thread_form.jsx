@@ -15,4 +15,10 @@ class ThreadForm extends React.Component {
     this.state = newThread;
     this.update = this.update.bind(this);
   }
+
+  update(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
 }
