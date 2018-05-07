@@ -11,7 +11,7 @@ const mapStateToProps = state => {
   return {
     errors: state.errors.thread,
     currentUser: state.session.currentUser,
-    users: state.session.users
+    users: state.users
   };
 };
 

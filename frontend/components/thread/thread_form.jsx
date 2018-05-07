@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import UsersIndex from "users_index";
+import UsersIndex from "./users_index";
 
 class ThreadForm extends React.Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class ThreadForm extends React.Component {
         <button className="cancel-button-membership" onClick={this.hide}>
           <span className="membership-x">X</span>
           <span className="esc">esc</span>
+          <UsersIndex users={this.props.users} />
         </button>
       </div>
     );
