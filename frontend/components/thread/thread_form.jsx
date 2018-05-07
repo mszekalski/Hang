@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
+// import UsersIndex from "users_index";
 
 class ThreadForm extends React.Component {
   constructor(props) {

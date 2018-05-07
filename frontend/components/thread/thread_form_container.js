@@ -10,7 +10,8 @@ import ThreadForm from "./thread_form";
 const mapStateToProps = state => {
   return {
     errors: state.errors.thread,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    users: state.session.users
   };
 };
 
