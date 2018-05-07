@@ -11,7 +11,11 @@ class UsersIndex extends React.Component {
       return null;
     } else {
       return Object.values(this.props.users).map(user => {
-        return <UsersIndexItem key={user.id} name={user.username} />;
+        if (
+          user.username.toLowerCase().includes(this.props.search.toLowerCase())
+        ) {
+          return <UsersIndexItem key={user.id} name={user.username} />;
+        }
       });
     }
   }

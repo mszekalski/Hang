@@ -13,7 +13,7 @@ class ThreadForm extends React.Component {
       creator_id: this.props.currentUser.id,
       membershipable_type: "Thread"
     };
-    this.state = newThread;
+    this.state = { newThread, usersSearch: "" };
     this.update = this.update.bind(this);
   }
 
@@ -34,8 +34,16 @@ class ThreadForm extends React.Component {
         <button className="cancel-button-membership" onClick={this.hide}>
           <span className="membership-x">X</span>
           <span className="esc">esc</span>
-          <UsersIndex users={this.props.users} />
         </button>
+        <br />
+        <input
+          className="search-users"
+          type="text"
+          onChange={this.update("usersSearch")}
+          value={this.state.usersSearch}
+          placeholder="Find or start a conversation"
+        />
+        <UsersIndex users={this.props.users} search={this.state.usersSearch} />
       </div>
     );
   }
