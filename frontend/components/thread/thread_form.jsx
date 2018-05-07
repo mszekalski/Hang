@@ -13,7 +13,7 @@ class ThreadForm extends React.Component {
       creator_id: this.props.currentUser.id,
       membershipable_type: "Thread"
     };
-    this.state = { newThread, usersSearch: "" };
+    this.state = { newThread, usersSearch: "", membershipArray: [] };
     this.update = this.update.bind(this);
   }
 
@@ -35,7 +35,7 @@ class ThreadForm extends React.Component {
           <span className="membership-x">X</span>
           <span className="esc">esc</span>
         </button>
-        <br />
+
         <input
           className="search-users"
           type="text"
@@ -43,7 +43,12 @@ class ThreadForm extends React.Component {
           value={this.state.usersSearch}
           placeholder="Find or start a conversation"
         />
-        <UsersIndex users={this.props.users} search={this.state.usersSearch} />
+        <UsersIndex
+          users={this.props.users}
+          search={this.state.usersSearch}
+          currentUser={this.props.currentUser}
+          membershipArray={this.state.membershipArray}
+        />
       </div>
     );
   }

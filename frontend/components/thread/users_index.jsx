@@ -14,7 +14,13 @@ class UsersIndex extends React.Component {
         if (
           user.username.toLowerCase().includes(this.props.search.toLowerCase())
         ) {
-          return <UsersIndexItem key={user.id} name={user.username} />;
+          return (
+            <UsersIndexItem
+              key={user.id}
+              name={user.username}
+              membershipArray={this.props.membershipArray}
+            />
+          );
         }
       });
     }
