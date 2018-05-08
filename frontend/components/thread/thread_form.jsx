@@ -35,14 +35,15 @@ class ThreadForm extends React.Component {
           <span className="membership-x">X</span>
           <span className="esc">esc</span>
         </button>
-
-        <input
-          className="search-users"
-          type="text"
-          onChange={this.update("usersSearch")}
-          value={this.state.usersSearch}
-          placeholder="Find or start a conversation"
-        />
+        <div>
+          <input
+            className="search-users"
+            type="text"
+            onChange={this.update("usersSearch")}
+            value={this.state.usersSearch}
+            placeholder="Find or start a conversation"
+          />
+        </div>
         <UsersIndex
           users={this.props.users}
           search={this.state.usersSearch}
