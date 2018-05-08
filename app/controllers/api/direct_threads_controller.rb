@@ -7,7 +7,7 @@ class Api::DirectThreadsController < ApplicationController
     @direct_thread = DirectThread.new(direct_thread_params)
     @direct_thread.creator_id = current_user.id
     if @direct_thread.save
-      render "api/direct_threads/show"
+      render :show
     else
       render json: @direct_thread.errors.full_messages, status: 422
     end
@@ -20,11 +20,11 @@ class Api::DirectThreadsController < ApplicationController
   end
 
   def index
-    @direct_threads = Thread.all
+    @direct_threads = DirectThread.all
   end
 
   def show
-    @direct_thread = Thread.find(params[:id])
+    @direct_thread = DirectThread.find(params[:id])
 
   end
 

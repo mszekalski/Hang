@@ -22,7 +22,7 @@ class ThreadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createDirectThread(this.state.newThread).then(payload => {
+    this.props.createDirectThread(this.state.newDirectThread).then(() => {
       this.hide();
     });
   }
@@ -46,12 +46,12 @@ class ThreadForm extends React.Component {
   render() {
     return (
       <div id="thread-form-container" className="hidden">
+        <h1 className="new-thread-title">Direct Messages</h1>
+        <button className="cancel-button-membership" onClick={this.hide}>
+          <span className="membership-x">X</span>
+          <span className="esc">esc</span>
+        </button>
         <form onSubmit={this.handleSubmit}>
-          <h1 className="new-thread-title">Direct Messages</h1>
-          <button className="cancel-button-membership" onClick={this.hide}>
-            <span className="membership-x">X</span>
-            <span className="esc">esc</span>
-          </button>
           <div>
             <input
               className="search-users"

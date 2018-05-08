@@ -5,7 +5,7 @@ import {
 } from "../actions/direct_thread_actions";
 import merge from "lodash/merge";
 
-const threadsReducer = (oldState = {}, action) => {
+const directThreadsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_ALL_DIRECT_THREADS:
@@ -23,4 +23,4 @@ const threadsReducer = (oldState = {}, action) => {
   }
 };
 
-export default threadsReducer;
+export default directThreadsReducer;
