@@ -12,16 +12,15 @@ class UsersIndex extends React.Component {
     } else {
       return Object.values(this.props.users).map(user => {
         if (
-          user.username
-            .toLowerCase()
-            .includes(this.props.search.toLowerCase()) &&
-          !this.props.membershipArray.includes(user.id)
+          !this.props.membershipArray.includes(user.id) &&
+          user.username.toLowerCase().includes(this.props.search.toLowerCase())
         ) {
           return (
             <UsersIndexItem
               key={user.id}
               user={user}
               membershipArray={this.props.membershipArray}
+              addUser={this.props.addUser}
             />
           );
         }

@@ -8,8 +8,7 @@ class UsersIndexItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.membershipArray.push(this.props.user.id);
-    debugger;
+    this.props.addUser(this.props.user.id);
   }
 
   render() {

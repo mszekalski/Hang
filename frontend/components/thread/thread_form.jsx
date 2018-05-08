@@ -14,6 +14,7 @@ class ThreadForm extends React.Component {
       membershipable_type: "Thread"
     };
     this.state = { newThread, usersSearch: "", membershipArray: [] };
+    this.addUser = this.addUser.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -25,6 +26,13 @@ class ThreadForm extends React.Component {
 
   hide() {
     document.getElementById("thread-form-container").classList.add("hidden");
+  }
+
+  addUser(id) {
+    const newMembershipArray = this.state.membershipArray.slice(0);
+    newMembershipArray.push(id);
+
+    this.setState({ membershipArray: newMembershipArray });
   }
 
   render() {
@@ -49,6 +57,7 @@ class ThreadForm extends React.Component {
           search={this.state.usersSearch}
           currentUser={this.props.currentUser}
           membershipArray={this.state.membershipArray}
+          addUser={this.addUser}
         />
       </div>
     );
