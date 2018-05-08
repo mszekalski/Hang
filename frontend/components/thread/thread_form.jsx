@@ -21,10 +21,7 @@ class ThreadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    this.props.createDirectThread(this.state.newDirectThread).then(() => {
-      this.hide();
-    });
+    this.props.createDirectThread(this.state.newDirectThread);
   }
 
   update(field) {
@@ -34,6 +31,7 @@ class ThreadForm extends React.Component {
   }
 
   hide() {
+    this.setState({ membershipArray: [], usersSearch: "" });
     document.getElementById("thread-form-container").classList.add("hidden");
   }
 
