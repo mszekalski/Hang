@@ -6,6 +6,7 @@ import messagesReducer from "./chat_messages_reducer.js";
 import uiReducer from "./ui_reducer.js";
 import usersReducer from "./users_reducer.js";
 import membershipsReducer from "./memberships_reducer.js";
+import directThreadsReducer from "./direct_threads_reducer.js";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   channels: channelsReducer,
   messages: messagesReducer,
   ui: uiReducer,
-  users: usersReducer
+  users: usersReducer,
+  directThreads: directThreadsReducer
 });
 
 export default rootReducer;

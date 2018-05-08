@@ -41,5 +41,6 @@ class Api::ChannelsController < ApplicationController
     def membership_params
       params.require(:membership).permit(:user_id, :membershipable_id, :membershipable_type)
     end
+  
 
 end

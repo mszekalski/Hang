@@ -19,6 +19,10 @@ class User < ApplicationRecord
   class_name: Channel,
   foreign_key: :creator_id
 
+  has_many :created_threads,
+  class_name: Thread,
+  foreign_key: :creator_id
+
 
 
 
