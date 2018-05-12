@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import UsersIndex from "./users_index";
+import MembersIndex from "./members_index";
 
 class ThreadForm extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class ThreadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+
     this.props.createDirectThread(this.state.newDirectThread);
   }
 
@@ -37,8 +39,10 @@ class ThreadForm extends React.Component {
 
   addUser(id) {
     const newMembershipArray = this.state.membershipArray.slice(0);
-    newMembershipArray.push(id);
-    this.setState({ membershipArray: newMembershipArray });
+    if (newMembershipArray.length < 9) {
+      newMembershipArray.push(id);
+      this.setState({ membershipArray: newMembershipArray });
+    }
   }
 
   render() {
@@ -50,7 +54,12 @@ class ThreadForm extends React.Component {
           <span className="esc">esc</span>
         </button>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="thread-input-div">
+            <MembersIndex
+              users={this.props.users}
+              currentUser={this.props.currentUser}
+              membershipArray={this.state.membershipArray}
+            />
             <input
               className="search-users"
               type="text"
