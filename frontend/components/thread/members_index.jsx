@@ -19,6 +19,8 @@ class MembersIndex extends React.Component {
             key={member}
             users={this.props.users}
             member={member}
+            removeUser={this.props.removeUser}
+            membershipArray={this.props.membershipArray}
           />
         );
       });

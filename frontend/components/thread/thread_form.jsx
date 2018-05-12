@@ -16,6 +16,7 @@ class ThreadForm extends React.Component {
 
     this.state = { newDirectThread, usersSearch: "", membershipArray: [] };
     this.addUser = this.addUser.bind(this);
+    this.removeUser = this.removeUser.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -45,6 +46,13 @@ class ThreadForm extends React.Component {
     }
   }
 
+  removeUser(id) {
+    const newMembershipArray = this.state.membershipArray.slice(0);
+    const index = newMembershipArray.indexOf(id);
+    newMembershipArray.splice(index, 1);
+    this.setState({ membershipArray: newMembershipArray });
+  }
+
   render() {
     return (
       <div id="thread-form-container" className="hidden">
@@ -59,6 +67,7 @@ class ThreadForm extends React.Component {
               users={this.props.users}
               currentUser={this.props.currentUser}
               membershipArray={this.state.membershipArray}
+              removeUser={this.removeUser}
             />
             <input
               className="search-users"
