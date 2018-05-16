@@ -8,4 +8,6 @@ class DirectThread < ApplicationRecord
   has_many :members, :through => :memberships, :source => :user
 
   has_many :chat_messages, :as => :chatable
+
+  accepts_nested_attributes_for :memberships
 end
