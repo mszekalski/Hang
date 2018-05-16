@@ -49,7 +49,7 @@ export const fetchDirectThread = id => dispatch => {
   });
 };
 
-export const createDirectThread = directThread => dispatch =>
+export const createDirectThread = (directThread, memberships) => dispatch =>
   directThreadApiUtil.createDirectThread(directThread).then(
     directThread => dispatch(receiveDirectThread(directThread)),
     err => {

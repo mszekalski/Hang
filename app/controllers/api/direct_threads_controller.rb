@@ -1,4 +1,4 @@
-class Api::DirectThreadsController < ApplicationController
+kclass Api::DirectThreadsController < ApplicationController
 
   def new
   end
@@ -34,7 +34,7 @@ class Api::DirectThreadsController < ApplicationController
 
   private
     def direct_thread_params
-      params.require(:direct_thread).permit(:creator_id)
+      params.require(:direct_thread).permit(:creator_id, membership_attributes: [:user_id, :membershipable_id, :membershipable_type]))
     end
 
 
