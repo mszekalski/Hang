@@ -23,7 +23,6 @@ class ChatArea extends React.Component {
       this.props.fetchAllUsers();
       this.props.fetchChannel(this.props.match.params.channelId);
       this.props.history.push(`/home/${this.props.match.params.channelId}`);
-      debugger;
     } else {
       this.props.fetchAllUsers();
       this.props.fetchChannel(

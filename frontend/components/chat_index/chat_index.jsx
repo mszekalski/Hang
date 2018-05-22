@@ -7,7 +7,7 @@ class ChatIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllMessages();
+    this.props.fetchAllMessages().then(() => this.scrollToBottom());
   }
 
   // componentDidMount() {
