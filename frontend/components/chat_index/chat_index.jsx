@@ -2,6 +2,10 @@ import React from "react";
 import { withRouter } from "react-router";
 
 class ChatIndex extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   componentDidMount() {
     this.props.fetchAllMessages();
   }
@@ -13,15 +17,22 @@ class ChatIndex extends React.Component {
   // }
 
   componentWillReceiveProps(newProps) {
-    // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ chatLogs: newProps.messages });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.match.params.channelId !== prevProps.match.params.channelId) {
-  //     this.scrollToBottom();
-  //   }
-  // }
+  scrollToBottom() {
+    const chatIndex = document.querySelector(".chat-index-overflow");
+    chatIndex.scrollTop = chatIndex.scrollHeight;
+    // }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.match.params.channelId !== prevProps.match.params.channelId
+    ) {
+      this.scrollToBottom();
+    }
+  }
 
   // renderChatLog() {
   //   return this.props.messages.map((message) => {
