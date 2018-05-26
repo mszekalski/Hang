@@ -10,12 +10,6 @@ class ChatIndex extends React.Component {
     this.props.fetchAllMessages().then(() => this.scrollToBottom());
   }
 
-  // componentDidMount() {
-  //   this.props.fetchChannel(this.props.match.params.channelId).then(() => {
-  //     this.props.fetchAllMessages().then(this.scrollToBottom);
-  //   });
-  // }
-
   componentWillReceiveProps(newProps) {
     this.setState({ chatLogs: newProps.messages });
   }
@@ -23,7 +17,6 @@ class ChatIndex extends React.Component {
   scrollToBottom() {
     const chatIndex = document.querySelector(".chat-index-overflow");
     chatIndex.scrollTop = chatIndex.scrollHeight;
-    // }
   }
 
   componentDidUpdate(prevProps) {
