@@ -24,7 +24,10 @@ class ThreadForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.createDirectThread(this.state.newDirectThread);
+    this.props.createDirectThread(
+      this.state.newDirectThread,
+      this.state.membershipArray
+    );
   }
 
   update(field) {

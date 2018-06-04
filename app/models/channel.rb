@@ -3,7 +3,7 @@ class Channel < ApplicationRecord
   validates :topic, presence: true
 
   belongs_to :creator,
-  class_name: User,
+  class_name: 'User',
   foreign_key: :creator_id
 
   has_many :memberships, :as => :membershipable

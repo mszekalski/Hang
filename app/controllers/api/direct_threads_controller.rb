@@ -1,4 +1,4 @@
-kclass Api::DirectThreadsController < ApplicationController
+class Api::DirectThreadsController < ApplicationController
 
   def new
   end
@@ -6,6 +6,7 @@ kclass Api::DirectThreadsController < ApplicationController
   def create
     @direct_thread = DirectThread.new(direct_thread_params)
     @direct_thread.creator_id = current_user.id
+    debugger
     if @direct_thread.save
       render :show
     else
@@ -34,8 +35,12 @@ kclass Api::DirectThreadsController < ApplicationController
 
   private
     def direct_thread_params
-      params.require(:direct_thread).permit(:creator_id, membership_attributes: [:user_id, :membershipable_id, :membershipable_type]))
+      params.require(:direct_thread).permit(:creator_id, membership_attributes: [:user_id, :membershipable_id, :membershipable_type])
     end
+
+    
+
+
 
 
 

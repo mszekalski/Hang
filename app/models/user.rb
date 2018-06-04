@@ -16,11 +16,11 @@ class User < ApplicationRecord
              :source_type => 'Thread'
 
   has_many :created_channels,
-  class_name: Channel,
+  class_name: 'Channel',
   foreign_key: :creator_id
 
   has_many :created_threads,
-  class_name: Thread,
+  class_name: 'Thread',
   foreign_key: :creator_id
 
 
