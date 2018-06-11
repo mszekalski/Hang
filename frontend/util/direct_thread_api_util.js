@@ -10,11 +10,11 @@ export const fetchDirectThread = id =>
     url: `api/direct_threads/${id}`
   });
 
-export const createDirectThread = directThread =>
+export const createDirectThread = (directThread, members) =>
   $.ajax({
     url: "api/direct_threads",
     method: "POST",
-    data: { direct_thread: directThread }
+    data: { direct_thread: directThread, members: members }
   });
 
 export const updateDirectThread = directThread =>

@@ -49,13 +49,20 @@ export const fetchDirectThread = id => dispatch => {
   });
 };
 
-export const createDirectThread = (directThread, members) => dispatch =>
-  directThreadApiUtil.createDirectThread(directThread, members).then(
+export const createDirectThread = (directThread, members) => dispatch => {
+  // const formData = new FormData();
+  // formData.append("directThread[creator_id]", directThread.creator_id);
+  // members.forEach(member => {
+  //   formData.append("poll[membership_attributes][][member_id]", member.id);
+  // });
+  debugger;
+  return directThreadApiUtil.createDirectThread(directThread, members).then(
     directThread => dispatch(receiveDirectThread(directThread)),
     err => {
       return dispatch(receiveErrors(err.responseJSON));
     }
   );
+};
 
 export const updateDirectThread = directThread => dispatch =>
   directThreadApiUtil
