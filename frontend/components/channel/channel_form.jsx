@@ -12,7 +12,8 @@ class ChannelForm extends React.Component {
       topic: "",
       purpose: "",
       creator_id: this.props.currentUser.id,
-      private: false
+      private: false,
+      membershipable_type: "Channel"
     };
     this.state = newChannel;
     this.update = this.update.bind(this);

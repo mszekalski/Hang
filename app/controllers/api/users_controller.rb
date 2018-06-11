@@ -6,8 +6,8 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      Membership.create(user_id: @user.id, membershipable_id: Channel.first.id, membershipable_type: "Channel")
       sign_in(@user)
-      Membership.create(user_id: current_user.id, channel_id: Channel.first.id)
       render "api/users/show"
     else
 

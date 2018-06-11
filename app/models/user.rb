@@ -9,12 +9,18 @@ class User < ApplicationRecord
 
   has_many :memberships
 
-  has_many :channels,
-  through: :memberships,
-  source: :channel
+  has_many :channels, :through => :memberships, :source => :membershipable,
+             :source_type => 'Channel'
+
+  has_many :threads, :through => :memberships, :source => :membershipable,
+             :source_type => 'Thread'
 
   has_many :created_channels,
-  class_name: Channel,
+  class_name: 'Channel',
+  foreign_key: :creator_id
+
+  has_many :created_threads,
+  class_name: 'Thread',
   foreign_key: :creator_id
 
 

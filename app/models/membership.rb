@@ -1,5 +1,5 @@
 class Membership < ApplicationRecord
   belongs_to :user
-  belongs_to :channel
+  belongs_to :membershipable, :polymorphic => true
 
 end

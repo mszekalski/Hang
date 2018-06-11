@@ -3,6 +3,11 @@ class Api::ChatMessagesController < ApplicationController
   end
 
   def create
+    if @chat_message.save
+      render "api/chat_messages/show"
+    else
+      render json: @chat_messages.errors.full_messages, status: 422
+    end
   end
 
   def destroy
@@ -17,6 +22,6 @@ class Api::ChatMessagesController < ApplicationController
 
   private
     def chat_message_params
-      params.require(:chat_message).permit(:content, :user_id, :channel_id)
+      params.require(:chat_message).permit(:content, :user_id, :chatable_id, :chatable_type)
     end
 end

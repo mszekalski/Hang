@@ -1,6 +1,4 @@
-class Channel < ApplicationRecord
-
-  validates :topic, presence: true
+class DirectThread < ApplicationRecord
 
   belongs_to :creator,
   class_name: 'User',
@@ -11,7 +9,5 @@ class Channel < ApplicationRecord
 
   has_many :chat_messages, :as => :chatable
 
-
-
-
+  accepts_nested_attributes_for :memberships
 end

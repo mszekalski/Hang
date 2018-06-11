@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy, :show]
     resources :users, only: [:create, :index]
     resources :channels
+    resources :direct_threads
     resources :chat_messages
     resources :memberships
   end

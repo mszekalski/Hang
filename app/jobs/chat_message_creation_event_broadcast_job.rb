@@ -9,7 +9,8 @@ class ChatMessageCreationEventBroadcastJob < ApplicationJob
          created_at: chat_message.created_at.localtime.strftime('%l:%M %p'),
          content: chat_message.content,
          user_id: chat_message.user_id,
-         channel_id: chat_message.channel_id,
+         chatable_id: chat_message.chatable_id,
+         chatable_type: chat_message.chatable_type,
          authorName: chat_message.user.username)
     end
 
