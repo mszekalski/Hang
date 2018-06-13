@@ -53,12 +53,12 @@ class Sidebar extends React.Component {
       .classList.add("display-form");
   }
 
-  renderThreadForm() {
-    document.getElementById("thread-form-container").classList.remove("hidden");
-    document
-      .getElementById("thread-form-container")
-      .classList.add("display-form");
-  }
+  // renderThreadForm() {
+  //   document.getElementById("thread-form-container").classList.remove("hidden");
+  //   document
+  //     .getElementById("thread-form-container")
+  //     .classList.add("display-form");
+  // }
 
   render() {
     return (
@@ -79,12 +79,13 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <ul>{this.renderChannels()}</ul>
-        <div className="thread-button" onClick={this.renderThreadForm}>
-          Direct Messages
-        </div>
       </div>
     );
   }
 }
 
 export default withRouter(Sidebar);
+
+// <div className="thread-button" onClick={this.renderThreadForm}>
+//   Direct Messages
+// </div>
