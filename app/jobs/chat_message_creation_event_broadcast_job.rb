@@ -6,7 +6,7 @@ class ChatMessageCreationEventBroadcastJob < ApplicationJob
       .server
       .broadcast('chat_channel',
          id: chat_message.id,
-         created_at: chat_message.created_at.localtime.strftime('%l:%M %p'),
+         created_at: chat_message.created_at,
          content: chat_message.content,
          user_id: chat_message.user_id,
          chatable_id: chat_message.chatable_id,

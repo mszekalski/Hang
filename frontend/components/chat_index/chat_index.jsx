@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router";
+import moment from "moment";
 
 class ChatIndex extends React.Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class ChatIndex extends React.Component {
 
   renderChatLog() {
     return this.props.messages.map(message => {
+      let timestamp = moment
+        .utc(message.created_at)
+        .local()
+        .format("h:mm a");
       if (
         this.props.currentChannel.id === message.chatable_id &&
         message.chatable_type === "Channel"
@@ -47,7 +52,7 @@ class ChatIndex extends React.Component {
         return (
           <li key={`chat_${message.id}`} className="chat-message">
             <span className="chat-username">{message.authorName}</span>
-            <span className="chat-timestamp">{message.created_at}</span>
+            <span className="chat-timestamp">{timestamp}</span>
             <br />
             <span className="chat-content">{message.content}</span>
           </li>
