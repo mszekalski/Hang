@@ -44,7 +44,7 @@ class ChatIndex extends React.Component {
       let timestamp = moment
         .utc(message.created_at)
         .local()
-        .format("h:mm a");
+        .format("h:mm A");
       if (
         this.props.currentChannel.id === message.chatable_id &&
         message.chatable_type === "Channel"
