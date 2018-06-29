@@ -28,17 +28,6 @@ class ChatIndex extends React.Component {
     }
   }
 
-  // renderChatLog() {
-  //   return this.props.messages.map((message) => {
-  //     return (
-  //       <li key={`${message.id}`} className="chat-message">
-  //         <span className='chat-content'>{ message.content }</span>
-  //         <span className='chat-timestamp'>{ message.created_at }</span>
-  //       </li>
-  //     );
-  //   });
-  // }
-
   renderChatLog() {
     return this.props.messages.map(message => {
       let timestamp = moment
