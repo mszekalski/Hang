@@ -7,12 +7,15 @@ import MembershipFormContainer from "../membership/membership_form_container";
 import ThreadFormContainer from "../thread/thread_form_container";
 
 class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.showChannelForm = this.showChannelForm.bind(this);
+  }
   componentDidMount() {
     this.props.fetchChannels();
   }
 
   componentWillReceiveProps(newProps) {
-    // this.scrollToBottom(document.getElementById("chat-logs"));
     this.setState({ channels: newProps.channels });
   }
 
@@ -35,13 +38,8 @@ class Sidebar extends React.Component {
     });
   }
 
-  renderChannelForm() {
-    document
-      .getElementById("channel-form-container")
-      .classList.remove("hidden");
-    document
-      .getElementById("channel-form-container")
-      .classList.add("display-form");
+  showChannelForm() {
+    this.props.openModal(<ChannelFormContainer />);
   }
 
   renderMembershipForm() {
@@ -64,9 +62,7 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar">
         <WelcomeContainer />
-        <ChannelFormContainer />
-        <MembershipFormContainer />
-        <ThreadFormContainer />
+
         <div className="channels-header">
           <div
             className="membership-button"
@@ -74,7 +70,7 @@ class Sidebar extends React.Component {
           >
             Channels
           </div>
-          <div className="plus-button" onClick={this.renderChannelForm}>
+          <div className="plus-button" onClick={this.showChannelForm}>
             +
           </div>
         </div>

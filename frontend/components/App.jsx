@@ -8,12 +8,15 @@ import MembershipFormContainer from "./membership/membership_form_container";
 import { Route, HashRouter, Link, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util.jsx";
 import SplashPage from "./splash_page";
+import Modal from "./ui/modal";
 
 const App = () => (
   <div className="app">
     <AuthRoute path="/" component={GreetingContainer} />
     <Switch>
       <ProtectedRoute path="/home/:channelId" component={ChatAreaContainer} />
+      <ProtectedRoute path="/home/:channelId" component={Modal} />
+      <ProtectedRoute path="/home" component={Modal} />
       <ProtectedRoute path="/home" component={ChatAreaContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />

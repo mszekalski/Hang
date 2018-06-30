@@ -7,6 +7,7 @@ import {
 } from "../../actions/channel_actions.js";
 import { fetchAllUsers } from "../../actions/user_actions.js";
 import Sidebar from "./sidebar";
+import { openModal } from "../../actions/modal_actions.js";
 
 const mapStateToProps = state => {
   return {
@@ -20,8 +21,12 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchChannels: () => dispatch(fetchChannels()),
     deleteChannel: id => dispatch(deleteChannel(id)),
-    fetchAllUsers: () => dispatch(fetchAllUsers())
+    fetchAllUsers: () => dispatch(fetchAllUsers()),
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sidebar);

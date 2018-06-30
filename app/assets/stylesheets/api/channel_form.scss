@@ -1,10 +1,10 @@
-.display-form {
-  z-index: 1;
+.modal-container {
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background-color: white;
   overflow-y: hidden;
   display: block;
@@ -15,7 +15,6 @@
 .channel-form-footer {
   padding-top: 10px;
 }
-
 .channel-form {
   margin: 0 auto;
   max-width: 650px;
@@ -25,7 +24,6 @@
   display: block;
   box-sizing: border-box;
 }
-
 .channel-name-input {
   text-decoration: none;
   outline: none;
@@ -141,10 +139,6 @@
   font-weight: 900;
   font-size: 34px;
   line-height: 41px;
-}
-
-.hidden {
-  display: none;
 }
 
 .channel-form-container {

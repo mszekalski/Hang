@@ -5,6 +5,7 @@ import {
   clearErrors
 } from "../../actions/channel_actions.js";
 import { fetchAllUsers } from "../../actions/user_actions.js";
+import { closeModal } from "../../actions/modal_actions.js";
 import ChannelForm from "./channel_form";
 
 const mapStateToProps = state => {
@@ -19,8 +20,12 @@ const mapDispatchToProps = dispatch => {
     createChannel: channel => dispatch(createChannel(channel)),
     fetchChannel: channel => dispatch(fetchChannel(channel)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ChannelForm);
