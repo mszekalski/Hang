@@ -12,11 +12,11 @@ import Modal from "./ui/modal";
 
 const App = () => (
   <div className="app">
+    <Modal />
     <AuthRoute path="/" component={GreetingContainer} />
     <Switch>
       <ProtectedRoute path="/home/:channelId" component={ChatAreaContainer} />
-      <ProtectedRoute path="/home/:channelId" component={Modal} />
-      <ProtectedRoute path="/home" component={Modal} />
+
       <ProtectedRoute path="/home" component={ChatAreaContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />

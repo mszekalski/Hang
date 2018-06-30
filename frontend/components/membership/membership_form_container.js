@@ -9,6 +9,7 @@ import {
   clearErrors
 } from "../../actions/membership_actions.js";
 import MembershipForm from "./membership_form";
+import { closeModal } from "../../actions/modal_actions.js";
 
 const mapStateToProps = state => {
   return {
@@ -22,8 +23,12 @@ const mapDispatchToProps = dispatch => {
     createMembership: membership => dispatch(createMembership(membership)),
     fetchChannels: channel => dispatch(fetchChannels(channel)),
     receiveChannel: channel => dispatch(receiveChannel(channel)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MembershipForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MembershipForm);

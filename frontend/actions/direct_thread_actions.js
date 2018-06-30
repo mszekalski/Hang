@@ -55,7 +55,7 @@ export const createDirectThread = (directThread, members) => dispatch => {
   // members.forEach(member => {
   //   formData.append("poll[membership_attributes][][member_id]", member.id);
   // });
-  debugger;
+
   return directThreadApiUtil.createDirectThread(directThread, members).then(
     directThread => dispatch(receiveDirectThread(directThread)),
     err => {

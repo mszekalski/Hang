@@ -10,6 +10,7 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.showChannelForm = this.showChannelForm.bind(this);
+    this.renderMembershipForm = this.renderMembershipForm.bind(this);
   }
   componentDidMount() {
     this.props.fetchChannels();
@@ -43,12 +44,7 @@ class Sidebar extends React.Component {
   }
 
   renderMembershipForm() {
-    document
-      .getElementById("membership-form-container")
-      .classList.remove("hidden");
-    document
-      .getElementById("membership-form-container")
-      .classList.add("display-form");
+    this.props.openModal(<MembershipFormContainer />);
   }
 
   // renderThreadForm() {

@@ -25,7 +25,7 @@ class Modal extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    component: state.ui.modals.component
+    component: state.ui.modal.component
   };
 };
 

@@ -6,7 +6,7 @@ class Api::DirectThreadsController < ApplicationController
   def create
     @direct_thread = DirectThread.new(direct_thread_params)
 
-    debugger
+  
     if @direct_thread.save
 
       render :show
