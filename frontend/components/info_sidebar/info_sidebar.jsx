@@ -5,33 +5,26 @@ import ChannelDetails from "./channel_details";
 class InfoSidebar extends React.Component {
   constructor(props) {
     super(props);
-  }
-
-  hide() {
-    document
-      .getElementById("info-sidebar-container")
-      .classList.remove("display-info");
-    document
-      .getElementById("info-sidebar-container")
-      .classList.add("info-hidden");
+    this.state = { infoDropdown: false, membersDropdown: false };
+    this.dropdown = this.dropdown.bind(this);
+    this.renderMembersIndex = this.renderMembersIndex.bind(this);
+    this.renderMembersIndexButton = this.renderMembersIndexButton.bind(this);
   }
 
   dropdown(e) {
-    if (e.currentTarget.className === "channel-members-button") {
-      document
-        .getElementById("members-list-index")
-        .classList.toggle("members-list-show");
-    } else if (e.currentTarget.className === "channel-details-button") {
-      document
-        .getElementById("channel-details-dropdown-id")
-        .classList.toggle("channel-detials-show");
-    }
+    let currentTarget = e.target.value;
+
+    this.setState({ currentTarget: !this.state.currentTarget });
   }
 
   renderMembersIndexButton() {
     if (this.props.currentChannel.member_ids.length > 1) {
       return (
-        <button onClick={this.dropdown} className="channel-members-button">
+        <button
+          onClick={this.dropdown}
+          className="channel-members-button"
+          value="membersDropdown"
+        >
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -43,7 +36,11 @@ class InfoSidebar extends React.Component {
       );
     } else {
       return (
-        <button onClick={this.dropdown} className="channel-members-button">
+        <button
+          onClick={this.dropdown}
+          className="channel-members-button"
+          value="membersDropdown"
+        >
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -56,9 +53,26 @@ class InfoSidebar extends React.Component {
     }
   }
 
+  renderMembersIndex() {
+    debugger;
+    if (this.state.membersDropdown === true) {
+      return (
+        <div id="members-list-index" className="members-index-list-div">
+          <MembersIndex
+            users={this.props.users}
+            currentChannel={this.props.currentChannel}
+            currentUser={this.props.currentUser}
+          />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
-      <div id="info-sidebar-container" className="info-hidden">
+      <div id="info-sidebar-container">
         <div className="info-header">
           <div className="info-header-title">
             About #{this.props.currentChannel.topic}
@@ -68,7 +82,11 @@ class InfoSidebar extends React.Component {
           </button>
         </div>
         <div className="channel-details-dropdown">
-          <button onClick={this.dropdown} className="channel-details-button">
+          <button
+            onClick={this.dropdown}
+            className="channel-details-button"
+            value="infoDropdown"
+          >
             <div className="channel-details-button-content">
               <i className="fas fa-info-circle details-info-circle" />
               <div className="channel-details-button-text">Channel Details</div>
@@ -87,13 +105,7 @@ class InfoSidebar extends React.Component {
         </div>
         <div className="channel-members-dropdown">
           {this.renderMembersIndexButton()}
-          <div id="members-list-index" className="members-index-list-div">
-            <MembersIndex
-              users={this.props.users}
-              currentChannel={this.props.currentChannel}
-              currentUser={this.props.currentUser}
-            />
-          </div>
+          {this.renderMembersIndex()}
         </div>
       </div>
     );

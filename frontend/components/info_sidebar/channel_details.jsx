@@ -18,10 +18,3 @@ class ChannelDetails extends React.Component {
 }
 
 export default ChannelDetails;
-
-// <div className="channel-created-purpose-title">Created</div>
-// <div className="channel-created-purpose-text">
-//   Created by
-//   {this.props.users[this.props.currentChannel.creator_id].username} on
-//   {this.props.currentChannel.created_at}
-// </div>
