@@ -4,27 +4,7 @@ import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class ChatHeader extends React.Component {
-  renderInfoSidebar() {
-    if (
-      document
-        .getElementById("info-sidebar-container")
-        .classList.contains("info-hidden")
-    ) {
-      document
-        .getElementById("info-sidebar-container")
-        .classList.remove("info-hidden");
-      document
-        .getElementById("info-sidebar-container")
-        .classList.add("display-info");
-    } else {
-      document
-        .getElementById("info-sidebar-container")
-        .classList.add("info-hidden");
-      document
-        .getElementById("info-sidebar-container")
-        .classList.remove("display-info");
-    }
-  }
+  renderInfoSidebar() {}
 
   render() {
     return (

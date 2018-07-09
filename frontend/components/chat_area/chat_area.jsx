@@ -11,6 +11,8 @@ import InfoSidebarContainer from "../info_sidebar/info_sidebar_container";
 class ChatArea extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { InfoSidebar: false };
+    this.handleSidebarChange = this.handleSidebarChange.bind(this);
   }
 
   componentDidMount() {
@@ -39,20 +41,41 @@ class ChatArea extends React.Component {
       newProps.fetchChannel(newProps.match.params.channelId);
     }
   }
+
+  handleSidebarChange() {
+    if (this.state.InfoSidebar === false) {
+      this.setState({ InfoSidebar: true });
+    } else {
+      this.setState({ InfoSidebar: false });
+    }
+  }
+
+  renderInfoSidebar() {
+    if (this.state.InfoSidebar === true) {
+      return (
+        <div className="channel-details">
+          <InfoSidebarContainer />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
   render() {
     return (
       <div className="staging-area">
         <SidebarContainer />
         <div className="chat-area">
-          <ChatHeaderContainer />
+          <ChatHeaderContainer
+            onInfoClick={this.handleSidebarChange}
+            InfoSidebar={this.state.InfoSidebar}
+          />
           <div className="chat-body">
             <div className="chat-container">
               <ChatIndexContainer />
               <ChatFormContainer />
             </div>
-            <div className="channel-details">
-              <InfoSidebarContainer />
-            </div>
+            {this.renderInfoSidebar()}
           </div>
         </div>
       </div>

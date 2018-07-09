@@ -9,12 +9,16 @@ class InfoSidebar extends React.Component {
     this.dropdown = this.dropdown.bind(this);
     this.renderMembersIndex = this.renderMembersIndex.bind(this);
     this.renderMembersIndexButton = this.renderMembersIndexButton.bind(this);
+    this.renderChannelInfo = this.renderChannelInfo.bind(this);
   }
 
   dropdown(e) {
     let currentTarget = e.target.value;
-
-    this.setState({ currentTarget: !this.state.currentTarget });
+    if (currentTarget === "membersDropdown") {
+      this.setState({ membersDropdown: !this.state.membersDropdown });
+    } else if (currentTarget === "infoDropdown") {
+      this.setState({ infoDropdown: !this.state.infoDropdown });
+    }
   }
 
   renderMembersIndexButton() {
@@ -54,14 +58,28 @@ class InfoSidebar extends React.Component {
   }
 
   renderMembersIndex() {
-    debugger;
     if (this.state.membersDropdown === true) {
       return (
-        <div id="members-list-index" className="members-index-list-div">
+        <div className="members-index-list-div">
           <MembersIndex
             users={this.props.users}
             currentChannel={this.props.currentChannel}
             currentUser={this.props.currentUser}
+          />
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  renderChannelInfo() {
+    if (this.state.infoDropdown === true) {
+      return (
+        <div className="channel-details-dropdown-div">
+          <ChannelDetails
+            currentChannel={this.props.currentChannel}
+            users={this.props.users}
           />
         </div>
       );
@@ -93,15 +111,7 @@ class InfoSidebar extends React.Component {
               <div className="members-arrow">&#x25BE;</div>
             </div>
           </button>
-          <div
-            id="channel-details-dropdown-id"
-            className="channel-details-dropdown-div"
-          >
-            <ChannelDetails
-              currentChannel={this.props.currentChannel}
-              users={this.props.users}
-            />
-          </div>
+          {this.renderChannelInfo()}
         </div>
         <div className="channel-members-dropdown">
           {this.renderMembersIndexButton()}
