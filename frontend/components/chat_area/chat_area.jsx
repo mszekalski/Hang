@@ -54,7 +54,7 @@ class ChatArea extends React.Component {
     if (this.state.InfoSidebar === true) {
       return (
         <div className="channel-details">
-          <InfoSidebarContainer />
+          <InfoSidebarContainer onInfoClick={this.handleSidebarChange} />
         </div>
       );
     } else {

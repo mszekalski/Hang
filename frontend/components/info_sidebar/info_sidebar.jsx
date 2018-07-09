@@ -10,6 +10,7 @@ class InfoSidebar extends React.Component {
     this.renderMembersIndex = this.renderMembersIndex.bind(this);
     this.renderMembersIndexButton = this.renderMembersIndexButton.bind(this);
     this.renderChannelInfo = this.renderChannelInfo.bind(this);
+    this.renderInfoSidebar = this.renderInfoSidebar.bind(this);
   }
 
   dropdown(e) {
@@ -19,6 +20,10 @@ class InfoSidebar extends React.Component {
     } else if (currentTarget === "infoDropdown") {
       this.setState({ infoDropdown: !this.state.infoDropdown });
     }
+  }
+
+  renderInfoSidebar() {
+    this.props.onInfoClick();
   }
 
   renderMembersIndexButton() {
@@ -96,7 +101,9 @@ class InfoSidebar extends React.Component {
             About #{this.props.currentChannel.topic}
           </div>
           <button className="cancel-button-info" onClick={this.hide}>
-            <div className="info-x">x</div>
+            <div className="info-x" onClick={this.renderInfoSidebar}>
+              x
+            </div>
           </button>
         </div>
         <div className="channel-details-dropdown">
