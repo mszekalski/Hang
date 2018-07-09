@@ -66,10 +66,7 @@ class ChatArea extends React.Component {
       <div className="staging-area">
         <SidebarContainer />
         <div className="chat-area">
-          <ChatHeaderContainer
-            onInfoClick={this.handleSidebarChange}
-            InfoSidebar={this.state.InfoSidebar}
-          />
+          <ChatHeaderContainer onInfoClick={this.handleSidebarChange} />
           <div className="chat-body">
             <div className="chat-container">
               <ChatIndexContainer />

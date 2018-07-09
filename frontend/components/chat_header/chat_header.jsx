@@ -4,7 +4,13 @@ import { Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 class ChatHeader extends React.Component {
-  renderInfoSidebar() {}
+  constructor(props) {
+    super(props);
+    this.renderInfoSidebar = this.renderInfoSidebar.bind(this);
+  }
+  renderInfoSidebar() {
+    this.props.onInfoClick();
+  }
 
   render() {
     return (
