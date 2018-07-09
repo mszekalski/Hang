@@ -1,7 +1,6 @@
-.display-info {
+.info-sidebar-container {
   height: 100%;
   width: 280px;
-
   flex: 1;
   overflow: hidden;
   display: flex;
@@ -40,7 +39,7 @@
   font-style: normal;
   color: #717274;
   white-space: nowrap;
-  margin-right: 3px;
+  margin-right: 23px;
 }
 
 .cancel-button-info:hover {
@@ -59,6 +58,17 @@
   color: #005e99;
 }
 
+.channel-details-button,
+.channel-members-button {
+  height: 60px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 18px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
 .channel-details-dropdown {
   position: relative;
   border-bottom: 0.0625rem solid #e8e8e8;
@@ -70,16 +80,15 @@
   justify-content: space-between;
 }
 
-.channel-details-button {
-  height: 60px;
+.channel-details-button-content,
+.channel-members-button-content {
   width: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1.125;
-  text-align: left;
+  display: flex;
+  padding-left: 14px;
+  padding-right: 23px;
+  color: #2c2d30;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .channel-members-dropdown {
@@ -93,37 +102,9 @@
   justify-content: space-between;
 }
 
-.channel-members-button {
-  height: 60px;
-  width: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  font-size: 18px;
-  line-height: 1.125;
-  text-align: left;
-}
-
-.channel-members-button-content {
-  width: 100%;
-  display: flex;
-  padding-left: 1px;
-  padding-right: 1px;
-  color: #2c2d30;
-}
-
 .channel-members-button-text {
   display: flex;
   width: 100%;
-}
-
-.channel-details-button-content {
-  width: 100%;
-  display: flex;
-  padding-left: 1px;
-  padding-right: 1px;
-  color: #2c2d30;
 }
 
 .channel-details-button-text {
@@ -151,14 +132,6 @@
   justify-content: space-between;
 }
 
-.members-list-show {
-  display: block;
-}
-
-.channel-detials-show {
-  display: block;
-}
-
 .fa-user {
   color: #2ea664;
   margin-right: 0.5rem !important;
@@ -179,4 +152,28 @@
   font-size: 15px;
   align-items: center;
   line-height: 2;
+}
+
+.channel-detail-purpose {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.channel-detail-purpose-title {
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  color: #717274;
+  margin-bottom: 0.5rem;
+  font-weight: 900;
+}
+
+.channel-detail-purpose {
+  margin-bottom: 1.5rem;
+}
+
+.channel-detail-purpose-text {
+  line-height: 1.25rem;
+  color: #2c2d30;
+  font-size: 0.9375rem;
+  word-wrap: break-word;
 }

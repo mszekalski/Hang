@@ -14,10 +14,11 @@ class InfoSidebar extends React.Component {
   }
 
   dropdown(e) {
-    let currentTarget = e.target.value;
-    if (currentTarget === "membersDropdown") {
+    let currentTarget = e.currentTarget.className;
+
+    if (currentTarget === "channel-members-button") {
       this.setState({ membersDropdown: !this.state.membersDropdown });
-    } else if (currentTarget === "infoDropdown") {
+    } else if (currentTarget === "channel-details-button") {
       this.setState({ infoDropdown: !this.state.infoDropdown });
     }
   }
@@ -29,11 +30,7 @@ class InfoSidebar extends React.Component {
   renderMembersIndexButton() {
     if (this.props.currentChannel.member_ids.length > 1) {
       return (
-        <button
-          onClick={this.dropdown}
-          className="channel-members-button"
-          value="membersDropdown"
-        >
+        <div onClick={this.dropdown} className="channel-members-button">
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -41,15 +38,11 @@ class InfoSidebar extends React.Component {
             </div>
             <div className="members-arrow">&#x25BE;</div>
           </div>
-        </button>
+        </div>
       );
     } else {
       return (
-        <button
-          onClick={this.dropdown}
-          className="channel-members-button"
-          value="membersDropdown"
-        >
+        <div onClick={this.dropdown} className="channel-members-button">
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -57,7 +50,7 @@ class InfoSidebar extends React.Component {
             </div>
             <div className="members-arrow">&#x25BE;</div>
           </div>
-        </button>
+        </div>
       );
     }
   }
@@ -95,29 +88,25 @@ class InfoSidebar extends React.Component {
 
   render() {
     return (
-      <div id="info-sidebar-container">
+      <div className="info-sidebar-container">
         <div className="info-header">
           <div className="info-header-title">
             About #{this.props.currentChannel.topic}
           </div>
-          <button className="cancel-button-info" onClick={this.hide}>
+          <div className="cancel-button-info" onClick={this.hide}>
             <div className="info-x" onClick={this.renderInfoSidebar}>
               x
             </div>
-          </button>
+          </div>
         </div>
         <div className="channel-details-dropdown">
-          <button
-            onClick={this.dropdown}
-            className="channel-details-button"
-            value="infoDropdown"
-          >
+          <div onClick={this.dropdown} className="channel-details-button">
             <div className="channel-details-button-content">
               <i className="fas fa-info-circle details-info-circle" />
               <div className="channel-details-button-text">Channel Details</div>
               <div className="members-arrow">&#x25BE;</div>
             </div>
-          </button>
+          </div>
           {this.renderChannelInfo()}
         </div>
         <div className="channel-members-dropdown">
