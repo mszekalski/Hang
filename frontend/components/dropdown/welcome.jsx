@@ -1,29 +1,50 @@
 import React from "react";
 import WelcomeContainer from "./welcome_container";
 
+import onClickOutside from "react-onclickoutside";
+
 class Welcome extends React.Component {
-  dropdown() {
-    document.getElementById("profile-dropdown").classList.toggle("show");
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      show: false
+    };
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    this.renderDropdown = this.renderDropdown.bind(this);
   }
 
-  // window.onClick = function(event) {
-  //   if (!event.target.matches('.dropbtn')) {
-  //
-  //     var dropdowns = document.getElementsByClassName("dropdown-content");
-  //     var i;
-  //     for (i = 0; i < dropdowns.length; i++) {
-  //       var openDropdown = dropdowns[i];
-  //       if (openDropdown.classList.contains('show')) {
-  //         openDropdown.classList.remove('show');
-  //       }
-  //     }
-  //   }
-  // }
+  handleClickOutside() {
+    return this.state.show ? this.handleShow() : null;
+  }
+
+  handlShow() {
+    return this.state.show
+      ? this.setState({ show: false })
+      : this.setState({ show: true });
+  }
+
+  renderDropdown() {
+    if (this.state === true) {
+      return (
+        <div id="profile-dropdown" className="dropdown-content">
+          <div className="logout-button-div">
+            <button className="logout-button" onClick={this.props.logout}>
+              Logout
+            </button>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
 
   render() {
     return (
       <div className="dropdown">
-        <button onClick={this.dropdown} className="dropbtn">
+        <button onClick={this.handlShow} className="dropbtn">
           <div className="top-dropdown-div">
             <div className="currentchannel-div">
               # {this.props.currentChannel.topic}
@@ -36,16 +57,10 @@ class Welcome extends React.Component {
             {this.props.user.username}
           </div>
         </button>
-        <div id="profile-dropdown" className="dropdown-content">
-          <div className="logout-button-div">
-            <button className="logout-button" onClick={this.props.logout}>
-              Logout
-            </button>
-          </div>
-        </div>
+        {this.renderDropdown()}
       </div>
     );
   }
 }
 
-export default Welcome;
+export default onClickOutside(Welcome);
