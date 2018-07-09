@@ -26,9 +26,9 @@ class Welcome extends React.Component {
   }
 
   renderDropdown() {
-    if (this.state === true) {
+    if (this.state.show === true) {
       return (
-        <div id="profile-dropdown" className="dropdown-content">
+        <div className="dropdown-content">
           <div className="logout-button-div">
             <button className="logout-button" onClick={this.props.logout}>
               Logout
@@ -44,7 +44,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className="dropdown">
-        <button onClick={this.handlShow} className="dropbtn">
+        <button onClick={this.handleShow} className="dropbtn">
           <div className="top-dropdown-div">
             <div className="currentchannel-div">
               # {this.props.currentChannel.topic}
