@@ -19,7 +19,7 @@ class Welcome extends React.Component {
     return this.state.show ? this.handleShow() : null;
   }
 
-  handlShow() {
+  handleShow() {
     return this.state.show
       ? this.setState({ show: false })
       : this.setState({ show: true });
