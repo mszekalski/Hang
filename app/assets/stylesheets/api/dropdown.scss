@@ -31,6 +31,8 @@
   width: 270px;
   border-radius: 6px;
   border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-animation: fadein 0.3s;
+  animation: fadein 0.3s;
 }
 
 .dropdown-content a {
