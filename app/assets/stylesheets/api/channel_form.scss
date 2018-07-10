@@ -1,3 +1,21 @@
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .modal-container {
   z-index: 5;
   position: fixed;
@@ -10,6 +28,8 @@
   display: block;
   justify-content: center;
   align-items: center;
+  -webkit-animation: fadein 0.2s linear forwards;
+  animation: fadein 0.2s linear forwards;
 }
 
 .channel-form-footer {
