@@ -10,8 +10,8 @@
   display: block;
   justify-content: center;
   align-items: center;
-  -webkit-animation: fadein 0.3s;
-  animation: fadein 0.3s;
+  -webkit-animation: fadein 0.3s, slideup 0.15s;
+  animation: fadein 0.3s, slideup 0.15s;
 }
 
 .channel-form-footer {
