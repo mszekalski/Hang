@@ -66,6 +66,9 @@ li.channel-item {
   // display: inline-block;
 }
 
+.thread-button {
+  width: 100%;
+}
 .thread-header:hover {
   color: white;
 }
@@ -76,10 +79,6 @@ li.channel-item {
 }
 
 .membership-button {
-  width: 100%;
-}
-
-.thread-button {
   width: 100%;
 }
 

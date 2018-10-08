@@ -11,6 +11,7 @@ class Sidebar extends React.Component {
     super(props);
     this.showChannelForm = this.showChannelForm.bind(this);
     this.renderMembershipForm = this.renderMembershipForm.bind(this);
+    this.showThreadForm = this.showThreadForm.bind(this);
   }
   componentDidMount() {
     this.props.fetchChannels();
@@ -43,7 +44,7 @@ class Sidebar extends React.Component {
     this.props.openModal(<ChannelFormContainer />);
   }
 
-  renderMembershipForm() {
+  showMembershipForm() {
     this.props.openModal(<MembershipFormContainer />);
   }
 
@@ -57,10 +58,7 @@ class Sidebar extends React.Component {
         <WelcomeContainer />
 
         <div className="channels-header">
-          <div
-            className="membership-button"
-            onClick={this.renderMembershipForm}
-          >
+          <div className="membership-button" onClick={this.showMembershipForm}>
             Channels
           </div>
           <div className="plus-button" onClick={this.showChannelForm}>
@@ -68,8 +66,6 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <ul>{this.renderChannels()}</ul>
-        <br />
-        <br />
         <div className="thread-header">
           <div className="thread-button" onClick={this.showThreadForm}>
             Direct Messages
@@ -84,7 +80,3 @@ class Sidebar extends React.Component {
 }
 
 export default withRouter(Sidebar);
-
-// <div className="thread-button" onClick={this.renderThreadForm}>
-//   Direct Messages
-// </div>
