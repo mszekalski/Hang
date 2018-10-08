@@ -87,7 +87,7 @@ class ThreadForm extends React.Component {
             membershipArray={this.state.membershipArray}
             addUser={this.addUser}
           />
-          <button className="thread-button" type="submit" value="text">
+          <button className="thread-submit-button" type="submit" value="text">
             Go
           </button>
         </form>

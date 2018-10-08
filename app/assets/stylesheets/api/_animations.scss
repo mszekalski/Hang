@@ -34,6 +34,24 @@
   }
 }
 
+@-webkit-keyframes slidedown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(25%);
+  }
+}
+
+@keyframes slidedown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(25%);
+  }
+}
+
 @-webkit-keyframes fadeout {
   from {
     opacity: 1;

@@ -13,7 +13,11 @@ class Modal extends React.Component {
   render() {
     if (this.props.component) {
       return (
-        <div className="modal-container" onClick={this.stopPropagation}>
+        <div
+          id="modal-container-id"
+          className="modal-container"
+          onClick={this.stopPropagation}
+        >
           {this.props.component}
         </div>
       );

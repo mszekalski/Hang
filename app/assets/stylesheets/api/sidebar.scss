@@ -51,6 +51,25 @@ li.channel-item {
   // display: inline-block;
 }
 
+.channels-header:hover {
+  color: white;
+}
+
+.thread-header {
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  // margin-left: 13px;
+  // margin-bottom: 15px;
+  // display: inline-block;
+}
+
+.thread-header:hover {
+  color: white;
+}
+
 .plus-button {
   float: right;
   padding-right: 25px;
@@ -60,8 +79,8 @@ li.channel-item {
   width: 100%;
 }
 
-.channels-header:hover {
-  color: white;
+.thread-button {
+  width: 100%;
 }
 
 .username-header {

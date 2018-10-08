@@ -47,12 +47,9 @@ class Sidebar extends React.Component {
     this.props.openModal(<MembershipFormContainer />);
   }
 
-  // renderThreadForm() {
-  //   document.getElementById("thread-form-container").classList.remove("hidden");
-  //   document
-  //     .getElementById("thread-form-container")
-  //     .classList.add("display-form");
-  // }
+  showThreadForm() {
+    this.props.openModal(<ThreadFormContainer />);
+  }
 
   render() {
     return (
@@ -71,6 +68,16 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <ul>{this.renderChannels()}</ul>
+        <br />
+        <br />
+        <div className="thread-header">
+          <div className="thread-button" onClick={this.showThreadForm}>
+            Direct Messages
+          </div>
+          <div className="plus-button" onClick={this.showThreadForm}>
+            +
+          </div>
+        </div>
       </div>
     );
   }
