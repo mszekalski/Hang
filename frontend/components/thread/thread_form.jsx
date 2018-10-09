@@ -38,7 +38,7 @@ class ThreadForm extends React.Component {
 
   hide() {
     this.setState({ membershipArray: [], usersSearch: "" });
-    document.getElementById("thread-form-container").classList.add("hidden");
+    this.props.closeModal();
   }
 
   addUser(id) {

@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.showChannelForm = this.showChannelForm.bind(this);
-    this.renderMembershipForm = this.renderMembershipForm.bind(this);
+    this.showMembershipForm = this.showMembershipForm.bind(this);
     this.showThreadForm = this.showThreadForm.bind(this);
   }
   componentDidMount() {
@@ -56,7 +56,6 @@ class Sidebar extends React.Component {
     return (
       <div className="sidebar">
         <WelcomeContainer />
-
         <div className="channels-header">
           <div className="membership-button" onClick={this.showMembershipForm}>
             Channels

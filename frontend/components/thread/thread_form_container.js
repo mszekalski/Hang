@@ -4,6 +4,7 @@ import {
   fetchDirectThread,
   clearErrors
 } from "../../actions/direct_thread_actions.js";
+import { closeModal } from "../../actions/modal_actions.js";
 
 import { fetchAllUsers } from "../../actions/user_actions.js";
 import ThreadForm from "./thread_form";
@@ -24,8 +25,12 @@ const mapDispatchToProps = dispatch => {
     fetchDirectThread: directThread =>
       dispatch(fetchDirectThread(directThread)),
     fetchAllUsers: () => dispatch(fetchAllUsers()),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ThreadForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ThreadForm);
