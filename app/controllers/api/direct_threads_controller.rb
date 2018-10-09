@@ -7,11 +7,14 @@ class Api::DirectThreadsController < ApplicationController
     @direct_thread = DirectThread.new(direct_thread_params)
     @direct_thread.creator_id = current_user.id
     @members = member_params
-  debugger
+    if (!@members.include? current_user.id)
+      @members << current_user.id
+    end
 
     if @direct_thread.save
-      Membership.create(user_id: current_user.id, membershipable_id: @direct_thread.id, membershipable_type: "DirectThread")
-      
+      @members.each do | member_id |
+        Membership.create(user_id: member_id, membershipable_id: @direct_thread.id, membershipable_type: "DirectThread")
+      end
       render :show
     else
       render json: @direct_thread.errors.full_messages, status: 422
