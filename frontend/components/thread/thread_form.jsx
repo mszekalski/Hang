@@ -23,8 +23,11 @@ class ThreadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
-    this.props.createDirectThread(this.state.newDirectThread, this.state.membershipArray);
+
+    this.props.createDirectThread(
+      this.state.newDirectThread,
+      this.state.membershipArray
+    );
   }
 
   update(field) {
@@ -55,38 +58,44 @@ class ThreadForm extends React.Component {
 
   render() {
     return (
-      <div id="thread-form-container" className="hidden">
-        <h1 className="new-thread-title">Direct Messages</h1>
+      <div id="thread-form-container" className="thread-form-container">
         <button className="cancel-button-membership" onClick={this.hide}>
           <span className="membership-x">X</span>
           <span className="esc">esc</span>
         </button>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="thread-form-div">
           <div className="thread-input-div">
+            <h1 className="new-thread-title">Direct Messages</h1>
             <MembersIndex
               users={this.props.users}
               currentUser={this.props.currentUser}
               membershipArray={this.state.membershipArray}
               removeUser={this.removeUser}
             />
-            <input
-              className="search-users"
-              type="text"
-              onChange={this.update("usersSearch")}
-              value={this.state.usersSearch}
-              placeholder="Find or start a conversation"
+            <div className="users-search-div">
+              <input
+                className="search-users"
+                type="text"
+                onChange={this.update("usersSearch")}
+                value={this.state.usersSearch}
+                placeholder="Find or start a conversation"
+              />
+              <button
+                className="thread-submit-button"
+                type="submit"
+                value="text"
+              >
+                Go
+              </button>
+            </div>
+            <UsersIndex
+              users={this.props.users}
+              search={this.state.usersSearch}
+              currentUser={this.props.currentUser}
+              membershipArray={this.state.membershipArray}
+              addUser={this.addUser}
             />
           </div>
-          <UsersIndex
-            users={this.props.users}
-            search={this.state.usersSearch}
-            currentUser={this.props.currentUser}
-            membershipArray={this.state.membershipArray}
-            addUser={this.addUser}
-          />
-          <button className="thread-submit-button" type="submit" value="text">
-            Go
-          </button>
         </form>
       </div>
     );

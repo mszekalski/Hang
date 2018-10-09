@@ -1,0 +1,23 @@
+.thread-form-div {
+  max-width: 100%;
+  position: absolute;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 105px;
+  flex-direction: column;
+  height: 106vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.new-thread-title {
+  font-size: 35px;
+  line-height: 41px;
+  font-weight: bold;
+  font-family: sans-serif;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  color: #2c2d30;
+}
