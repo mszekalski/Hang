@@ -60,11 +60,4 @@ class MembershipForm extends React.Component {
   }
 }
 
-// <input
-//   className="cancel-button-membership"
-//   type="button"
-//   value="X"
-//   onClick={this.hide}
-// />
-
 export default withRouter(MembershipForm);

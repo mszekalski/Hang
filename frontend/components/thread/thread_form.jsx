@@ -74,15 +74,14 @@ class ThreadForm extends React.Component {
                   membershipArray={this.state.membershipArray}
                   removeUser={this.removeUser}
                 />
-                <div className="users-search-div">
-                  <input
-                    className="search-users"
-                    type="text"
-                    onChange={this.update("usersSearch")}
-                    value={this.state.usersSearch}
-                    placeholder="Find or start a conversation"
-                  />
-                </div>
+
+                <input
+                  className="search-users"
+                  type="text"
+                  onChange={this.update("usersSearch")}
+                  value={this.state.usersSearch}
+                  placeholder="Find or start a conversation"
+                />
               </div>
               <div className="button-wrapper">
                 <button

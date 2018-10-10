@@ -13,9 +13,9 @@ class MembersIndexItem extends React.Component {
 
   render() {
     return (
-      <div className="members-array-name-li">
+      <div className="members-array-name-li" onClick={this.handleClick}>
         {this.props.users[this.props.member].username}
-        <button onClick={this.handleClick}>X</button>
+        <button>X</button>
       </div>
     );
   }
