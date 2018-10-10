@@ -66,27 +66,33 @@ class ThreadForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="thread-form-div">
           <div className="thread-input-div">
             <h1 className="new-thread-title">Direct Messages</h1>
-            <MembersIndex
-              users={this.props.users}
-              currentUser={this.props.currentUser}
-              membershipArray={this.state.membershipArray}
-              removeUser={this.removeUser}
-            />
-            <div className="users-search-div">
-              <input
-                className="search-users"
-                type="text"
-                onChange={this.update("usersSearch")}
-                value={this.state.usersSearch}
-                placeholder="Find or start a conversation"
-              />
-              <button
-                className="thread-submit-button"
-                type="submit"
-                value="text"
-              >
-                Go
-              </button>
+            <div className="thread-input-outer">
+              <div className="thread-input-inner">
+                <MembersIndex
+                  users={this.props.users}
+                  currentUser={this.props.currentUser}
+                  membershipArray={this.state.membershipArray}
+                  removeUser={this.removeUser}
+                />
+                <div className="users-search-div">
+                  <input
+                    className="search-users"
+                    type="text"
+                    onChange={this.update("usersSearch")}
+                    value={this.state.usersSearch}
+                    placeholder="Find or start a conversation"
+                  />
+                </div>
+              </div>
+              <div className="button-wrapper">
+                <button
+                  className="thread-submit-button"
+                  type="submit"
+                  value="text"
+                >
+                  Go
+                </button>
+              </div>
             </div>
             <UsersIndex
               users={this.props.users}

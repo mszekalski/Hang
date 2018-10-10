@@ -12,6 +12,17 @@
   width: 700px;
 }
 
+.thread-input-outer {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+}
+
+.button-wrapper {
+  margin-left: 1rem;
+  float: right;
+}
+
 .new-thread-title {
   font-size: 35px;
   line-height: 41px;
@@ -20,4 +31,41 @@
   line-height: 1.5rem;
   margin-bottom: 2rem;
   color: #2c2d30;
+}
+
+.thread-input-inner {
+  padding: 0.5rem 0.75rem 0.75rem;
+  border: 1px solid #919193;
+  border-radius: 0.25rem;
+  cursor: text;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+  line-height: 1.5rem;
+  user-select: none;
+  width: 100%;
+}
+
+.thread-submit-button {
+  float: right;
+  padding-top: 16px;
+  padding-bottom: 17px;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: #008952;
+  color: #fff;
+  line-height: 1.2rem;
+  font-weight: 900;
+  text-decoration: none;
+  user-select: none;
+  cursor: point;
+  text-shadow: none;
+  border: none;
+  border-radius: 0.25rem;
+  position: relative;
+  vertical-align: bottom;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 20px;
 }
