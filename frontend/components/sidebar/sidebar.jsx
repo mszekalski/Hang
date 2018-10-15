@@ -15,6 +15,7 @@ class Sidebar extends React.Component {
   }
   componentDidMount() {
     this.props.fetchChannels();
+    this.props.fetchDirectThreads();
   }
 
   componentWillReceiveProps(newProps) {
@@ -33,6 +34,27 @@ class Sidebar extends React.Component {
               activeClassName="active"
             >
               # {channel.topic}
+            </NavLink>
+          </li>
+        );
+      }
+    });
+  }
+
+  renderDirectThreads() {
+    return this.props.directThreads.map(directThread => {
+      if (directThread.member_ids.includes(this.props.user.id)) {
+        return (
+          <li key={`${directThread.id}`} className="direct-thread-item">
+            <NavLink
+              to={`/home/${directThread.id}`}
+              className=".direct-thread-users-list"
+              onClick={() =>
+                this.props.history.push(`/home/${directThread.id}`)
+              }
+              activeClassName="active"
+            >
+              {}
             </NavLink>
           </li>
         );
@@ -73,6 +95,7 @@ class Sidebar extends React.Component {
             +
           </div>
         </div>
+        <ul>{this.renderDirectThreads()}</ul>
       </div>
     );
   }
