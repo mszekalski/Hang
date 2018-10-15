@@ -26,11 +26,11 @@ class MembershipForm extends React.Component {
   render() {
     return (
       <div className="membership-content-container">
+        <button className="cancel-button-membership" onClick={this.hide}>
+          <span className="membership-x">X</span>
+          <span className="esc">esc</span>
+        </button>
         <div className="membership-contents">
-          <button className="cancel-button-membership" onClick={this.hide}>
-            <span className="membership-x">X</span>
-            <span className="esc">esc</span>
-          </button>
           <div className="channel-browser">
             <div className="membership-header">Browse channels</div>
             <div className="search-membership-container">

@@ -7,9 +7,9 @@
   height: 100%;
   background-color: white;
   overflow-y: hidden;
-  display: block;
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   -webkit-animation: fadein 0.3s, slideup 0.15s;
   animation: fadein 0.3s, slideup 0.15s;
 }
