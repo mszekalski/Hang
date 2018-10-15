@@ -91,6 +91,7 @@
 .users-index-list-container {
   border-right: 0.25rem solid transparent;
   overflow-y: scroll;
+
   min-height: 0;
   padding-right: 17px;
   flex: 1;
@@ -99,13 +100,13 @@
 
 .users-index-list {
   position: relative;
-  display: block;
   box-sizing: border-box;
-  height: 100%;
+  height: auto;
+  padding-bottom: 10px;
 }
 
 .user-name-li {
-  width: 100%;
+  width: 98%;
   height: 64px;
   cursor: pointer;
   border: 1px solid transparent;
@@ -113,6 +114,12 @@
   padding-left: 10px;
   padding-right: 12px;
   padding-top: 11px;
+}
+
+.user-name-li:hover {
+  background: #eaf5fc;
+  border: 1px solid #cbe7f7;
+  border-radius: 6px;
 }
 
 .members-array-name-li {

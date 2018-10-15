@@ -93,7 +93,8 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  height: 100%;
+  height: auto;
+  padding-bottom: 10px;
 }
 
 .channel-index-list-header {
