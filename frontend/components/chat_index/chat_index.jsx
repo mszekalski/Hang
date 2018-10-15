@@ -35,7 +35,7 @@ class ChatIndex extends React.Component {
         .local()
         .format("h:mm A");
       if (
-        this.props.currentChannel.id === message.chatable_id &&
+        this.props.currentConversation.id === message.chatable_id &&
         message.chatable_type === "Channel"
       ) {
         return (

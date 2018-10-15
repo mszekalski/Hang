@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import currentChannelReducer from "./current_channel_reducer";
+import currentConversationReducer from "./current_conversation_reducer";
 import modalReducer from "./modal_reducer";
 const uiReducer = combineReducers({
-  currentChannel: currentChannelReducer,
+  currentConversation: currentConversationReducer,
   modal: modalReducer
 });
 

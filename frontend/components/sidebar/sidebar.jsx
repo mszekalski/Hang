@@ -48,13 +48,13 @@ class Sidebar extends React.Component {
           <li key={`${directThread.id}`} className="direct-thread-item">
             <NavLink
               to={`/home/${directThread.id}`}
-              className=".direct-thread-users-list"
+              className="direct-thread-users-list"
               onClick={() =>
                 this.props.history.push(`/home/${directThread.id}`)
               }
               activeClassName="active"
             >
-              {}
+              {directThread.members}
             </NavLink>
           </li>
         );
