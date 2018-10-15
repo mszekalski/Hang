@@ -93,13 +93,17 @@ class ThreadForm extends React.Component {
                 </button>
               </div>
             </div>
-            <UsersIndex
-              users={this.props.users}
-              search={this.state.usersSearch}
-              currentUser={this.props.currentUser}
-              membershipArray={this.state.membershipArray}
-              addUser={this.addUser}
-            />
+            <div className="users-index-list-container">
+              <div className="users-index-list">
+                <UsersIndex
+                  users={this.props.users}
+                  search={this.state.usersSearch}
+                  currentUser={this.props.currentUser}
+                  membershipArray={this.state.membershipArray}
+                  addUser={this.addUser}
+                />
+              </div>
+            </div>
           </div>
         </form>
       </div>
