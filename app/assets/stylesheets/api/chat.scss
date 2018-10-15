@@ -2,6 +2,9 @@
   font-weight: bold;
   margin: 15px;
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .channel-header-div {
