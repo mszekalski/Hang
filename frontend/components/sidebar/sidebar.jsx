@@ -65,18 +65,17 @@ class Sidebar extends React.Component {
           </div>
         </div>
         <ul>{this.renderChannels()}</ul>
+        <div className="thread-header">
+          <div className="thread-button" onClick={this.showThreadForm}>
+            Direct Messages
+          </div>
+          <div className="plus-button" onClick={this.showThreadForm}>
+            +
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default withRouter(Sidebar);
-
-// <div className="thread-header">
-//   <div className="thread-button" onClick={this.showThreadForm}>
-//     Direct Messages
-//   </div>
-//   <div className="plus-button" onClick={this.showThreadForm}>
-//     +
-//   </div>
-// </div>
