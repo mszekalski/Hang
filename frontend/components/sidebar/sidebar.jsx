@@ -28,9 +28,9 @@ class Sidebar extends React.Component {
         return (
           <li key={`${channel.id}`} className="channel-item">
             <NavLink
-              to={`/home/${channel.id}`}
+              to={`/home/channels/${channel.id}`}
               className="channel-topic"
-              onClick={() => this.props.history.push(`/home/${channel.id}`)}
+              onClick={() => this.props.history.push(`/home/channels/${channel.id}`)}
               activeClassName="active"
             >
               # {channel.topic}
@@ -47,10 +47,10 @@ class Sidebar extends React.Component {
         return (
           <li key={`${directThread.id}`} className="direct-thread-item">
             <NavLink
-              to={`/home/${directThread.id}`}
+              to={`/home/directThreads/${directThread.id}`}
               className="direct-thread-users-list"
               onClick={() =>
-                this.props.history.push(`/home/${directThread.id}`)
+                this.props.history.push(`/home/directThreads/${directThread.id}`)
               }
               activeClassName="active"
             >

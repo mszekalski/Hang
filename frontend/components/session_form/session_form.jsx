@@ -14,22 +14,24 @@ class SessionForm extends React.Component {
     this.demo = this.demo.bind(this);
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.loggedIn) {
-  //     this.props.history.push(`/`);
-  //   }
-  // }
+
 
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(response => {
-      this.props.history.push(
-        `/home/${response.user.memberships[0].membershipable_id}`
-      );
+      if (response.user.memberships[0].membershipable_type === "Channel") {
+        this.props.history.push(
+          `/home/channels/${response.user.memberships[0].membershipable_id}`
+        );
+      } else {
+        this.props.history.push(
+          `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+        );
+      }
     });
 
-    // for regular login - not demo .then(() => debugger);
+
   }
 
   update(field) {
@@ -85,15 +87,27 @@ class SessionForm extends React.Component {
       typeSubmit: setTimeout(() => {
         if (this.props.formType === "login") {
           this.props.processForm(guest).then(response => {
-            this.props.history.push(
-              `/home/${response.user.memberships[0].membershipable_id}`
-            );
+            if (response.user.memberships[0].membershipable_type === "Channel") {
+              this.props.history.push(
+                `/home/channels/${response.user.memberships[0].membershipable_id}`
+              );
+            } else {
+              this.props.history.push(
+                `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+              );
+            }
           }); // for demo
         } else {
           this.props.login(guest).then(response => {
-            this.props.history.push(
-              `/home/${response.user.memberships[0].membershipable_id}`
-            );
+            if (response.user.memberships[0].membershipable_type === "Channel") {
+              this.props.history.push(
+                `/home/channels/${response.user.memberships[0].membershipable_id}`
+              );
+            } else {
+              this.props.history.push(
+                `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+              );
+            }
           }); // for demo
         }
       }, 1700)
