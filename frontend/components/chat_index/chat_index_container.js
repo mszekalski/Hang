@@ -11,7 +11,7 @@ import { values } from "lodash";
 const mapStateToProps = state => {
   return {
     messages: values(state.messages),
-    currentConversation: state.channels[state.ui.currentConversation] || {}
+    currentConversation: state.ui.currentConversation || {}
   };
 };
 

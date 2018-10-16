@@ -5,7 +5,7 @@ import InfoSidebar from "./info_sidebar";
 
 const mapStateToProps = state => {
   return {
-    currentChannel: state.channels[state.ui.currentChannel] || {
+    currentChannel: state.channels[state.ui.currentConversation.id] || {
       member_ids: []
     },
     users: state.users,
@@ -19,4 +19,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InfoSidebar);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(InfoSidebar);

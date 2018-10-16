@@ -4,7 +4,7 @@ import Welcome from "./welcome";
 
 const mapStateToProps = state => {
   return {
-    currentChannel: state.channels[state.ui.currentChannel] || {},
+    currentConversation: state.channels[state.ui.currentConversation.id] || {},
     user: state.session.currentUser
   };
 };
@@ -15,4 +15,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Welcome);

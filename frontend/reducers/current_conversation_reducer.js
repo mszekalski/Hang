@@ -6,9 +6,12 @@ const currentConversationReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      return action.channel.id;
+      return merge({}, oldState, { id: action.channel.id, type: "Channel" });
     case RECEIVE_DIRECT_THREAD:
-      return action.directThread.id;
+      return merge({}, oldState, {
+        id: action.directThread.id,
+        type: "DirectThread"
+      });
     default:
       return oldState;
   }
