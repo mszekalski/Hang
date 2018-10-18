@@ -42,12 +42,13 @@ class ChatForm extends React.Component {
   }
 
   handleSendEvent(event) {
+    debugger;
     event.preventDefault();
     this.chats.create({
       message: this.state.currentChatMessage,
       user_id: this.props.user.id,
-      chatable_id: this.props.currentChannel.id,
-      chatable_type: "Channel"
+      chatable_id: this.props.currentConversation.id,
+      chatable_type: this.props.currentConversation.type
     });
     this.setState({
       currentChatMessage: ""

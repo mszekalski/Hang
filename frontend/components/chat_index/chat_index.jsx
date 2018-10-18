@@ -36,7 +36,7 @@ class ChatIndex extends React.Component {
         .format("h:mm A");
       if (
         this.props.currentConversation.id === message.chatable_id &&
-        message.chatable_type === "Channel"
+        message.chatable_type === this.props.currentConversation.type
       ) {
         return (
           <li key={`chat_${message.id}`} className="chat-message">

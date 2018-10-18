@@ -1,31 +1,32 @@
-import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
-import ChatForm from './chat_form';
-import { fetchAllMessages, receiveMessage } from '../../actions/chat_message_actions';
-import { fetchChannel } from '../../actions/channel_actions';
+import { connect } from "react-redux";
+import { logout } from "../../actions/session_actions";
+import ChatForm from "./chat_form";
+import {
+  fetchAllMessages,
+  receiveMessage
+} from "../../actions/chat_message_actions";
+import { fetchChannel } from "../../actions/channel_actions";
 // import { values } from 'lodash';
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     user: state.session.currentUser,
-    currentChannel: state.channels[state.ui.currentChannel] || {}
-
+    currentConversation: state.ui.currentConversation || {}
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     // logout: () => dispatch(logout()),
     // fetchAllMessages: () => dispatch(fetchAllMessages()),
-    receiveMessage: (message) => {
+    receiveMessage: message => {
       return dispatch(receiveMessage(message));
     }
     // fetchChannel: (id) => dispatch(fetchChannel(id))
   };
 };
 
-export default connect (
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ChatForm);

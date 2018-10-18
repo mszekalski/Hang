@@ -19,19 +19,23 @@ class ChatArea extends React.Component {
     if (Object.values(this.props.currentUser).length === 0) {
       return null;
     } else if (
-      Object.values(this.props.currentChannel).length === 0 &&
+      Object.values(this.props.currentConversation).length === 0 &&
       Object.values(this.props.match.params).length > 0
     ) {
       this.props.fetchAllUsers();
       this.props.fetchChannel(this.props.match.params.channelId);
-      this.props.history.push(`/home/${this.props.match.params.channelId}`);
+      this.props.history.push(
+        `/home/channels/${this.props.match.params.channelId}`
+      );
     } else {
       this.props.fetchAllUsers();
       this.props.fetchChannel(
         this.props.currentUser.memberships[0].membershipable_id
       );
       this.props.history.push(
-        `/home/${this.props.currentUser.memberships[0].membershipable_id}`
+        `/home/channels/${
+          this.props.currentUser.memberships[0].membershipable_id
+        }`
       );
     }
   }
