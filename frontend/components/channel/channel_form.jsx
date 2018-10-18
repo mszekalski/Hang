@@ -63,7 +63,7 @@ class ChannelForm extends React.Component {
     e.preventDefault();
     this.props.createChannel(this.state).then(payload => {
       this.hide();
-      this.props.history.push(`/home/${payload.channel.id}`);
+      this.props.history.push(`/home/channels/${payload.channel.id}`);
     });
   }
 

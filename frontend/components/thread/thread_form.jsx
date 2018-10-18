@@ -23,11 +23,17 @@ class ThreadForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    this.props.createDirectThread(
-      this.state.newDirectThread,
-      this.state.membershipArray
-    );
+    this.props
+      .createDirectThread(
+        this.state.newDirectThread,
+        this.state.membershipArray
+      )
+      .then(payload => {
+        this.props.history.push(
+          `/home/directThreads/${payload.directThread.id}`
+        );
+        this.hide();
+      });
   }
 
   update(field) {

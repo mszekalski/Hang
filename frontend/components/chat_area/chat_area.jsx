@@ -20,20 +20,24 @@ class ChatArea extends React.Component {
       return null;
     } else if (
       Object.values(this.props.currentConversation).length === 0 &&
-      Object.values(this.props.match.params).length > 0
+      Object.values(this.props.match.params).length > 0 &&
+      this.props.match.params.channelId !== undefined
     ) {
       this.props.fetchAllUsers();
-      if (this.props.match.params.channeldId !== undefined) {
-        this.props.fetchChannel(this.props.match.params.channelId);
-        this.props.history.push(
-          `/home/channels/${this.props.match.params.channelId}`
-        );
-      } else {
-        this.props.fetchDirectThread(this.props.match.params.directThreadId);
-        this.props.history.push(
-          `/home/directThreads/${this.props.match.params.directthreadId}`
-        );
-      }
+      this.props.fetchChannel(this.props.match.params.channelId);
+      this.props.history.push(
+        `/home/channels/${this.props.match.params.channelId}`
+      );
+    } else if (
+      Object.values(this.props.currentConversation).length === 0 &&
+      Object.values(this.props.match.params).length > 0 &&
+      this.props.match.params.directThreadId !== undefined
+    ) {
+      this.props.fetchAllUsers();
+      this.props.fetchDirectThread(this.props.match.params.directThreadId);
+      this.props.history.push(
+        `/home/directThreads/${this.props.match.params.directThreadId}`
+      );
     } else {
       this.props.fetchAllUsers();
       this.props.fetchChannel(
