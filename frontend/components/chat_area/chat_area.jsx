@@ -23,10 +23,17 @@ class ChatArea extends React.Component {
       Object.values(this.props.match.params).length > 0
     ) {
       this.props.fetchAllUsers();
-      this.props.fetchChannel(this.props.match.params.channelId);
-      this.props.history.push(
-        `/home/channels/${this.props.match.params.channelId}`
-      );
+      if (this.props.match.params.channeldId !== undefined) {
+        this.props.fetchChannel(this.props.match.params.channelId);
+        this.props.history.push(
+          `/home/channels/${this.props.match.params.channelId}`
+        );
+      } else {
+        this.props.fetchDirectThread(this.props.match.params.directThreadId);
+        this.props.history.push(
+          `/home/directThreads/${this.props.match.params.directthreadId}`
+        );
+      }
     } else {
       this.props.fetchAllUsers();
       this.props.fetchChannel(
@@ -41,8 +48,17 @@ class ChatArea extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.match.params.channelId !== newProps.match.params.channelId) {
+    if (
+      this.props.match.params.channelId !== newProps.match.params.channelId &&
+      newProps.match.params.channelId !== undefined
+    ) {
       newProps.fetchChannel(newProps.match.params.channelId);
+    } else if (
+      this.props.match.params.directThreadId !==
+        newProps.match.params.directThreadId &&
+      newProps.match.params.directThreadId !== undefined
+    ) {
+      newProps.fetchDirectThread(newProps.match.params.directThreadId);
     }
   }
 

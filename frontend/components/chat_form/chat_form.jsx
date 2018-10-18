@@ -42,7 +42,6 @@ class ChatForm extends React.Component {
   }
 
   handleSendEvent(event) {
-    debugger;
     event.preventDefault();
     this.chats.create({
       message: this.state.currentChatMessage,

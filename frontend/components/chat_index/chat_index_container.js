@@ -5,6 +5,7 @@ import {
   receiveMessage
 } from "../../actions/chat_message_actions";
 import { fetchChannel } from "../../actions/channel_actions";
+import { fetchDirectThread } from "../../actions/direct_thread_actions";
 import ChatIndex from "./chat_index";
 import { values } from "lodash";
 
@@ -18,8 +19,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchAllMessages: () => dispatch(fetchAllMessages()),
-
-    fetchChannel: id => dispatch(fetchChannel(id))
+    fetchChannel: id => dispatch(fetchChannel(id)),
+    fetchDirectThread: id => dispatch(fetchDirectThread(id))
   };
 };
 
