@@ -15,8 +15,10 @@ const mapStateToProps = state => {
     channels: Object.values(state.channels),
     directThreads: Object.values(state.directThreads),
     user: state.session.currentUser,
-    currentConversation: state.ui.currentConversation || {},
-    users: state.users || {}
+    currentConversation: state.ui.currentConversation || {
+      member_ids: []
+    },
+    users: state.users
   };
 };
 

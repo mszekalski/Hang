@@ -15,6 +15,7 @@ class Sidebar extends React.Component {
     this.renderDirectThreads = this.renderDirectThreads.bind(this);
     this.renderChannels = this.renderChannels.bind(this);
   }
+
   componentDidMount() {
     this.props.fetchChannels();
     this.props.fetchDirectThreads();
@@ -49,6 +50,7 @@ class Sidebar extends React.Component {
   }
 
   renderDirectThreadNames(members) {
+    if (Object.values(this.props.users).length === 0) return null;
     let names = [];
 
     if (members.length === 1 && members[0] === this.props.user.id) {
