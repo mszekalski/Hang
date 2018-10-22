@@ -5,9 +5,10 @@ import InfoSidebar from "./info_sidebar";
 
 const mapStateToProps = state => {
   return {
-    currentChannel: state.channels[state.ui.currentConversation.id] || {
+    currentConversation: state.ui.currentConversation || {
       member_ids: []
     },
+
     users: state.users,
     currentUser: state.session.currentUser
   };

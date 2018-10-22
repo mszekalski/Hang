@@ -10,7 +10,7 @@ class MembersIndex extends React.Component {
     if (Object.values(this.props.users).length === 0) {
       return null;
     } else {
-      return this.props.currentChannel.member_ids.map(memberId => {
+      return this.props.currentConversation.member_ids.map(memberId => {
         return (
           <MembersIndexItem
             key={memberId}

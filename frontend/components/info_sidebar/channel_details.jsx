@@ -10,7 +10,7 @@ class ChannelDetails extends React.Component {
       <div className="channel-detail-purpose">
         <div className="channel-detail-purpose-title">Purpose</div>
         <div className="channel-detail-purpose-text">
-          {this.props.currentChannel.purpose}
+          {this.props.currentConversation.purpose}
         </div>
       </div>
     );

@@ -43,7 +43,7 @@ class Welcome extends React.Component {
 
   renderTopic() {
     if (this.props.currentConversation.type === "Channel") {
-      return this.props.channels[this.props.currentConversation.id].topic;
+      return this.props.currentConversation.topic;
     } else {
       return "DirectThread";
     }

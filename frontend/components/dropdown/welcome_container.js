@@ -5,8 +5,7 @@ import Welcome from "./welcome";
 const mapStateToProps = state => {
   return {
     currentConversation: state.ui.currentConversation || {},
-    user: state.session.currentUser,
-    channels: state.channels
+    user: state.session.currentUser
   };
 };
 
