@@ -23,12 +23,6 @@ a.channel-topic:visited {
   text-decoration: none;
 }
 
-.active {
-  text-decoration: none;
-  background-color: #4c9689;
-  color: #ffffff;
-}
-
 li.channel-item:hover {
   text-decoration: none;
   color: rgb(202, 196, 201);
@@ -49,6 +43,16 @@ li.channel-item {
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
+}
+
+a.direct-thread-users-list:visited {
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: none;
+  background-color: #4c9689;
+  color: #ffffff;
 }
 
 li.direct-thread-item:hover {
