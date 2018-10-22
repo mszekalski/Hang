@@ -7,7 +7,8 @@ class Api::DirectThreadsController < ApplicationController
     @direct_thread = DirectThread.new(direct_thread_params)
     @direct_thread.creator_id = current_user.id
     @members = member_params
-    if (!@members.include? current_user.id)
+  
+    if (!@members.include? current_user.id.to_s)
       @members << current_user.id
     end
 

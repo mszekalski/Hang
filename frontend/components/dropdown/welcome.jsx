@@ -41,14 +41,20 @@ class Welcome extends React.Component {
     }
   }
 
+  renderTopic() {
+    if (this.props.currentConversation.type === "Channel") {
+      return this.props.channels[this.props.currentConversation.id].topic;
+    } else {
+      return "DirectThread";
+    }
+  }
+
   render() {
     return (
       <div className="dropdown">
         <button onClick={this.handleShow} className="dropbtn">
           <div className="top-dropdown-div">
-            <div className="currentchannel-div">
-              # {this.props.currentConversation.topic}
-            </div>
+            <div className="currentchannel-div"># {this.renderTopic()}</div>
             <div className="arrow-div">&#x25BE;</div>
           </div>
 

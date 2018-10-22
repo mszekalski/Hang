@@ -12,6 +12,8 @@ class Sidebar extends React.Component {
     this.showChannelForm = this.showChannelForm.bind(this);
     this.showMembershipForm = this.showMembershipForm.bind(this);
     this.showThreadForm = this.showThreadForm.bind(this);
+    this.renderDirectThreads = this.renderDirectThreads.bind(this);
+    this.renderChannels = this.renderChannels.bind(this);
   }
   componentDidMount() {
     this.props.fetchChannels();
@@ -19,7 +21,10 @@ class Sidebar extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ channels: newProps.channels });
+    this.setState({
+      channels: newProps.channels,
+      directThreads: newProps.directThreads
+    });
   }
 
   renderChannels() {
@@ -30,7 +35,9 @@ class Sidebar extends React.Component {
             <NavLink
               to={`/home/channels/${channel.id}`}
               className="channel-topic"
-              onClick={() => this.props.history.push(`/home/channels/${channel.id}`)}
+              onClick={() =>
+                this.props.history.push(`/home/channels/${channel.id}`)
+              }
               activeClassName="active"
             >
               # {channel.topic}
@@ -39,6 +46,26 @@ class Sidebar extends React.Component {
         );
       }
     });
+  }
+
+  renderDirectThreadNames(members) {
+    let names = [];
+
+    if (members.length === 1 && members[0] === this.props.user.id) {
+      return this.props.user.username;
+    }
+
+    for (let i = 0; i < members.length; i++) {
+      let id = members[i];
+      if (id !== this.props.user.id) {
+        names.push(this.props.users[id].username);
+      }
+    }
+    if (names.length > 1) {
+      return names.join(",");
+    } else {
+      return names.join("");
+    }
   }
 
   renderDirectThreads() {
@@ -50,11 +77,13 @@ class Sidebar extends React.Component {
               to={`/home/directThreads/${directThread.id}`}
               className="direct-thread-users-list"
               onClick={() =>
-                this.props.history.push(`/home/directThreads/${directThread.id}`)
+                this.props.history.push(
+                  `/home/directThreads/${directThread.id}`
+                )
               }
               activeClassName="active"
             >
-              {directThread.members}
+              {this.renderDirectThreadNames(directThread.member_ids)}
             </NavLink>
           </li>
         );

@@ -9,6 +9,7 @@
 User.destroy_all
 Channel.destroy_all
 ChatMessage.destroy_all
+DirectThread.destroy_all
 
 u1 = User.create(username: "demo-user", password: "password")
 u2 = User.create(username: "demo-user2", password: "password")
