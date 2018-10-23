@@ -62,6 +62,52 @@ class ThreadForm extends React.Component {
     this.setState({ membershipArray: newMembershipArray });
   }
 
+  renderUsersList() {
+    if (this.state.membershipArray.length < 9) {
+      return (
+        <div className="users-index-list-container">
+          <div className="users-index-list">
+            <UsersIndex
+              users={this.props.users}
+              search={this.state.usersSearch}
+              currentUser={this.props.currentUser}
+              membershipArray={this.state.membershipArray}
+              addUser={this.addUser}
+            />
+          </div>
+        </div>
+      );
+    }
+  }
+
+  renderUsersListHeader() {
+    if (this.state.membershipArray.length < 1) {
+      return (
+        <div className="users-thread-div-header">
+          <span className="no-users-text-thread">
+            `"Add some users to your thread"`
+          </span>
+        </div>
+      );
+    } else if (this.state.membershipArray.length < 9) {
+      return (
+        <div className="users-thread-div-header">
+          <span className="users-text-thread">
+            `You can add ${9 - this.state.membershipArray.length} more people`
+          </span>
+        </div>
+      );
+    } else {
+      return (
+        <div className="users-thread-div-header">
+          <span className="users-text-thread">
+            "You've reached the maximum number of participants"
+          </span>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
       <div id="thread-form-container" className="thread-form-container">
@@ -81,7 +127,6 @@ class ThreadForm extends React.Component {
                     membershipArray={this.state.membershipArray}
                     removeUser={this.removeUser}
                   />
-
                   <input
                     className="search-users"
                     type="text"
@@ -101,17 +146,8 @@ class ThreadForm extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="users-index-list-container">
-              <div className="users-index-list">
-                <UsersIndex
-                  users={this.props.users}
-                  search={this.state.usersSearch}
-                  currentUser={this.props.currentUser}
-                  membershipArray={this.state.membershipArray}
-                  addUser={this.addUser}
-                />
-              </div>
-            </div>
+            {this.renderUsersListHeader()}
+            {this.renderUsersList()}
           </form>
         </div>
       </div>

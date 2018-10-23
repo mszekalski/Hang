@@ -17,6 +17,7 @@ u2 = User.create(username: "demo-user2", password: "password")
 u3 = User.create(username: "demo-user3", password: "password")
 
 c1 = Channel.create(topic: "general", creator_id: u1.id, private: false, purpose: "This channel is for team-wide communication and announcements. All team members are in this channel.")
+
 d1 = DirectThread.create(creator_id: u1.id)
 
 m1 = ChatMessage.create(content: "can someone help me out with a bug?", user_id: u1.id, chatable_id: c1.id, chatable_type: "Channel")
@@ -31,6 +32,6 @@ membership1 = Membership.create(user_id: u1.id, membershipable_id: c1.id, member
 membership2 = Membership.create(user_id: u2.id, membershipable_id: c1.id, membershipable_type: "Channel")
 membership3 = Membership.create(user_id: u3.id, membershipable_id: c1.id, membershipable_type: "Channel")
 
-membership14 = Membership.create(user_id: u2.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
-membership15 = Membership.create(user_id: u3.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
-membership16 = Membership.create(user_id: u1.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
+membership4 = Membership.create(user_id: u2.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
+membership5 = Membership.create(user_id: u3.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
+membership6 = Membership.create(user_id: u1.id, membershipable_id: d1.id, membershipable_type: "DirectThread")
