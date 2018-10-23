@@ -26,10 +26,6 @@ class ChatHeader extends React.Component {
     return (
       <div className="channel-header-div">
         <h1 className="channel-topic-header">{this.renderTopic()}</h1>
-        <div className="number-of-users-button">
-          <i className="far fa-user" />
-          {this.props.currentConversation.member_ids.length}
-        </div>
         <div className="info-button" onClick={this.renderInfoSidebar}>
           <i className="fas fa-info-circle info-logo-header" />
         </div>
@@ -39,3 +35,8 @@ class ChatHeader extends React.Component {
 }
 
 export default withRouter(ChatHeader);
+
+// <div className="number-of-users-button">
+//   <i className="far fa-user" />
+//   {this.props.currentConversation.member_ids.length}
+// </div>
