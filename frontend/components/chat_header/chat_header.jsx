@@ -9,6 +9,7 @@ class ChatHeader extends React.Component {
     this.renderInfoSidebar = this.renderInfoSidebar.bind(this);
     this.renderTopic = this.renderTopic.bind(this);
   }
+
   renderInfoSidebar() {
     this.props.onInfoClick();
   }
@@ -25,7 +26,10 @@ class ChatHeader extends React.Component {
     return (
       <div className="channel-header-div">
         <h1 className="channel-topic-header">{this.renderTopic()}</h1>
-
+        <div className="number-of-users-button">
+          <i className="far fa-user" />
+          {this.props.currentConversation.member_ids.length}
+        </div>
         <div className="info-button" onClick={this.renderInfoSidebar}>
           <i className="fas fa-info-circle info-logo-header" />
         </div>

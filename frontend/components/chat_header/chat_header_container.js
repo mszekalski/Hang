@@ -5,7 +5,7 @@ import ChatHeader from "./chat_header";
 
 const mapStateToProps = state => {
   return {
-    currentConversation: state.ui.currentConversation || {}
+    currentConversation: state.ui.currentConversation
   };
 };
 
