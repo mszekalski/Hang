@@ -85,7 +85,7 @@ class ThreadForm extends React.Component {
       return (
         <div className="users-thread-div-header">
           <span className="no-users-text-thread">
-            `"Add some users to your thread"`
+            Add some users to your conversation
           </span>
         </div>
       );
@@ -93,7 +93,7 @@ class ThreadForm extends React.Component {
       return (
         <div className="users-thread-div-header">
           <span className="users-text-thread">
-            `You can add ${9 - this.state.membershipArray.length} more people`
+            You can add {9 - this.state.membershipArray.length} more people
           </span>
         </div>
       );
@@ -101,7 +101,7 @@ class ThreadForm extends React.Component {
       return (
         <div className="users-thread-div-header">
           <span className="users-text-thread">
-            "You've reached the maximum number of participants"
+            You've reached the maximum number of participants
           </span>
         </div>
       );
