@@ -89,8 +89,7 @@ class ChannelForm extends React.Component {
       purpose: "",
       private: false
     });
-    document.getElementById("channel-name-id").value = "";
-    document.getElementById("channel-purpose-id").value = "";
+
     if (this.props.errors.length > 0) {
       this.props.clearErrors();
     }
