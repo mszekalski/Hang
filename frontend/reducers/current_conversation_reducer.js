@@ -10,7 +10,7 @@ const currentConversationReducer = (oldState = preloadedState, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      return merge({}, oldState, {
+      return Object.assign({}, oldState, {
         id: action.channel.id,
         type: "Channel",
         topic: action.channel.topic,
@@ -18,7 +18,7 @@ const currentConversationReducer = (oldState = preloadedState, action) => {
         purpose: action.channel.purpose
       });
     case RECEIVE_DIRECT_THREAD:
-      return merge({}, oldState, {
+      return Object.assign({}, oldState, {
         id: action.directThread.id,
         type: "DirectThread",
         member_ids: action.directThread.member_ids

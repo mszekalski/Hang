@@ -5,10 +5,7 @@ import InfoSidebar from "./info_sidebar";
 
 const mapStateToProps = state => {
   return {
-    currentConversation: state.ui.currentConversation || {
-      member_ids: []
-    },
-
+    currentConversation: state.ui.currentConversation,
     users: state.users,
     currentUser: state.session.currentUser
   };
