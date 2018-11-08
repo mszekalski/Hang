@@ -25,10 +25,12 @@ class ChatHeader extends React.Component {
   render() {
     return (
       <div className="channel-header-div">
-        <h1 className="channel-topic-header">{this.renderTopic()}</h1>
-        <div className="number-of-users-button">
-          <i className="far fa-user user-logo-header" />
-          {this.props.currentConversation.member_ids.length}
+        <div className="channel-info-content">
+          <h1 className="channel-topic-header">{this.renderTopic()}</h1>
+          <div className="number-of-users-button">
+            <i className="far fa-user user-logo-header" />
+            {this.props.currentConversation.member_ids.length}
+          </div>
         </div>
         <div className="info-button" onClick={this.renderInfoSidebar}>
           <i className="fas fa-info-circle info-logo-header" />

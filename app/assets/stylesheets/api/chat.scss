@@ -1,10 +1,15 @@
+.channel-info-content {
+  margin: 15px 15px 15px 25px;
+  line-height: 1.3;
+}
+
 .channel-topic-header {
   font-weight: bold;
-  margin: 15px;
-  font-size: 20px;
+  font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-bottom: 3px;
 }
 
 .channel-header-div {
@@ -114,8 +119,8 @@
 }
 
 .number-of-users-button {
-  font-size: 20px;
-  margin: 15px 40px 15px 15px;
+  font-size: 11px;
+
   align-items: center;
   display: flex;
   cursor: pointer;
