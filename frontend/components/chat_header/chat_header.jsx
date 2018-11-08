@@ -16,8 +16,17 @@ class ChatHeader extends React.Component {
   }
 
   renderMembersDropdown() {
-    this.props.onInfoClick();
-    this.props.onMembersChange();
+    if (
+      this.props.infoSidebar === true &&
+      this.props.membersDropdown === true
+    ) {
+      return;
+    } else if (this.props.infoSidebar === true) {
+      this.props.onMembersChange();
+    } else if (this.props.infoSidebar === false) {
+      this.props.onInfoClick();
+      this.props.onMembersChange();
+    }
   }
 
   renderTopic() {

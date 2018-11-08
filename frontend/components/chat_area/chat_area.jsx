@@ -135,6 +135,8 @@ class ChatArea extends React.Component {
           <ChatHeaderContainer
             onInfoClick={this.handleSidebarChange}
             onMembersChange={this.handleMembersChange}
+            infoSidebar={this.state.infoSidebar}
+            membersDropdown={this.state.membersDropdown}
           />
           <div className="chat-body">
             <div className="chat-container">
