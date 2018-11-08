@@ -27,7 +27,10 @@ class ChatHeader extends React.Component {
       <div className="channel-header-div">
         <div className="channel-info-content">
           <h1 className="channel-topic-header">{this.renderTopic()}</h1>
-          <div className="number-of-users-button">
+          <div
+            className="number-of-users-button"
+            onClick={this.renderInfoSidebar}
+          >
             <i className="far fa-user user-logo-header" />
             {this.props.currentConversation.member_ids.length}
           </div>
