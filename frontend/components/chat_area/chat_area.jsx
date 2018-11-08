@@ -11,8 +11,14 @@ import InfoSidebarContainer from "../info_sidebar/info_sidebar_container";
 class ChatArea extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { InfoSidebar: false };
+    this.state = {
+      infoSidebar: false,
+      membersDropdown: false,
+      infoDropdown: false
+    };
     this.handleSidebarChange = this.handleSidebarChange.bind(this);
+    this.handleMembersChange = this.handleMembersChange.bind(this);
+    this.handleInfoDropdownChange = this.handleInfoDropdownChange.bind(this);
   }
 
   componentDidMount() {
@@ -67,18 +73,54 @@ class ChatArea extends React.Component {
   }
 
   handleSidebarChange() {
-    if (this.state.InfoSidebar === false) {
-      this.setState({ InfoSidebar: true });
+    if (this.state.infoSidebar === false) {
+      this.setState({ infoSidebar: true });
     } else {
-      this.setState({ InfoSidebar: false });
+      this.setState({
+        infoSidebar: false,
+        membersDropdown: false,
+        infoDropdown: false
+      });
     }
   }
 
-  renderInfoSidebar() {
-    if (this.state.InfoSidebar === true) {
+  handleMembersChange() {
+    if (this.state.membersDropdown === false) {
+      this.setState({ membersDropdown: true });
+    } else {
+      this.setState({ membersDropdown: false });
+    }
+  }
+
+  handleInfoDropdownChange() {
+    if (this.state.infoDropdown === false) {
+      this.setState({ infoDropdown: true });
+    } else {
+      this.setState({ infoDropdown: false });
+    }
+  }
+
+  // dropdown(e) {
+  //   let currentTarget = e.currentTarget.className;
+  //
+  //   if (currentTarget === "channel-members-button") {
+  //     this.setState({ membersDropdown: !this.props.membersDropdown });
+  //   } else if (currentTarget === "channel-details-button") {
+  //     this.setState({ infoDropdown: !this.props.infoDropdown });
+  //   }
+  // }
+
+  renderinfoSidebar() {
+    if (this.state.infoSidebar === true) {
       return (
         <div className="info-sidebar">
-          <InfoSidebarContainer onInfoClick={this.handleSidebarChange} />
+          <InfoSidebarContainer
+            onInfoClick={this.handleSidebarChange}
+            onMembersChange={this.handleMembersChange}
+            onInfoDropdownChange={this.handleInfoDropdownChange}
+            membersDropdown={this.state.membersDropdown}
+            infoDropdown={this.state.infoDropdown}
+          />
         </div>
       );
     } else {
@@ -90,13 +132,16 @@ class ChatArea extends React.Component {
       <div className="staging-area">
         <SidebarContainer />
         <div className="chat-area">
-          <ChatHeaderContainer onInfoClick={this.handleSidebarChange} />
+          <ChatHeaderContainer
+            onInfoClick={this.handleSidebarChange}
+            onMembersChange={this.handleMembersChange}
+          />
           <div className="chat-body">
             <div className="chat-container">
               <ChatIndexContainer />
               <ChatFormContainer />
             </div>
-            {this.renderInfoSidebar()}
+            {this.renderinfoSidebar()}
           </div>
         </div>
       </div>

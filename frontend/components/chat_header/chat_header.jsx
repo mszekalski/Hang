@@ -6,12 +6,18 @@ import { connect } from "react-redux";
 class ChatHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.renderInfoSidebar = this.renderInfoSidebar.bind(this);
+    this.renderinfoSidebar = this.renderinfoSidebar.bind(this);
     this.renderTopic = this.renderTopic.bind(this);
+    this.renderMembersDropdown = this.renderMembersDropdown.bind(this);
   }
 
-  renderInfoSidebar() {
+  renderinfoSidebar() {
     this.props.onInfoClick();
+  }
+
+  renderMembersDropdown() {
+    this.props.onInfoClick();
+    this.props.onMembersChange();
   }
 
   renderTopic() {
@@ -29,13 +35,13 @@ class ChatHeader extends React.Component {
           <h1 className="channel-topic-header">{this.renderTopic()}</h1>
           <div
             className="number-of-users-button"
-            onClick={this.renderInfoSidebar}
+            onClick={this.renderMembersDropdown}
           >
             <i className="far fa-user user-logo-header" />
             {this.props.currentConversation.member_ids.length}
           </div>
         </div>
-        <div className="info-button" onClick={this.renderInfoSidebar}>
+        <div className="info-button" onClick={this.renderinfoSidebar}>
           <i className="fas fa-info-circle info-logo-header" />
         </div>
       </div>

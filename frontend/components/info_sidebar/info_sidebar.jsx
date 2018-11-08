@@ -2,35 +2,37 @@ import React from "react";
 import MembersIndex from "./members_index";
 import ChannelDetails from "./channel_details";
 
-class InfoSidebar extends React.Component {
+class infoSidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { infoDropdown: false, membersDropdown: false };
-    this.dropdown = this.dropdown.bind(this);
+
     this.renderMembersIndex = this.renderMembersIndex.bind(this);
     this.renderMembersIndexButton = this.renderMembersIndexButton.bind(this);
     this.renderChannelInfo = this.renderChannelInfo.bind(this);
-    this.renderInfoSidebar = this.renderInfoSidebar.bind(this);
+    this.renderinfoSidebar = this.renderinfoSidebar.bind(this);
+    this.renderMembersDropdown = this.renderMembersDropdown.bind(this);
+    this.renderInfoDropdown = this.renderInfoDropdown.bind(this);
   }
 
-  dropdown(e) {
-    let currentTarget = e.currentTarget.className;
-
-    if (currentTarget === "channel-members-button") {
-      this.setState({ membersDropdown: !this.state.membersDropdown });
-    } else if (currentTarget === "channel-details-button") {
-      this.setState({ infoDropdown: !this.state.infoDropdown });
-    }
-  }
-
-  renderInfoSidebar() {
+  renderinfoSidebar() {
     this.props.onInfoClick();
+  }
+
+  renderMembersDropdown() {
+    this.props.onMembersChange();
+  }
+
+  renderInfoDropdown() {
+    this.props.onInfoDropdownChange();
   }
 
   renderMembersIndexButton() {
     if (this.props.currentConversation.member_ids.length > 1) {
       return (
-        <div onClick={this.dropdown} className="channel-members-button">
+        <div
+          onClick={this.renderMembersDropdown}
+          className="channel-members-button"
+        >
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -42,7 +44,10 @@ class InfoSidebar extends React.Component {
       );
     } else {
       return (
-        <div onClick={this.dropdown} className="channel-members-button">
+        <div
+          onClick={this.renderMembersDropdown}
+          className="channel-members-button"
+        >
           <div className="channel-members-button-content">
             <i className="fas fa-user" />
             <div className="channel-members-button-text">
@@ -56,7 +61,7 @@ class InfoSidebar extends React.Component {
   }
 
   renderMembersIndex() {
-    if (this.state.membersDropdown === true) {
+    if (this.props.membersDropdown === true) {
       return (
         <div className="members-index-list-div">
           <MembersIndex
@@ -72,7 +77,7 @@ class InfoSidebar extends React.Component {
   }
 
   renderChannelInfo() {
-    if (this.state.infoDropdown === true) {
+    if (this.props.infoDropdown === true) {
       return (
         <div className="channel-details-dropdown-div">
           <ChannelDetails
@@ -98,7 +103,10 @@ class InfoSidebar extends React.Component {
     if (this.props.currentConversation.type === "Channel") {
       return (
         <div className="channel-details-dropdown">
-          <div onClick={this.dropdown} className="channel-details-button">
+          <div
+            onClick={this.renderInfoDropdown}
+            className="channel-details-button"
+          >
             <div className="channel-details-button-content">
               <i className="fas fa-info-circle details-info-circle" />
               <div className="channel-details-button-text">Channel Details</div>
@@ -118,8 +126,8 @@ class InfoSidebar extends React.Component {
       <div className="info-sidebar-container">
         <div className="info-header">
           <div className="info-header-title">{this.renderHeader()}</div>
-          <div className="cancel-button-info" onClick={this.hide}>
-            <div className="info-x" onClick={this.renderInfoSidebar}>
+          <div className="cancel-button-info">
+            <div className="info-x" onClick={this.renderinfoSidebar}>
               x
             </div>
           </div>
@@ -134,4 +142,4 @@ class InfoSidebar extends React.Component {
   }
 }
 
-export default InfoSidebar;
+export default infoSidebar;
