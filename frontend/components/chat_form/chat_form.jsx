@@ -57,16 +57,19 @@ class ChatForm extends React.Component {
   scrollToBottom() {
     const chatIndex = document.querySelector(".chat-index-overflow");
     chatIndex.scrollTop = chatIndex.scrollHeight;
-    // }
+
   }
 
   handleChatInputKeyPress(event) {
-    // if(event.key === 'Enter')
+
     event.preventDefault();
     this.handleSendEvent(event);
-    setTimeout(this.scrollToBottom, 200);
+    setTimeout(function () {
+      const chatIndex = document.querySelector(".chat-index-overflow");
+      chatIndex.scrollTop = chatIndex.scrollHeight;
+    }, 100);
 
-    // }
+
   }
 
   updateCurrentChatMessage(event) {
