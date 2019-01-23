@@ -9,7 +9,7 @@ https://aa-hang.herokuapp.com/#/
 
 ![](Main.gif)
 
-Hang is a fullstack project that is built useing Javascript, React, and Redux on the frontend and Ruby on Rails on the backend. It has a PostreSQL database to store the necessary data. My goal when building out this application was to try and emulate the features and styling of the collaboration application, Slack. 
+Hang is a fullstack project that is built using Javascript, React, and Redux on the frontend and Ruby on Rails on the backend. It has a PostgreSQL database to store the necessary data. The goal of this application is to emulate the features and styling of Slack, which is a productivity and messaging application. 
 
 
 ## Features
@@ -18,7 +18,7 @@ Hang is a fullstack project that is built useing Javascript, React, and Redux on
 
 ![](CreateMessage.gif)
 
-The core feature of Hang is live chat. It' implemented by useing a Rails technology called ActionCable which creates a websocket (and duplex connection) between each user and the server. It then broadcasts new messages as the server receives organizing them by the current channel or direct thread. The code below represents the key function in the frontend that creates the web socket, creates messages, and receives messages.
+The core feature of Hang is live chat. It is implemented by using ActionCable, which creates a websocket (and duplex connection) between each user and the server. ActionCable is a built in Rails technology. It broadcasts new messages when the server receives them, organizing them by the current channel or direct thread that they are associated with. The code below represents the key function in the frontend that creates the web socket, creates messages, and receives messages.
 
 ```
  createSocket() {
@@ -47,7 +47,9 @@ The core feature of Hang is live chat. It' implemented by useing a Rails technol
   
 #### Creating Channels and Threads
 
-Hang allows you to create and join channels as well as create direct threads. Channels are meant to emulate Slack's own channel feature, and serves as more of an open (or private if desired) chat room where users can exchange messages. Direct Threads representing simple threads between users. Users can pick and choose other users to include in these threads and only those users will be able to see those messages.
+Hang allows you to create and join channels as well as create direct threads. Channels are meant to emulate Slack's own channel feature, and serves as more of an open/private chat room where users can exchange messages. Direct Threads represent simple threads between users. 
+
+Users can pick and choose other users to include in these threads and only those users will be able to see those messages.
 
 ![](CreateChannel.gif)
 
@@ -56,7 +58,7 @@ Hang allows you to create and join channels as well as create direct threads. Ch
 
 #### Polymorphic Associations
 
-In my database I chose to use polymorphic associations in two different places that effectivly organizes my data in a thoughtful way. Simply put, polymorphic assoications allow for association a piece of data with two seperate other pieces of data. I used them in my messages model, as well as in my memberships model. I chose this because it allowed me to properly associate a users membership with either a direct thread or a channel, as well as do the same with messages.
+The database uses polymorphic associations in two different places that organizes my data in a thoughtful way, by allowing direct threads and channels to be in seperate tables. Polymorphic assoications allow for a piece of data to be associated with multiple other pieces of data. I used them in my messages model and in my memberships model. This design decision was made to properly associate a user's membership with either a direct thread or a channel, as well as do the same with messages.
 
 ```
 belongs_to :chatable, :polymorphic => true
@@ -66,11 +68,9 @@ belongs_to :chatable, :polymorphic => true
 belongs_to :membershipable, :polymorphic => true
 ```
 
-This allowed me to silo direct threads and channels into their own tables, creating a much more organized database.
-
 #### Modal Component
 
-The modal component in Hang represents a very good, pure React, design decision. It's essentially a component that simply renders other components on top of whatever is displayed. The reason I chose to use and create a Modal component instead of useing CSS to manipulate components (perhaps setting display: none?) is that doing it using CSS manipulates the virtual DOM. This falls outside best practices and allows me to easily render the Channel Form and Direct Thread Form components by passing them as props, triggering a re-render in React.
+The modal component in Hang represents the best practice in React/Redux design. It is a component that renders other components that it receives from the parent container. A modal component was used instead of CSS to manipulate components (such as setting display: none) because doing this manipulates the virtual DOM. React tackles this problem on its own because re-renders are triggered when components receive new props.
 
 ```
 export default function modalReducer(state = { component: null }, action) {
@@ -88,16 +88,13 @@ export default function modalReducer(state = { component: null }, action) {
 
 ## Thoughts and Future Development
 
-In the future there are several features that I'd like to continue to incorporate into Hang
+In the future there are several features that I would like to continue to incorporate into Hang.
 
 #### Design 
 
-I'd like to continue to work on the ui of Hang. Adding proper animations, adding deveral hover effects, as well as working towards a responsve design are all features I'd like to continue to work on. 
+I would like to continue to work on the ui of Hang. Adding proper animations, adding deveral hover effects, as well as working towards a responsve design are all features I'd like to continue to work on. 
 
 #### Features
 
-I'd also like to continue to flesh out several other missing features such as allowing users to add profile pictures, as well as createing another piece of data (workspaces) that would contain seperate channels and direct threads.
-
-
-  
+I would also like to continue to flesh out several other missing features such as allowing users to add profile pictures, as well as createing another piece of data (workspaces) that would contain seperate channels and direct threads.
 
