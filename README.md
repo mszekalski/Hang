@@ -1,77 +1,102 @@
 # README
 
-Hang is a productivity collaboration chat tool designed to allow individuals discuss work together.
+# Hang
 
-Users become members of channels, allowing only the specified individuals to interact together.
+
+## Deployed Product
 
 https://aa-hang.herokuapp.com/#/
 
-The core of Hang is built using Ruby on Rails with a React front end. The technology that powers the real time collaberation features of Hang is called "Action Cable" which allows for the creation of websockets so that messages can be sent and received instantaneously.
+## About
 
--Live Chat
-  As stated, live chat is run using Action Cable. Included starting with Rails 5.0 it allows for the creation of web sockets, which allow for live, two way, data exchange between users. This helps provide the core feature of slack which is live message exchange. Action Cable allowed me to create and broadcast messages to all users subscribed to the channel. Theo code below highlights exactly what happens when a user connects to Hang and when a message is received by Action Cable so that it is broadcasted to all the subscribed users.
-  
- ```
+![](Main.gif)
+
+Hang is a fullstack project that is built using Javascript, React, and Redux on the frontend and Ruby on Rails on the backend. It has a PostgreSQL database to store the necessary data. The goal of this application is to emulate the features and styling of Slack, which is a productivity and messaging application. 
+
+
+## Features
+
+#### Live Chat
+
+![](CreateMessage.gif)
+
+The core feature of Hang is live chat. It is implemented by using ActionCable, which creates a websocket (and duplex connection) between each user and the server. ActionCable is a built in Rails technology. It broadcasts new messages when the server receives them, organizing them by the current channel or direct thread that they are associated with. The code below represents the key function in the frontend that creates the web socket, creates messages, and receives messages.
+
+```
  createSocket() {
     let cable = Cable.createConsumer();
-    this.chats = cable.subscriptions.create({
-      channel: 'ChatChannel'
-    }, {
-      connected: () => {},
-      received: (data) => {
-        return this.props.receiveMessage(data);
+    this.chats = cable.subscriptions.create(
+      {
+        channel: "ChatChannel"
       },
-      create: function(chatContent) {
-        this.perform('create', {
-          content: chatContent.message,
-          user_id: chatContent.user_id,
-          channel_id: chatContent.channel_id,
-          username: chatContent.username
-        });
-
+      {
+        connected: () => {},
+        received: data => {
+          return this.props.receiveMessage(data);
+        },
+        create: function(chatContent) {
+          this.perform("create", {
+            content: chatContent.message,
+            user_id: chatContent.user_id,
+            chatable_id: chatContent.chatable_id,
+            chatable_type: chatContent.chatable_type
+          });
+        }
       }
-    });
+    );
   }
   ```
-  Action Cable also required the creation of 'channel' and 'job' back end files. This is where Action Cable handles things on the back end to push messages. 
   
-  ```
-   class ChatMessageCreationEventBroadcastJob < ApplicationJob
-  queue_as :default
+#### Creating Channels and Threads
 
-  def perform(chat_message)
-    ActionCable
-      .server
-      .broadcast('chat_channel',
-         id: chat_message.id,
-         created_at: chat_message.created_at.localtime.strftime('%l:%M %p'),
-         content: chat_message.content,
-         user_id: chat_message.user_id,
-         channel_id: chat_message.channel_id,
-         authorName: chat_message.user.username)
-    end
+Hang allows you to create and join channels as well as create direct threads. Channels are meant to emulate Slack's own channel feature, and serves as more of an open/private chat room where users can exchange messages. Direct Threads represent simple threads between users. 
+
+Users can pick and choose other users to include in these threads and only those users will be able to see those messages.
+
+![](CreateChannel.gif)
 
 
-end
+## Highlights
 
-   class ChatChannel < ApplicationCable::Channel
-  def subscribed
-    stream_from 'chat_channel'
-  end
+#### Polymorphic Associations
 
-  def unsubscribed
-  end
+The database uses polymorphic associations in two different places that organizes my data in a thoughtful way, by allowing direct threads and channels to be in seperate tables. Polymorphic assoications allow for a piece of data to be associated with multiple other pieces of data. I used them in my messages model and in my memberships model. This design decision was made to properly associate a user's membership with either a direct thread or a channel, as well as do the same with messages.
 
-  def create(opts)
-    ChatMessage.create(
-      content: opts.fetch('content'),
-      user_id: opts.fetch('user_id'),
-      channel_id: opts.fetch('channel_id'),
-      username: opts.fetch('username')
-    )
-  end
-end
-      
-   ```
-  
+```
+belongs_to :chatable, :polymorphic => true
+```
+
+```
+belongs_to :membershipable, :polymorphic => true
+```
+
+#### Modal Component
+
+The modal component in Hang represents the best practice in React/Redux design. It is a component that renders other components that it receives from the parent container. A modal component was used instead of CSS to manipulate components (such as setting display: none) because doing this manipulates the virtual DOM. React tackles this problem on its own because re-renders are triggered when components receive new props.
+
+```
+export default function modalReducer(state = { component: null }, action) {
+  switch (action.type) {
+    case OPEN_MODAL:
+      return { component: action.component };
+    case CLOSE_MODAL:
+      return { component: null };
+    default:
+      return state;
+  }
+}
+```
+
+
+## Thoughts and Future Development
+
+In the future there are several features that I would like to continue to incorporate into Hang.
+
+#### Design 
+
+I would like to continue to work on the ui of Hang. Adding proper animations, adding hover effects, as well as working towards a responsve design are all features I'd like to continue to work on. 
+
+#### Features
+
+I would also like to continue to flesh out several other missing features such as allowing users to add profile pictures, as well as creating another piece of data (workspaces) that would contain seperate channels and direct threads.
 
