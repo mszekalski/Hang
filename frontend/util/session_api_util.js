@@ -1,6 +1,4 @@
-
-
-export const signup = (user) => {
+export const signup = user => {
   return $.ajax({
     type: "POST",
     url: `api/users`,
@@ -8,7 +6,7 @@ export const signup = (user) => {
   });
 };
 
-export const login = (user) => {
+export const login = user => {
   return $.ajax({
     type: "POST",
     url: `api/session`,

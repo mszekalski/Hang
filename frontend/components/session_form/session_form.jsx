@@ -14,8 +14,6 @@ class SessionForm extends React.Component {
     this.demo = this.demo.bind(this);
   }
 
-
-
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -26,12 +24,12 @@ class SessionForm extends React.Component {
         );
       } else {
         this.props.history.push(
-          `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+          `/home/directThreads/${
+            response.user.memberships[0].membershipable_id
+          }`
         );
       }
     });
-
-
   }
 
   update(field) {
@@ -87,25 +85,37 @@ class SessionForm extends React.Component {
       typeSubmit: setTimeout(() => {
         if (this.props.formType === "login") {
           this.props.processForm(guest).then(response => {
-            if (response.user.memberships[0].membershipable_type === "Channel") {
+            if (
+              response.user.memberships[0].membershipable_type === "Channel"
+            ) {
               this.props.history.push(
-                `/home/channels/${response.user.memberships[0].membershipable_id}`
+                `/home/channels/${
+                  response.user.memberships[0].membershipable_id
+                }`
               );
             } else {
               this.props.history.push(
-                `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+                `/home/directThreads/${
+                  response.user.memberships[0].membershipable_id
+                }`
               );
             }
           }); // for demo
         } else {
           this.props.login(guest).then(response => {
-            if (response.user.memberships[0].membershipable_type === "Channel") {
+            if (
+              response.user.memberships[0].membershipable_type === "Channel"
+            ) {
               this.props.history.push(
-                `/home/channels/${response.user.memberships[0].membershipable_id}`
+                `/home/channels/${
+                  response.user.memberships[0].membershipable_id
+                }`
               );
             } else {
               this.props.history.push(
-                `/home/directThreads/${response.user.memberships[0].membershipable_id}`
+                `/home/directThreads/${
+                  response.user.memberships[0].membershipable_id
+                }`
               );
             }
           }); // for demo

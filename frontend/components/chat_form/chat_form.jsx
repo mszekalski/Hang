@@ -57,16 +57,12 @@ class ChatForm extends React.Component {
   scrollToBottom() {
     const chatIndex = document.querySelector(".chat-index-overflow");
     chatIndex.scrollTop = chatIndex.scrollHeight;
-
   }
 
   handleChatInputKeyPress(event) {
-
     event.preventDefault();
     this.handleSendEvent(event);
     setTimeout(this.scrollToBottom, 200);
-
-
   }
 
   updateCurrentChatMessage(event) {

@@ -50,7 +50,6 @@ export const fetchDirectThread = id => dispatch => {
 };
 
 export const createDirectThread = (directThread, members) => dispatch => {
-
   return directThreadApiUtil.createDirectThread(directThread, members).then(
     directThread => dispatch(receiveDirectThread(directThread)),
     err => {

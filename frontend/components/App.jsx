@@ -15,8 +15,14 @@ const App = () => (
     <Modal />
     <AuthRoute path="/" component={GreetingContainer} />
     <Switch>
-      <ProtectedRoute path="/home/channels/:channelId" component={ChatAreaContainer} />
-      <ProtectedRoute path="/home/directThreads/:directThreadId" component={ChatAreaContainer} />
+      <ProtectedRoute
+        path="/home/channels/:channelId"
+        component={ChatAreaContainer}
+      />
+      <ProtectedRoute
+        path="/home/directThreads/:directThreadId"
+        component={ChatAreaContainer}
+      />
 
       <ProtectedRoute path="/home" component={ChatAreaContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />

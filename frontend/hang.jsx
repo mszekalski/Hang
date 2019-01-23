@@ -14,9 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  // window.createChannel = channelActions.createChannel;
-  // window.fetchChannel = channelActions.fetchChannel;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
   ReactDOM.render(<Root store={store} />, root);
 });

@@ -1,6 +1,5 @@
-export const fetchAllMessages = () => (
+export const fetchAllMessages = () =>
   $.ajax({
-    method: 'GET',
-    url: 'api/chat_messages',
-  })
-);
+    method: "GET",
+    url: "api/chat_messages"
+  });

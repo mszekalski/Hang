@@ -1,6 +1,9 @@
-import { RECEIVE_ALL_MESSAGES, RECEIVE_MESSAGE } from '../actions/chat_message_actions';
+import {
+  RECEIVE_ALL_MESSAGES,
+  RECEIVE_MESSAGE
+} from "../actions/chat_message_actions";
 
-import merge from 'lodash/merge';
+import merge from "lodash/merge";
 
 const messagesReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -9,7 +12,7 @@ const messagesReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_MESSAGES:
       return merge({}, action.messages);
     case RECEIVE_MESSAGE:
-      return merge({}, oldState, {[action.message.id]: action.message});
+      return merge({}, oldState, { [action.message.id]: action.message });
     default:
       return oldState;
   }
