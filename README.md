@@ -94,9 +94,9 @@ In the future there are several features that I would like to continue to incorp
 
 #### Design 
 
-I would like to continue to work on the ui of Hang. Adding proper animations, adding deveral hover effects, as well as working towards a responsve design are all features I'd like to continue to work on. 
+I would like to continue to work on the ui of Hang. Adding proper animations, adding hover effects, as well as working towards a responsve design are all features I'd like to continue to work on. 
 
 #### Features
 
-I would also like to continue to flesh out several other missing features such as allowing users to add profile pictures, as well as createing another piece of data (workspaces) that would contain seperate channels and direct threads.
+I would also like to continue to flesh out several other missing features such as allowing users to add profile pictures, as well as creating another piece of data (workspaces) that would contain seperate channels and direct threads.
 
