@@ -7,12 +7,16 @@ https://aa-hang.herokuapp.com/#/
 
 ## About
 
+![](Main.gif)
+
 Hang is a fullstack project that is built useing Javascript, React, and Redux on the frontend and Ruby on Rails on the backend. It has a PostreSQL database to store the necessary data. My goal when building out this application was to try and emulate the features and styling of the collaboration application, Slack. 
 
 
 ## Features
 
 #### Live Chat
+
+![](CreateMessage.gif)
 
 The core feature of Hang is live chat. It' implemented by useing a Rails technology called ActionCable which creates a websocket (and duplex connection) between each user and the server. It then broadcasts new messages as the server receives organizing them by the current channel or direct thread. The code below represents the key function in the frontend that creates the web socket, creates messages, and receives messages.
 
@@ -44,6 +48,8 @@ The core feature of Hang is live chat. It' implemented by useing a Rails technol
 #### Creating Channels and Threads
 
 Hang allows you to create and join channels as well as create direct threads. Channels are meant to emulate Slack's own channel feature, and serves as more of an open (or private if desired) chat room where users can exchange messages. Direct Threads representing simple threads between users. Users can pick and choose other users to include in these threads and only those users will be able to see those messages.
+
+![](CreateChannel.gif)
 
 
 ## Highlights
